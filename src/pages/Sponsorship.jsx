@@ -50,9 +50,9 @@ const Sponsorship = () => {
             Sponsoring or exhibiting at IAMS 2026 positions your brand as a leader in the global aviation ecosystem. 
             Connect with key decision-makers and unlock new business opportunities.
           </p>
-          <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition shadow-lg">
+          {/* <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition shadow-lg">
             Download Sponsorship Kit
-          </button>
+          </button> */}
         </div>
       </section>
 

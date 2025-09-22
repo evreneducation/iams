@@ -10,10 +10,12 @@ import Sponsorship from './pages/Sponsorship';
 import Awards from './pages/Awards';
 import Registration from './pages/Registration';
 import Speakers from './pages/Speakers';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App min-h-screen flex flex-col">
         <Header />
         <main className="flex-grow">
