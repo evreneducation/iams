@@ -10,7 +10,7 @@ const Footer = () => {
 
   // Function to open location in Google Maps
   const openLocation = () => {
-    window.open('https://www.google.com/maps/place/Bharat+Mandapam/@28.6172416,77.2395733,17z/data=!3m1!4b1!4m6!3m5!1s0x390ceffcb5a2126b:0x6f4cd2c3c37b355f!8m2!3d28.6172369!4d77.2421482!16s%2Fg%2F11v0v4x5_1?entry=ttu', '_blank');
+    window.open('https://maps.app.goo.gl/s13UYetDZXS2VAfR7', '_blank');
   };
 
   return (
