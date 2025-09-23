@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
+
+:root {
+  /* Teal Color Palette */
+  --primary-teal: #004c4c;
+  --secondary-teal: #006666;
+  --accent-teal: #008080;
+  --highlight-teal: #21d6e0;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Arsenal', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,6 +19,13 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Arsenal', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.teal-theme {
+  --color-primary: var(--primary-teal);
+  --color-secondary: var(--secondary-teal);
+  --color-accent: var(--accent-teal);
+  --color-highlight: var(--highlight-teal);
 }
