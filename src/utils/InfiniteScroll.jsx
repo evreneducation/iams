@@ -6,17 +6,17 @@ import { InfiniteMovingCards } from "../components/MovingCard.jsx";
 const items = [
   {
     name: "Commercial Visionaries",
-    title: "Airline C-Suite",
+    title: "Airline & Airport C-Suite",
     quote: "C-level executives from leading airlines and airports driving business development, flight scheduling, alliances and unlocking growth frontiers. These strategic leaders shape the future of aviation commerce through innovative partnerships and market expansion.",
   },
   {
     name: "Revenue & E-Commerce Strategists",
-    title: "Pricing & Digital Marketing",
+    title: "RO, Pricing, Distribution & Holidays",
     quote: "Game-changers in revenue optimization, pricing, holidays, e-commerce, and digital marketing fuelling profitability. They leverage data analytics and digital transformation to maximize airline revenue streams and customer acquisition.",
   },
   {
     name: "Tech Pioneers",
-    title: "AI, ML, Data & Cyber Security",
+    title: "AI, ML, PSS, Data & Cyber Security",
     quote: "Minds behind disruptive innovations in AI, ML, PSS, NDC, data analysis and cyber security. These innovators are building the technological backbone that will power next-generation aviation operations and customer experiences.",
   },
   {
@@ -26,12 +26,12 @@ const items = [
   },
   {
     name: "IT & Infrastructure Chiefs",
-    title: "Modern Airline Ops",
+    title: "RO, Pricing, Distribution & Holidays",
     quote: "IT professionals implementing cutting-edge technologies to modernize airline operations. From cloud migration to IoT integration, they ensure operational excellence and digital resilience across aviation ecosystems.",
   },
   {
     name: "Market Catalysts",
-    title: "Ancillary Services & OTAs",
+    title: "Ancillaries, Fintech, OTAs, Hotels, Insurance & Transfers",
     quote: "Leaders in ancillary services, fintech, OTAs, hotels, and ground transport—driving new revenue streams and partnerships that are redefining the travel ecosystem. They create integrated solutions that enhance passenger value and airline profitability.",
   },
 ];
