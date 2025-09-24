@@ -3,9 +3,9 @@ import React from "react";
 
 const EventOverview = () => {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-indigo-50 min-h-screen">
-      {/* Full-width Gradient Hero Heading (unchanged as requested) */}
-      <section className="w-full bg-gradient-to-r from-blue-900 to-blue-700 text-white py-30 mt-10">
+    <div className="bg-gradient-to-b from-teal-50 to-teal-50 min-h-screen">
+      {/* Full-width Gradient Hero Heading */}
+      <section className="w-full bg-gradient-to-r from-teal-900 to-teal-700 text-white py-30 mt-10">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-4">Event Overview</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -19,11 +19,11 @@ const EventOverview = () => {
       <div className="container mx-auto px-4 py-12 max-w-7xl">
         {/* Event Highlights Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="flex items-center mb-4">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
+              <div className="bg-teal-100 p-3 rounded-full mr-4">
                 <svg
-                  className="w-6 h-6 text-blue-700"
+                  className="w-6 h-6 text-teal-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ const EventOverview = () => {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-blue-900">
+              <h2 className="text-xl font-semibold text-teal-900">
                 Dates & Location
               </h2>
             </div>
@@ -45,11 +45,11 @@ const EventOverview = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="flex items-center mb-4">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
+              <div className="bg-teal-100 p-3 rounded-full mr-4">
                 <svg
-                  className="w-6 h-6 text-blue-700"
+                  className="w-6 h-6 text-teal-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ const EventOverview = () => {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-blue-900">
+              <h2 className="text-xl font-semibold text-teal-900">
                 Strategic Focus
               </h2>
             </div>
@@ -72,11 +72,11 @@ const EventOverview = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-lg border border-blue-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+          <div className="bg-white rounded-2xl p-6 shadow-lg border border-teal-100 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="flex items-center mb-4">
-              <div className="bg-blue-100 p-3 rounded-full mr-4">
+              <div className="bg-teal-100 p-3 rounded-full mr-4">
                 <svg
-                  className="w-6 h-6 text-blue-700"
+                  className="w-6 h-6 text-teal-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -89,7 +89,7 @@ const EventOverview = () => {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-semibold text-blue-900">
+              <h2 className="text-xl font-semibold text-teal-900">
                 Global Platform
               </h2>
             </div>
@@ -105,7 +105,7 @@ const EventOverview = () => {
           <div className="md:flex">
             <div className="md:w-2/3 p-8 md:p-12">
               <div className="flex items-center mb-6">
-                <div className="bg-blue-600 p-3 rounded-full mr-4">
+                <div className="bg-teal-600 p-3 rounded-full mr-4">
                   <svg
                     className="w-6 h-6 text-white"
                     fill="none"
@@ -120,7 +120,7 @@ const EventOverview = () => {
                     />
                   </svg>
                 </div>
-                <h2 className="text-2xl font-semibold text-blue-900">
+                <h2 className="text-2xl font-semibold text-teal-900">
                   About IAMS 2026
                 </h2>
               </div>
@@ -134,10 +134,10 @@ const EventOverview = () => {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="text-center p-5 bg-blue-50 rounded-xl transition-all duration-300 hover:bg-blue-100">
-                  <div className="bg-blue-200 p-3 rounded-full inline-flex mb-3">
+                <div className="text-center p-5 bg-teal-50 rounded-xl transition-all duration-300 hover:bg-teal-100">
+                  <div className="bg-teal-200 p-3 rounded-full inline-flex mb-3">
                     <svg
-                      className="w-6 h-6 text-blue-700"
+                      className="w-6 h-6 text-teal-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -150,7 +150,7 @@ const EventOverview = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-blue-900">
+                  <h3 className="text-lg font-semibold mb-2 text-teal-900">
                     High-Value Networking
                   </h3>
                   <p className="text-sm text-gray-600">
@@ -159,10 +159,10 @@ const EventOverview = () => {
                   </p>
                 </div>
 
-                <div className="text-center p-5 bg-blue-50 rounded-xl transition-all duration-300 hover:bg-blue-100">
-                  <div className="bg-blue-200 p-3 rounded-full inline-flex mb-3">
+                <div className="text-center p-5 bg-teal-50 rounded-xl transition-all duration-300 hover:bg-teal-100">
+                  <div className="bg-teal-200 p-3 rounded-full inline-flex mb-3">
                     <svg
-                      className="w-6 h-6 text-blue-700"
+                      className="w-6 h-6 text-teal-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -175,7 +175,7 @@ const EventOverview = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-blue-900">
+                  <h3 className="text-lg font-semibold mb-2 text-teal-900">
                     Comprehensive Agenda
                   </h3>
                   <p className="text-sm text-gray-600">
@@ -184,10 +184,10 @@ const EventOverview = () => {
                   </p>
                 </div>
 
-                <div className="text-center p-5 bg-blue-50 rounded-xl transition-all duration-300 hover:bg-blue-100">
-                  <div className="bg-blue-200 p-3 rounded-full inline-flex mb-3">
+                <div className="text-center p-5 bg-teal-50 rounded-xl transition-all duration-300 hover:bg-teal-100">
+                  <div className="bg-teal-200 p-3 rounded-full inline-flex mb-3">
                     <svg
-                      className="w-6 h-6 text-blue-700"
+                      className="w-6 h-6 text-teal-700"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -200,7 +200,7 @@ const EventOverview = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-lg font-semibold mb-2 text-blue-900">
+                  <h3 className="text-lg font-semibold mb-2 text-teal-900">
                     Industry Partnerships
                   </h3>
                   <p className="text-sm text-gray-600">
@@ -210,13 +210,13 @@ const EventOverview = () => {
                 </div>
               </div>
             </div>
-            <div className="md:w-1/3 bg-gradient-to-b from-blue-600 to-blue-800 p-8 flex flex-col justify-center">
+            <div className="md:w-1/3 bg-gradient-to-b from-teal-600 to-teal-800 p-8 flex flex-col justify-center">
               <div className="text-white text-center">
                 <h3 className="text-xl font-bold mb-4">Why Attend?</h3>
                 <ul className="space-y-3 text-left">
                   <li className="flex items-start">
                     <svg
-                      className="w-5 h-5 text-blue-200 mr-2 mt-1 flex-shrink-0"
+                      className="w-5 h-5 text-teal-200 mr-2 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -232,7 +232,7 @@ const EventOverview = () => {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-5 h-5 text-blue-200 mr-2 mt-1 flex-shrink-0"
+                      className="w-5 h-5 text-teal-200 mr-2 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -248,7 +248,7 @@ const EventOverview = () => {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-5 h-5 text-blue-200 mr-2 mt-1 flex-shrink-0"
+                      className="w-5 h-5 text-teal-200 mr-2 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -264,7 +264,7 @@ const EventOverview = () => {
                   </li>
                   <li className="flex items-start">
                     <svg
-                      className="w-5 h-5 text-blue-200 mr-2 mt-1 flex-shrink-0"
+                      className="w-5 h-5 text-teal-200 mr-2 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -285,7 +285,7 @@ const EventOverview = () => {
         </div>
 
         {/* The IAMS Difference Section */}
-        <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-gradient-to-br from-teal-900 via-teal-800 to-teal-900 text-white rounded-2xl shadow-2xl overflow-hidden">
           <div className="p-10 md:p-16">
             <div className="text-center mb-12">
               <div className="bg-white/20 p-4 rounded-full inline-flex mb-6">
@@ -338,7 +338,7 @@ const EventOverview = () => {
                     <h3 className="text-xl font-semibold mb-2">
                       Strategic Location
                     </h3>
-                    <p className="text-blue-100 leading-relaxed">
+                    <p className="text-teal-100 leading-relaxed">
                       Hosted in New Delhi, a burgeoning aviation hub connecting
                       Asia, Middle East, and global markets.
                     </p>
@@ -367,7 +367,7 @@ const EventOverview = () => {
                     <h3 className="text-xl font-semibold mb-2">
                       High-Value Networking
                     </h3>
-                    <p className="text-blue-100 leading-relaxed">
+                    <p className="text-teal-100 leading-relaxed">
                       Curated B2B meetings connecting airlines, airports, and
                       technology partners for guaranteed ROI.
                     </p>
@@ -396,7 +396,7 @@ const EventOverview = () => {
                     <h3 className="text-xl font-semibold mb-2">
                       Industry Insights
                     </h3>
-                    <p className="text-blue-100 leading-relaxed">
+                    <p className="text-teal-100 leading-relaxed">
                       Access to cutting-edge research, trends, and data-driven
                       strategies from aviation experts.
                     </p>
@@ -431,7 +431,7 @@ const EventOverview = () => {
                     <h3 className="text-xl font-semibold mb-2">
                       Customized Experience
                     </h3>
-                    <p className="text-blue-100 leading-relaxed">
+                    <p className="text-teal-100 leading-relaxed">
                       Tailored agenda and meetings based on your specific
                       interests and business objectives.
                     </p>
