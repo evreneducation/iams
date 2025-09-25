@@ -12,6 +12,9 @@ const Home = () => {
     seconds: 0,
   });
 
+  const additionalInfoRef = useRef(null);
+  const [isAdditionalInfoVisible, setIsAdditionalInfoVisible] = useState(false);
+
   useEffect(() => {
     const calculateTimeLeft = () => {
       const summitDate = new Date("April 9, 2026 09:00:00").getTime();
@@ -34,6 +37,29 @@ const Home = () => {
     const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsAdditionalInfoVisible(true);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (additionalInfoRef.current) {
+      observer.observe(additionalInfoRef.current);
+    }
+
+    return () => {
+      if (additionalInfoRef.current) {
+        observer.unobserve(additionalInfoRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -530,10 +556,24 @@ const Home = () => {
       </section>
 
       {/* Additional Info Section */}
-      <section className="py-16 bg-gradient-to-br from-[#f0f9ff] to-white">
-        <div className="container mx-auto px-4">
+      {/* Additional Info Section */}
+      <section
+        ref={additionalInfoRef}
+        className="py-16 bg-gradient-to-br from-[#f0f9ff] to-white"
+      >
+        <div
+          className={`container mx-auto px-4 transition-all duration-1000 ease-out ${
+            isAdditionalInfoVisible
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+          }`}
+        >
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12 text-[#003366]">
+            <h2
+              className="text-3xl font-bold mb-12 text-[#003366] transition-all duration-700 delay-200 ${
+        isAdditionalInfoVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+      }"
+            >
               Why Aviation Leaders Choose IAMS
             </h2>
 
@@ -596,7 +636,19 @@ const Home = () => {
                   ),
                 },
               ].map((item, i) => (
-                <div key={i} className="flex items-start">
+                <div
+                  key={i}
+                  className="flex items-start transition-all duration-700 ease-out"
+                  style={{
+                    transitionDelay: isAdditionalInfoVisible
+                      ? `${300 + i * 100}ms`
+                      : "0ms",
+                    transform: isAdditionalInfoVisible
+                      ? "translateX(0) translateY(0)"
+                      : "translateX(-20px) translateY(10px)",
+                    opacity: isAdditionalInfoVisible ? 1 : 0,
+                  }}
+                >
                   <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-3 rounded-full mr-4 flex-shrink-0 border border-[#0080ff]/20">
                     <svg
                       className="w-6 h-6 text-[#0080ff]"
@@ -608,7 +660,9 @@ const Home = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2 text-[#003366]">{item.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-[#003366]">
+                      {item.title}
+                    </h3>
                     <p className="text-gray-600">{item.desc}</p>
                   </div>
                 </div>
@@ -691,7 +745,9 @@ const AnimatedNumbersSection = () => {
                   "0"
                 )}
               </div>
-              <div className="text-xl font-semibold mb-2 text-[#003366]">{item.label}</div>
+              <div className="text-xl font-semibold mb-2 text-[#003366]">
+                {item.label}
+              </div>
               <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
