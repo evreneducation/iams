@@ -1,19 +1,73 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Demo from "../utils/InfiniteScroll";
+import ArchitectsSection from "../utils/InfiniteScroll";
 import SpeakerCard from "../components/SpeakerCard";
 import speakers from "../speaker/data.js";
 
 const Home = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const summitDate = new Date("April 9, 2026 09:00:00").getTime();
+      const now = new Date().getTime();
+      const difference = summitDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor(
+            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          ),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30">
       {/* Hero Section with Background Image */}
       <section
-        className="relative text-white py-32 overflow-hidden bg-cover bg-center bg-no-repeat min-h-screen flex items-center"
-        style={{ backgroundImage: "url('/landingpage/image.jpeg')" }}
+        className="relative text-white py-12 md:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat min-h-[90vh] flex items-center"
+        id="hero-section"
       >
-        {/* Overlay with blue-teal gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#003366]/90 via-[#004c4c]/80 to-[#006666]/90"></div>
+        {/* Background Images with Animation */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* First Image - With fade animation */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fadeInOut"
+              style={{ backgroundImage: "url('/landingpage/image.jpeg')" }}
+            ></div>
+            {/* Gradient overlay for first image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-cyan-300/15 to-teal-600/20 animate-fadeInOut"></div>
+          </div>
+
+          {/* Second Image - With fade animation */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-fadeInOutDelayed"
+              style={{ backgroundImage: "url('/landingpage/image1.jpeg')" }}
+            ></div>
+            {/* Gradient overlay for second image */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 via-cyan-300/15 to-teal-600/20 animate-fadeInOutDelayed"></div>
+          </div>
+        </div>
+
+        {/* Main Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/40 via-[#0080ff]/30 to-[#006666]/50"></div>
 
         {/* Decorative Elements with blue accents */}
         <div className="absolute inset-0 overflow-hidden">
@@ -27,28 +81,34 @@ const Home = () => {
         {/* Hero Content */}
         <div className="container mx-auto px-4 text-center relative z-10">
           <div className="max-w-6xl mx-auto">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight mt-16">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight mt-4 md:mt-8">
               International Aviation
               <br />
               Marketing Summit
             </h1>
 
-            <p className="text-2xl md:text-3xl lg:text-4xl mb-16 max-w-5xl mx-auto leading-relaxed font-light">
-              The Complete Next-Gen Aviation
-              <br />
-              Commercial Ecosystem
-            </p>
+            {/* Text that changes with image animation */}
+            <div className="relative h-20 md:h-24 mb-6 md:mb-8 max-w-5xl mx-auto">
+              <p className="text-base sm:text-lg md:text-xl lg:text-3xl leading-relaxed font-light absolute inset-0 animate-textFadeInOut">
+                The Complete Next-Gen Aviation
+                <br />
+                Commercial Ecosystem
+              </p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-3xl leading-relaxed font-light absolute inset-0 animate-textFadeInOutDelayed">
+                Exclusive | Inspiring | Transformative
+              </p>
+            </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mt-4 md:mt-6 mb-8 md:mb-6 lg:mb-0">
               <Link
                 to="/registration"
-                className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-10 py-5 rounded-lg font-semibold text-xl hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl border border-[#21d6e0]/30"
+                className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-4 py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-lg font-semibold text-sm md:text-base lg:text-base hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl border border-[#21d6e0]/30"
               >
                 Register Now
               </Link>
               <Link
                 to="/agenda"
-                className="bg-transparent border-2 border-white/50 text-white px-10 py-5 rounded-lg font-semibold text-xl hover:bg-white/10 hover:border-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm"
+                className="bg-transparent border-2 border-white/50 text-white px-4 py-2 md:px-5 md:py-2.5 lg:px-6 lg:py-3 rounded-lg font-semibold text-sm md:text-base lg:text-base hover:bg-white/10 hover:border-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm"
               >
                 View Agenda
               </Link>
@@ -56,98 +116,140 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Date and Location */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] sm:w-auto lg:bottom-8 lg:left-8 lg:translate-x-0 z-10">
-          <div className="bg-black/20 backdrop-blur-md rounded-2xl p-4 lg:p-6 border border-[#21d6e0]/30 max-w-xs lg:max-w-none mx-auto lg:mx-0">
-            <div className="flex items-center mb-2 lg:mb-3">
-              <svg
-                className="w-5 h-5 lg:w-6 lg:h-6 text-[#21d6e0] mr-2 lg:mr-3 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="text-base lg:text-xl font-semibold text-white">
-                April 9-10, 2026
-              </span>
-            </div>
-            <div className="flex items-center">
-              <svg
-                className="w-5 h-5 lg:w-6 lg:h-6 text-[#21d6e0] mr-2 lg:mr-3 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <span className="text-sm lg:text-lg text-white">
-                Yashobhoomi, Delhi, India
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating particles */}
-        {/* <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-[#21d6e0] rounded-full animate-float opacity-40"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
-              }}
-            />
-          ))}
-        </div> */}
-      </section>
-
-      {/* New Section: Where Strategy Meets Opportunity */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Image Placeholder */}
-              <div className="order-1 lg:order-2 relative">
-                <div className="rounded-2xl p-8 aspect-video flex items-center justify-center">
-                  <div className="text-center">
-                    <img
-                      src="/landingpage/1.jpeg"
-                      alt="Strategy & Opportunity Visual"
-                      className="mx-auto mb-4"
-                    />
-                    <p className="text-xl font-semibold text-[var(--primary-teal)]">
-                      Strategy & Opportunity Visual
-                    </p>
-                    <p className="text-[var(--secondary-teal)]/90 mt-2">
-                      Image placeholder representing aviation innovation
-                    </p>
+        {/* Bottom Section - Date/Location and Countdown Timer */}
+        <div className="absolute bottom-4 left-0 right-0 z-10">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              {/* Date and Location */}
+              <div className="w-full md:w-auto">
+                <div className="bg-black/20 backdrop-blur-md rounded-2xl p-3 lg:p-4 border border-[#21d6e0]/30 max-w-xs md:max-w-sm mx-auto md:mx-0">
+                  <div className="flex items-center mb-1 lg:mb-2">
+                    <svg
+                      className="w-4 h-4 lg:w-5 lg:h-5 text-[#21d6e0] mr-2 lg:mr-2 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="text-sm lg:text-lg font-semibold text-white">
+                      April 9-10, 2026
+                    </span>
+                  </div>
+                  <div className="flex items-center">
+                    <svg
+                      className="w-4 h-4 lg:w-5 lg:h-5 text-[#21d6e0] mr-2 lg:mr-2 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <span className="text-xs lg:text-base text-white">
+                      Yashobhoomi, Delhi, India
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Text Content */}
-              <div className="order-2 lg:order-1">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--primary-teal)]">
+              {/* Countdown Timer */}
+              <div className="w-full md:w-auto">
+                <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-2 lg:p-3 border border-[#21d6e0]/40 shadow-2xl max-w-xs md:max-w-none mx-auto md:mx-0">
+                  <h3 className="text-xs lg:text-base font-bold text-[#21d6e0] mb-1 lg:mb-2 text-center">
+                    Countdown to Summit
+                  </h3>
+                  <div className="grid grid-cols-4 gap-1 lg:gap-2">
+                    {/* Days */}
+                    <div className="text-center animate-pulse-slow">
+                      <div className="bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white text-xs md:text-sm lg:text-base font-bold rounded-lg py-1 lg:py-1.5 px-1 lg:px-1.5 shadow-lg">
+                        {timeLeft.days.toString().padStart(2, "0")}
+                      </div>
+                      <span className="text-xs lg:text-sm text-white/80 mt-0.5">
+                        Days
+                      </span>
+                    </div>
+                    {/* Hours */}
+                    <div className="text-center animate-bounce-slow">
+                      <div className="bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white text-xs md:text-sm lg:text-base font-bold rounded-lg py-1 lg:py-1.5 px-1 lg:px-1.5 shadow-lg">
+                        {timeLeft.hours.toString().padStart(2, "0")}
+                      </div>
+                      <span className="text-xs lg:text-sm text-white/80 mt-0.5">
+                        Hours
+                      </span>
+                    </div>
+                    {/* Minutes */}
+                    <div className="text-center animate-pulse-slow">
+                      <div className="bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white text-xs md:text-sm lg:text-base font-bold rounded-lg py-1 lg:py-1.5 px-1 lg:px-1.5 shadow-lg">
+                        {timeLeft.minutes.toString().padStart(2, "0")}
+                      </div>
+                      <span className="text-xs lg:text-sm text-white/80 mt-0.5">
+                        Minutes
+                      </span>
+                    </div>
+                    {/* Seconds */}
+                    <div className="text-center animate-bounce-slow">
+                      <div className="bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white text-xs md:text-sm lg:text-base font-bold rounded-lg py-1 lg:py-1.5 px-1 lg:px-1.5 shadow-lg">
+                        {timeLeft.seconds.toString().padStart(2, "0")}
+                      </div>
+                      <span className="text-xs lg:text-sm text-white/80 mt-0.5">
+                        Seconds
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Rest of your sections remain unchanged */}
+      {/* New Section: Where Strategy Meets Opportunity */}
+      <section className="py-12 md:py-20 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff] mt-8">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Heading only for mobile */}
+              <div className="order-1 lg:hidden">
+                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
+                  Where Strategy Meets Opportunity
+                </h2>
+              </div>
+
+              {/* Image Placeholder */}
+              <div className="order-2 lg:order-2 relative">
+                <div className="rounded-2xl overflow-hidden aspect-[16/9]">
+                  <img
+                    src="/landingpage/1.jpeg"
+                    alt="Strategy & Opportunity Visual"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-lg font-semibold text-[#0080ff] mt-4 text-center">
+                  Strategy & Opportunity Visual
+                </p>
+              </div>
+
+              {/* Text Content - Contains heading (desktop) and paragraphs */}
+              <div className="order-3 lg:order-1">
+                {/* Heading for desktop only */}
+                <h2 className="hidden lg:block text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                   Where Strategy Meets Opportunity
                 </h2>
                 <div className="space-y-6">
@@ -173,11 +275,11 @@ const Home = () => {
       </section>
 
       {/* Three Icon-based Columns Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9f9] to-[#e6f2f2]">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--primary-teal)]">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                 Unlock Your Aviation Potential
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -189,10 +291,10 @@ const Home = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {/* Column 1: Forge Alliances */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#008080]/10 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-[#e6f2f2] p-4 rounded-full inline-flex mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
                   <svg
-                    className="w-8 h-8 text-[var(--secondary-teal)]"
+                    className="w-8 h-8 text-[#0080ff]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -205,7 +307,7 @@ const Home = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-[var(--primary-teal)]">
+                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
                   Forge Alliances
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -215,10 +317,10 @@ const Home = () => {
               </div>
 
               {/* Column 2: Gain Intelligence */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[var(--accent-teal)]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-[var(--accent-teal)]/10 p-4 rounded-full inline-flex mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#21d6e0]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
                   <svg
-                    className="w-8 h-8 text-[var(--secondary-teal)]"
+                    className="w-8 h-8 text-[#0080ff]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -231,7 +333,7 @@ const Home = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-[var(--primary-teal)]">
+                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
                   Gain Intelligence
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -241,10 +343,10 @@ const Home = () => {
               </div>
 
               {/* Column 3: Drive Growth */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[var(--accent-teal)]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-[var(--accent-teal)]/10 p-4 rounded-full inline-flex mb-6">
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
                   <svg
-                    className="w-8 h-8 text-[var(--secondary-teal)]"
+                    className="w-8 h-8 text-[#0080ff]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -257,7 +359,7 @@ const Home = () => {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-[var(--primary-teal)]">
+                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
                   Drive Growth
                 </h3>
                 <p className="text-gray-700 leading-relaxed">
@@ -271,7 +373,7 @@ const Home = () => {
             <div className="text-center">
               <Link
                 to="/agenda"
-                className="inline-block bg-[var(--primary-teal)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--secondary-teal)] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                className="inline-block bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
               >
                 Explore the Agenda
               </Link>
@@ -284,14 +386,14 @@ const Home = () => {
       <AnimatedNumbersSection />
 
       {/* Who You'll Meet Section */}
-      <Demo />
+      <ArchitectsSection />
 
       {/* Featured Speakers Sneak Peek Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50/50 to-[#f0f9f9]">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--primary-teal)]">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                 Learn from the Leaders
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -311,7 +413,7 @@ const Home = () => {
             <div className="text-center">
               <Link
                 to="/speakers"
-                className="inline-block bg-transparent border-2 border-[var(--primary-teal)] text-[var(--primary-teal)] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[var(--primary-teal)] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                className="inline-block bg-transparent border-2 border-[#0080ff] text-[#0080ff] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#0080ff] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               >
                 View All Speakers
               </Link>
@@ -325,12 +427,12 @@ const Home = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-white to-gray-50">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-white to-[#f0f9ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center p-4 bg-[#e6f2f2] rounded-full mb-6 border border-[#008080]/10">
+            <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-full mb-6 border border-[#0080ff]/20">
               <svg
-                className="w-8 h-8 text-[var(--secondary-teal)]"
+                className="w-8 h-8 text-[#0080ff]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -343,7 +445,7 @@ const Home = () => {
                 />
               </svg>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[var(--primary-teal)]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#003366]">
               Propelled by Strategy, Fueled by Intelligence
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
@@ -351,8 +453,8 @@ const Home = () => {
               platform dedicated to aviation marketing, e-commerce, loyalty, and
               technology—a niche underserved by existing industry conferences.
             </p>
-            <div className="bg-[#f0f9f9] p-6 rounded-2xl border border-[#008080]/10">
-              <p className="text-lg text-[var(--secondary-teal)] font-medium italic">
+            <div className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20">
+              <p className="text-lg text-[#003366] font-medium italic">
                 "Our mission is to unite the complete ecosystem driving growth,
                 innovation, and sustained profitability across airline
                 commercial divisions and beyond."
@@ -363,7 +465,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-[#006666] to-[#008080] text-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-[#001933] to-[#004080] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Join the Future of Aviation
@@ -396,7 +498,7 @@ const Home = () => {
             ].map((card, i) => (
               <div
                 key={i}
-                className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 <div className="bg-white/20 p-4 rounded-full inline-flex mb-5">
                   <svg
@@ -417,7 +519,7 @@ const Home = () => {
                 <p className="mb-6 opacity-90">{card.desc}</p>
                 <Link
                   to={card.link}
-                  className="inline-block bg-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[var(--primary-teal)] transition border border-white/20"
+                  className="inline-block bg-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#003366] transition border border-white/20"
                 >
                   {card.linkText}
                 </Link>
@@ -428,10 +530,10 @@ const Home = () => {
       </section>
 
       {/* Additional Info Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-[#f0f9ff] to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-12 text-[var(--primary-teal)]">
+            <h2 className="text-3xl font-bold mb-12 text-[#003366]">
               Why Aviation Leaders Choose IAMS
             </h2>
 
@@ -495,9 +597,9 @@ const Home = () => {
                 },
               ].map((item, i) => (
                 <div key={i} className="flex items-start">
-                  <div className="bg-[#e6f2f2] p-3 rounded-full mr-4 flex-shrink-0 border border-[#008080]/10">
+                  <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-3 rounded-full mr-4 flex-shrink-0 border border-[#0080ff]/20">
                     <svg
-                      className="w-6 h-6 text-[var(--secondary-teal)]"
+                      className="w-6 h-6 text-[#0080ff]"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -506,7 +608,7 @@ const Home = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-[#003366]">{item.title}</h3>
                     <p className="text-gray-600">{item.desc}</p>
                   </div>
                 </div>
@@ -566,10 +668,10 @@ const AnimatedNumbersSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbfb] to-[#e6f2f2]"
+      className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbff] to-[#e6f2ff]"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[var(--primary-teal)]">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#003366]">
           At a Glance: Key Numbers
         </h2>
         <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
@@ -580,16 +682,16 @@ const AnimatedNumbersSection = () => {
           {numbers.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-2xl shadow-lg border border-[#008080]/10 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="bg-white p-6 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <div className="text-5xl font-bold text-[var(--primary-teal)] mb-3">
+              <div className="text-5xl font-bold bg-gradient-to-br from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent mb-3">
                 {animated ? (
                   <Counter target={item.target} duration={2000} />
                 ) : (
                   "0"
                 )}
               </div>
-              <div className="text-xl font-semibold mb-2">{item.label}</div>
+              <div className="text-xl font-semibold mb-2 text-[#003366]">{item.label}</div>
               <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}

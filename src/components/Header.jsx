@@ -40,10 +40,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 font-arsenal ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100"
-          : "bg-gradient-to-r from-[#003366] via-[#004c4c] to-[#006666] py-5"
+          : "bg-gradient-to-r from-[#003366] via-[#0055aa] to-[#0080ff] py-5"
       }`}
       style={{ transform: "translateY(0)" }}
     >
@@ -67,7 +67,7 @@ const Header = () => {
                   className={`absolute inset-0 rounded-full flex items-center justify-center 
                     transition-all duration-300 ${
                       isScrolled
-                        ? "bg-gradient-to-br from-[#003366] to-[#004c4c] border border-[#21d6e0]/30"
+                        ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
                         : "bg-white/10 border border-white/30"
                     } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
                 >
@@ -87,20 +87,16 @@ const Header = () => {
             </div>
 
             {/* Logo Text */}
-            <div className="flex flex-col">
+            <div className="flex flex-col ml-8">
               <span
                 className={`font-bold transition-all duration-300 ${
-                  isScrolled 
-                    ? "text-[#003366] text-xl" 
-                    : "text-white text-2xl"
+                  isScrolled ? "text-[#003366] text-xl" : "text-white text-2xl"
                 } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent`}
               >
                 IAMS 2026
               </span>
               <span
-                className={`text-xs transition-all duration-300 ${
-                  isScrolled ? "text-[#008080]" : "text-[#21d6e0]"
-                } opacity-0 group-hover:opacity-100 mt-1`}
+                className={`text-xs transition-all duration-300 text-white group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent mt-1`}
               >
                 International Assembly
               </span>
@@ -159,7 +155,7 @@ const Header = () => {
               <div
                 className={`absolute inset-0 transition-all duration-500 ${
                   isScrolled
-                    ? "bg-gradient-to-r from-[#21d6e0] via-[#0080ff] to-[#003366]"
+                    ? "bg-gradient-to-r from-[#003366] via-[#0080ff] to-[#21d6e0]"
                     : "bg-gradient-to-r from-white to-[#21d6e0]"
                 } group-hover:from-[#0080ff] group-hover:via-[#21d6e0] group-hover:to-[#003366]`}
               ></div>
@@ -212,15 +208,21 @@ const Header = () => {
             <div className="relative w-6 h-6">
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${isMenuOpen ? "top-1/2 transform -rotate-45" : "top-1/4"} group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${
+                    isMenuOpen ? "top-1/2 transform -rotate-45" : "top-1/4"
+                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
               ></span>
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${isMenuOpen ? "opacity-0" : "top-1/2"} group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${
+                    isMenuOpen ? "opacity-0" : "top-1/2"
+                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
               ></span>
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${isMenuOpen ? "top-1/2 transform rotate-45" : "top-3/4"} group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${
+                    isMenuOpen ? "top-1/2 transform rotate-45" : "top-3/4"
+                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
               ></span>
             </div>
           </button>
@@ -259,7 +261,7 @@ const Header = () => {
               className={`block py-3 px-4 rounded-lg font-semibold text-center mt-4 transition-all duration-300
                 transform hover:scale-105 relative overflow-hidden group ${
                   isScrolled
-                    ? "bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white"
+                    ? "bg-gradient-to-r from-[#003366] to-[#0080ff] text-white"
                     : "bg-white text-[#003366]"
                 }`}
               onClick={() => setIsMenuOpen(false)}

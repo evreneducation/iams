@@ -22,7 +22,7 @@ const SpeakerCard = ({ speaker }) => {
         className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-all duration-300"
         onClick={() => setIsOpen(true)}
       >
-        <div className="h-64 bg-gradient-to-br from-[var(--accent-teal)] to-[var(--highlight-teal)] relative">
+        <div className="h-64 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] relative">
           <img
             src={speaker.image || "/speakers/dummy-speaker.jpg"}
             alt={speaker.name}
@@ -31,10 +31,10 @@ const SpeakerCard = ({ speaker }) => {
           <div className="absolute inset-0 bg-black/10"></div>
         </div>
         <div className="p-6">
-          <h3 className="text-2xl font-bold mb-2 text-[var(--primary-teal)]">
+          <h3 className="text-2xl font-bold mb-2 text-[#003366]">
             {speaker.name}
           </h3>
-          <p className="text-lg text-[var(--secondary-teal)] font-semibold mb-4">
+          <p className="text-lg text-[#0080ff] font-semibold mb-4">
             {speaker.designation}
           </p>
           <p className="text-gray-600 line-clamp-3">{speaker.about}</p>
@@ -56,7 +56,7 @@ const SpeakerCard = ({ speaker }) => {
               transition: "transform 0.1s ease-out",
             }}
             onMouseMove={handleMouseMove}
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside card
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
@@ -80,7 +80,7 @@ const SpeakerCard = ({ speaker }) => {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Speaker Image */}
-              <div className="h-96 bg-gradient-to-br from-[var(--accent-teal)] to-[var(--highlight-teal)]">
+              <div className="h-96 bg-gradient-to-br from-[#21d6e0] to-[#0080ff]">
                 <img
                   src={speaker.image || "/speakers/dummy-speaker.jpg"}
                   alt={speaker.name}
@@ -91,10 +91,10 @@ const SpeakerCard = ({ speaker }) => {
 
               {/* Speaker Content */}
               <div className="p-6 flex flex-col justify-center">
-                <h3 className="text-3xl font-bold mb-2 text-[var(--primary-teal)]">
+                <h3 className="text-3xl font-bold mb-2 text-[#003366]">
                   {speaker.name}
                 </h3>
-                <p className="text-xl text-[var(--secondary-teal)] font-semibold mb-4">
+                <p className="text-xl text-[#0080ff] font-semibold mb-4">
                   {speaker.designation}
                 </p>
                 <p className="text-gray-700 leading-relaxed">{speaker.about}</p>

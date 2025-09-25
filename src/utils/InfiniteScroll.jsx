@@ -1,4 +1,3 @@
-// components/ArchitectsSection.jsx
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { InfiniteMovingCards } from "../components/MovingCard.jsx";
@@ -40,11 +39,11 @@ export default function ArchitectsSection() {
   const [selectedCard, setSelectedCard] = useState(null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbfb] to-[#e6f2f2]">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f8ff] to-[#e6f7ff]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--primary-teal)]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
               An Assembly of Aviation's Architects
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
@@ -57,14 +56,14 @@ export default function ArchitectsSection() {
             <InfiniteMovingCards items={items} speed={40} />
             
             {/* Gradient overlays for better UX */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#f7fbfb] to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#f7fbfb] to-transparent z-10"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#f0f8ff] to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#f0f8ff] to-transparent z-10"></div>
           </div>
 
           <div className="text-center mt-16">
             <Link
               to="/sponsorship"
-              className="inline-block bg-gradient-to-r from-[var(--primary-teal)] to-[var(--secondary-teal)] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[var(--secondary-teal)] hover:to-[var(--accent-teal)] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              className="inline-block bg-gradient-to-r from-[#003366] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
             >
               Become a Sponsor
             </Link>
