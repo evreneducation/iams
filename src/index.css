@@ -30,19 +30,25 @@ code {
   --color-highlight: var(--highlight-teal);
 }
 
+/* Home Page Animation */
+
 @keyframes fadeInOut {
   0% {
     opacity: 1;
   }
+
   40% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   90% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -52,15 +58,19 @@ code {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -70,15 +80,19 @@ code {
   0% {
     opacity: 1;
   }
+
   40% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   90% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -88,15 +102,19 @@ code {
   0% {
     opacity: 0;
   }
+
   40% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -119,13 +137,27 @@ code {
 }
 
 @keyframes pulse-slow {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 .animate-pulse-slow {
@@ -134,4 +166,218 @@ code {
 
 .animate-bounce-slow {
   animation: bounce-slow 2s infinite;
+}
+
+
+/* About Page Animations */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes takeoff {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-20px) scale(1.1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animation Classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-takeoff {
+  animation: takeoff 3s ease-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+/* Ensure initial hidden state */
+.animate-slide-in-up,
+.animate-fade-in {
+  opacity: 0;
+}
+
+/* 3D Card Specific Styles */
+.group {
+  transform-style: preserve-3d;
+}
+
+/* Remove any conflicting transitions from parent elements */
+.perspective-1000 * {
+  transition: none !important;
+}
+
+/* Hardware acceleration for smooth performance */
+.group>div:first-child {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced shadow on hover */
+.group:hover .shadow-lg {
+  box-shadow:
+    0 25px 50px -12px rgba(0, 128, 255, 0.25),
+    0 0 40px rgba(33, 214, 224, 0.3) !important;
+}
+
+/* Performance optimization */
+.group {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Smooth transitions for all interactive elements */
+.group>div:first-child,
+.group>div:first-child>div>div,
+.group>div:last-child {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Shuffle Animation for Global Reach Section */
+@keyframes shuffle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate(30px, -25px) rotate(5deg);
+  }
+  20% {
+    transform: translate(-20px, 15px) rotate(-3deg);
+  }
+  30% {
+    transform: translate(25px, 20px) rotate(4deg);
+  }
+  40% {
+    transform: translate(-15px, -20px) rotate(-2deg);
+  }
+  50% {
+    transform: translate(20px, 25px) rotate(3deg);
+  }
+  60% {
+    transform: translate(-25px, 15px) rotate(-4deg);
+  }
+  70% {
+    transform: translate(15px, -25px) rotate(2deg);
+  }
+  80% {
+    transform: translate(-20px, 20px) rotate(-3deg);
+  }
+  90% {
+    transform: translate(25px, -15px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+.animate-shuffle {
+  animation: shuffle 1.5s ease-in-out forwards;
+}
+
+.animate-gentle-float {
+  animation: gentle-float 3s ease-in-out infinite;
+}
+
+.region-item {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

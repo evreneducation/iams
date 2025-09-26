@@ -11,6 +11,7 @@ import Awards from './pages/Awards';
 import Registration from './pages/Registration';
 import Speakers from './pages/Speakers';
 import ScrollToTop from './utils/ScrollToTop';
+import About from './pages/About';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/overview" element={<EventOverview />} />
             <Route path="/assembly" element={<Assembly />} />
             <Route path="/agenda" element={<Agenda />} />

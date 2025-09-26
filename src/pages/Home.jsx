@@ -48,7 +48,10 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -50px 0px",
+      }
     );
 
     if (additionalInfoRef.current) {
@@ -556,23 +559,18 @@ const Home = () => {
       </section>
 
       {/* Additional Info Section */}
-      {/* Additional Info Section */}
       <section
         ref={additionalInfoRef}
-        className="py-16 bg-gradient-to-br from-[#f0f9ff] to-white"
+        className="py-16 bg-gradient-to-br from-[#f0f9ff] to-white overflow-hidden"
       >
-        <div
-          className={`container mx-auto px-4 transition-all duration-1000 ease-out ${
-            isAdditionalInfoVisible
-              ? "translate-y-0 opacity-100"
-              : "translate-y-10 opacity-0"
-          }`}
-        >
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2
-              className="text-3xl font-bold mb-12 text-[#003366] transition-all duration-700 delay-200 ${
-        isAdditionalInfoVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-      }"
+              className={`text-3xl font-bold mb-12 text-[#003366] transition-all duration-800 ease-out ${
+                isAdditionalInfoVisible
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-20 opacity-0"
+              }`}
             >
               Why Aviation Leaders Choose IAMS
             </h2>
@@ -638,15 +636,15 @@ const Home = () => {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-start transition-all duration-700 ease-out"
+                  className={`flex items-start transition-all duration-800 ease-out ${
+                    isAdditionalInfoVisible
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-20 opacity-0"
+                  }`}
                   style={{
                     transitionDelay: isAdditionalInfoVisible
-                      ? `${300 + i * 100}ms`
+                      ? `${300 + i * 150}ms`
                       : "0ms",
-                    transform: isAdditionalInfoVisible
-                      ? "translateX(0) translateY(0)"
-                      : "translateX(-20px) translateY(10px)",
-                    opacity: isAdditionalInfoVisible ? 1 : 0,
                   }}
                 >
                   <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-3 rounded-full mr-4 flex-shrink-0 border border-[#0080ff]/20">
