@@ -4,53 +4,27 @@ const Agenda = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
   const planeRef = useRef(null);
+  const [showDay1Popup, setShowDay1Popup] = useState(false);
+  const [showDay2Popup, setShowDay2Popup] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const containerTop = containerRef.current.getBoundingClientRect().top;
-        const containerHeight = containerRef.current.offsetHeight;
-        const windowHeight = window.innerHeight;
+  const day1Events = [
+    { time: "9:00 AM", title: "Opening Keynote", description: "CEO's Vision for Enterprise Transformation" },
+    { time: "10:30 AM", title: "E-commerce & Personalization", description: "Strategies for digital customer experience" },
+    { time: "12:00 PM", title: "Lunch & Networking", description: "Connect with industry leaders and peers" },
+    { time: "1:30 PM", title: "AI & ML Excellence", description: "Operational excellence through AI" },
+    { time: "3:00 PM", title: "IROPS Modernization", description: "Transforming disruption management" },
+    { time: "4:30 PM", title: "Panel Discussion", description: "Connected Ecosystem for Aviation" },
+  ];
 
-        const progress = Math.min(
-          1,
-          Math.max(
-            0,
-            (windowHeight - containerTop) / (containerHeight + windowHeight)
-          )
-        );
-        setScrollProgress(progress);
+  const day2Events = [
+    { time: "9:00 AM", title: "Keynote: Loyalty & Merchandising", description: "Next-generation passenger engagement" },
+    { time: "10:30 AM", title: "Tech Foundation", description: "GDS to NDC evolution and cybersecurity" },
+    { time: "12:00 PM", title: "Lunch & Networking", description: "Continued networking and collaboration" },
+    { time: "1:30 PM", title: "Sustainability Innovation", description: "Building a greener aviation future" },
+    { time: "3:00 PM", title: "Digital Talent Development", description: "Preparing for the future workforce" },
+    { time: "4:30 PM", title: "Panel Discussion", description: "Charting Course for Aviation 2030" },
+  ];
 
-        if (planeRef.current) {
-          const runway = document.querySelector(".runway-path");
-          if (runway) {
-            const pathLength = runway.getTotalLength();
-            const point = runway.getPointAtLength(progress * pathLength);
-            planeRef.current.style.left = `${point.x - 25}px`;
-            planeRef.current.style.top = `${point.y - 25}px`;
-
-            if (progress < 0.99) {
-              const nextPoint = runway.getPointAtLength(
-                (progress + 0.01) * pathLength
-              );
-              const angle =
-                (Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) *
-                  180) /
-                Math.PI;
-              planeRef.current.style.transform = `rotate(${angle}deg)`;
-            }
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const generatePDF = () => {
     // Simple PDF content generation using window.print() styled for PDF
@@ -131,106 +105,78 @@ const Agenda = () => {
     }, 250);
   };
 
-  const day1Events = [
-    {
-      time: "9:00 AM",
-      title: "Opening Keynote",
-      description: "CEO's Vision for Enterprise Transformation",
-    },
-    {
-      time: "10:30 AM",
-      title: "E-commerce & Personalization",
-      description: "Strategies for digital customer experience",
-    },
-    {
-      time: "12:00 PM",
-      title: "Lunch & Networking",
-      description: "Connect with industry leaders and peers",
-    },
-    {
-      time: "1:30 PM",
-      title: "AI & ML Excellence",
-      description: "Operational excellence through AI",
-    },
-    {
-      time: "3:00 PM",
-      title: "IROPS Modernization",
-      description: "Transforming disruption management",
-    },
-    {
-      time: "4:30 PM",
-      title: "Panel Discussion",
-      description: "Connected Ecosystem for Aviation",
-    },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current) {
+        const containerTop = containerRef.current.getBoundingClientRect().top;
+        const containerHeight = containerRef.current.offsetHeight;
+        const windowHeight = window.innerHeight;
 
-  const day2Events = [
-    {
-      time: "9:00 AM",
-      title: "Keynote: Loyalty & Merchandising",
-      description: "Next-generation passenger engagement",
-    },
-    {
-      time: "10:30 AM",
-      title: "Tech Foundation",
-      description: "GDS to NDC evolution and cybersecurity",
-    },
-    {
-      time: "12:00 PM",
-      title: "Lunch & Networking",
-      description: "Continued networking and collaboration",
-    },
-    {
-      time: "1:30 PM",
-      title: "Sustainability Innovation",
-      description: "Building a greener aviation future",
-    },
-    {
-      time: "3:00 PM",
-      title: "Digital Talent Development",
-      description: "Preparing for the future workforce",
-    },
-    {
-      time: "4:30 PM",
-      title: "Panel Discussion",
-      description: "Charting Course for Aviation 2030",
-    },
-  ];
+        const progress = Math.min(
+          1,
+          Math.max(
+            0,
+            (windowHeight - containerTop) / (containerHeight + windowHeight)
+          )
+        );
+        setScrollProgress(progress);
+
+        if (planeRef.current) {
+          const runway = document.querySelector(".runway-path");
+          if (runway) {
+            const pathLength = runway.getTotalLength();
+            const point = runway.getPointAtLength(progress * pathLength);
+            planeRef.current.style.left = `${point.x - 25}px`;
+            planeRef.current.style.top = `${point.y - 25}px`;
+
+            if (progress < 0.99) {
+              const nextPoint = runway.getPointAtLength(
+                (progress + 0.01) * pathLength
+              );
+              const angle =
+                (Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x) *
+                  180) /
+                Math.PI;
+              planeRef.current.style.transform = `rotate(${angle}deg)`;
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
+    <>
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-[#1646d8] text-white py-6 mt-10">
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative container mx-auto px-6 py-20">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Aviation Summit <span className="text-blue-300">2026</span>
-            </h1>
-            <div className="max-w-3xl mx-auto space-y-4">
-              <p className="text-xl md:text-2xl font-light mb-2">
-                Two Days of Innovation & Transformation
-              </p>
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
-                  <span>
-                    <strong>Venue:</strong> Bharat Mandapam, New Delhi
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
-                  <span>
-                    <strong>Dates:</strong> April 9-10, 2026
-                  </span>
-                </div>
-              </div>
+        <div className="relative container mx-auto px-6 py-20 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+            Aviation Summit <span className="text-blue-300">2026</span>
+          </h1>
+          <p className="text-xl md:text-2xl font-light mb-2">
+            Two Days of Innovation & Transformation
+          </p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-lg">
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
+              <span><strong>Venue:</strong> Bharat Mandapam, New Delhi</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
+              <span><strong>Dates:</strong> April 9-10, 2026</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Interactive Flight Path Timeline */}
+      {/* Flight Path Timeline */}
       <div className="container mx-auto px-6 py-16">
         <div ref={containerRef} className="relative">
           <div className="text-center mb-16">
@@ -243,30 +189,16 @@ const Agenda = () => {
             </p>
           </div>
 
-          {/* Enhanced Runway Timeline */}
           <div className="runway-container relative h-80 mb-16 mx-auto max-w-2xl">
             <svg
               className="w-full h-full"
               viewBox="0 0 400 300"
               preserveAspectRatio="xMidYMid meet"
             >
-              {/* Runway background */}
               <defs>
-                <linearGradient
-                  id="runwayGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop
-                    offset="0%"
-                    style={{ stopColor: "#e2e8f0", stopOpacity: 0.3 }}
-                  />
-                  <stop
-                    offset="100%"
-                    style={{ stopColor: "#cbd5e1", stopOpacity: 0.6 }}
-                  />
+                <linearGradient id="runwayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: "#e2e8f0", stopOpacity: 0.3 }} />
+                  <stop offset="100%" style={{ stopColor: "#cbd5e1", stopOpacity: 0.6 }} />
                 </linearGradient>
               </defs>
 
@@ -279,7 +211,6 @@ const Agenda = () => {
                 strokeLinecap="round"
                 opacity="0.4"
               />
-
               <path
                 className="runway-path"
                 d="M 50,50 C 120,50 150,80 200,120 C 250,160 280,180 350,220"
@@ -290,7 +221,67 @@ const Agenda = () => {
               />
             </svg>
 
-            {/* Animated Airplane */}
+            {/* Day 1 Marker */}
+            <div className="absolute top-8 left-8 transform -translate-x-1/2">
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setShowDay1Popup(true)}
+                 onMouseLeave={() => setShowDay1Popup(false)}
+                  className="w-4 h-4 bg-blue-600 rounded-full shadow-lg focus:outline-none cursor: pointer "
+                ></button>
+                <p className="mt-2 text-sm font-semibold text-blue-900 whitespace-nowrap text-center">
+                  Day 1 Start
+                </p>
+
+                {showDay1Popup && (
+                  <div className="absolute z-50 top-10 left-1/2 -translate-x-1/2 w-72 bg-white rounded-2xl shadow-2xl p-4 text-gray-800 transform scale-100 transition-transform duration-300">
+                    <h4 className="text-lg font-bold mb-2 text-blue-900">Day 1 Agenda</h4>
+                    <ul className="space-y-2 max-h-64 overflow-y-auto">
+                      {day1Events.map((event, idx) => (
+                        <li key={idx} className="border-l-2 border-blue-500 pl-2">
+                          <p className="font-semibold text-blue-800">
+                            {event.time} - {event.title}
+                          </p>
+                          {event.description && <p className="text-gray-600 text-sm">{event.description}</p>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Day 2 Marker */}
+            <div className="absolute bottom-8 right-8 transform translate-x-1/2">
+              <div className="relative">
+                <button
+                 onMouseEnter={() => setShowDay2Popup(true)}
+                  onMouseLeave={() => setShowDay2Popup(false)}
+                  className="w-4 h-4 bg-green-600 rounded-full shadow-lg focus:outline-none cursor: pointer"
+                ></button>
+                <p className="mb-2 text-sm font-semibold text-green-900 whitespace-nowrap text-center">
+                  Day 2 End
+                </p>
+
+                {showDay2Popup && (
+                  <div className="absolute z-50 bottom-10 left-1/2 -translate-x-1/2 w-72 bg-white rounded-2xl shadow-2xl p-4 text-gray-800 transform scale-100 transition-transform duration-300">
+                    <h4 className="text-lg font-bold mb-2 text-green-900">Day 2 Agenda</h4>
+                    <ul className="space-y-2 max-h-64 overflow-y-auto">
+                      {day2Events.map((event, idx) => (
+                        <li key={idx} className="border-l-2 border-green-500 pl-2">
+                          <p className="font-semibold text-green-800">
+                            {event.time} - {event.title}
+                          </p>
+                          {event.description && <p className="text-gray-600 text-sm">{event.description}</p>}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Animated Plane */}
             <div
               ref={planeRef}
               className="absolute w-16 h-16 transition-all duration-200 drop-shadow-lg"
@@ -307,157 +298,13 @@ const Agenda = () => {
                 <div className="absolute -inset-2 bg-blue-200 rounded-full opacity-30 animate-pulse"></div>
               </div>
             </div>
-
-            {/* Milestone markers */}
-            <div className="absolute top-8 left-8 transform -translate-x-1/2">
-              <div className="w-4 h-4 bg-blue-600 rounded-full shadow-lg"></div>
-              <p className="mt-2 text-sm font-semibold text-blue-900 whitespace-nowrap">
-                Day 1 Start
-              </p>
-            </div>
-            <div className="absolute bottom-8 right-8 transform translate-x-1/2">
-              <div className="w-4 h-4 bg-green-600 rounded-full shadow-lg"></div>
-              <p className="mb-2 text-sm font-semibold text-green-900 whitespace-nowrap">
-                Day 2 End
-              </p>
-            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      {/* Enhanced Agenda Content */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
-          {/* Day 1 */}
-          <div
-            className={`transform transition-all duration-700 ${
-              scrollProgress < 0.5
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-95"
-            }`}
-          >
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-blue-100 hover:shadow-3xl transition-shadow duration-500">
-              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <circle cx="50" cy="50" r="40" fill="currentColor" />
-                  </svg>
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center font-bold text-blue-900">
-                      1
-                    </div>
-                    <span className="text-blue-200 font-medium">
-                      April 9, 2026
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-bold mb-3">
-                    Digital Core & Customer-Centric Future
-                  </h2>
-                  <p className="text-blue-100 leading-relaxed">
-                    Explore enterprise transformation through cutting-edge
-                    technology, personalized customer experiences, and AI-driven
-                    operational excellence.
-                  </p>
-                </div>
-              </div>
 
-              <div className="p-8">
-                <div className="space-y-6">
-                  {day1Events.map((event, index) => (
-                    <div key={index} className="group relative">
-                      <div className="flex items-start gap-4 p-4 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors duration-300 border border-blue-100">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 group-hover:w-3 group-hover:h-3 transition-all duration-300"></div>
-                        <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                            <span className="font-bold text-blue-800 bg-blue-200 px-3 py-1 rounded-full text-sm">
-                              {event.time}
-                            </span>
-                            <h4 className="font-semibold text-gray-800 text-lg">
-                              {event.title}
-                            </h4>
-                          </div>
-                          {event.description && (
-                            <p className="text-gray-600 leading-relaxed">
-                              {event.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Day 2 */}
-          <div
-            className={`transform transition-all duration-700 ${
-              scrollProgress > 0.5
-                ? "translate-y-0 opacity-100"
-                : "translate-y-4 opacity-95"
-            }`}
-          >
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-green-100 hover:shadow-3xl transition-shadow duration-500">
-              <div className="bg-gradient-to-r from-green-600 to-green-700 p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-                  <svg viewBox="0 0 100 100" className="w-full h-full">
-                    <polygon points="50,10 90,80 10,80" fill="currentColor" />
-                  </svg>
-                </div>
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 bg-green-300 rounded-full flex items-center justify-center font-bold text-green-900">
-                      2
-                    </div>
-                    <span className="text-green-200 font-medium">
-                      April 10, 2026
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-bold mb-3">
-                    Innovation, Loyalty & Sustainable Growth
-                  </h2>
-                  <p className="text-green-100 leading-relaxed">
-                    Discover next-generation engagement strategies, sustainable
-                    practices, and the technologies shaping aviation's future.
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-8">
-                <div className="space-y-6">
-                  {day2Events.map((event, index) => (
-                    <div key={index} className="group relative">
-                      <div className="flex items-start gap-4 p-4 rounded-xl bg-green-50 hover:bg-green-100 transition-colors duration-300 border border-green-100">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-3 group-hover:w-3 group-hover:h-3 transition-all duration-300"></div>
-                        <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                            <span className="font-bold text-green-800 bg-green-200 px-3 py-1 rounded-full text-sm">
-                              {event.time}
-                            </span>
-                            <h4 className="font-semibold text-gray-800 text-lg">
-                              {event.title}
-                            </h4>
-                          </div>
-                          {event.description && (
-                            <p className="text-gray-600 leading-relaxed">
-                              {event.description}
-                            </p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Enhanced CTA Section */}
+{/* Enhanced CTA Section */}
       <div className="container mx-auto px-6 py-20">
         <div className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-blue-800 to-purple-900 rounded-3xl shadow-2xl">
           <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -553,8 +400,9 @@ const Agenda = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+  </>)
 };
 
 export default Agenda;
+
+
