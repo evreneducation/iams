@@ -1,18 +1,19 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import EventOverview from './pages/EventOverview';
-import Assembly from './pages/Assembly';
-import Agenda from './pages/Agenda';
-import Sponsorship from './pages/Sponsorship';
-import Awards from './pages/Awards';
-import Registration from './pages/Registration';
-import Speakers from './pages/Speakers';
-import ScrollToTop from './utils/ScrollToTop';
-import About from './pages/About';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import EventOverview from "./pages/EventOverview";
+import Assembly from "./pages/Assembly";
+import Agenda from "./pages/Agenda";
+import Sponsorship from "./pages/Sponsorship";
+import Awards from "./pages/Awards";
+import Registration from "./pages/Registration";
+import Speakers from "./pages/Speakers";
+import ScrollToTop from "./utils/ScrollToTop";
+import About from "./pages/About";
+import Venue from "./pages/Venue";
+import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
@@ -30,6 +31,8 @@ function App() {
             <Route path="/awards" element={<Awards />} />
             <Route path="/registration" element={<Registration />} />
             <Route path="/speakers" element={<Speakers />} />
+            <Route path="/venue-travel" element={<Venue />} />
+            <Route path="/contact" element={<Contact/>} />
           </Routes>
         </main>
         <Footer />
