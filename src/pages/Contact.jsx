@@ -32,7 +32,7 @@ const Contact = () => {
     setIsLoading(true); // start loading
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/iams/sendemail",
+        "https://iamsbackend.onrender.com/api/iams/sendemail",
         {
           name: data.name,
           email: data.email,
