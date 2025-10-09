@@ -42,18 +42,66 @@ const Awards = () => {
   ];
 
   const benefits = [
-    "Gain international recognition on global stage",
-    "Extensive media coverage across aviation networks",
-    "Network with industry elite at exclusive Gala",
-    "Motivate teams and strengthen reputation"
+    {
+      text: "Gain international recognition on global stage",
+      icon: (
+        <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      )
+    },
+    {
+      text: "Extensive media coverage across aviation networks",
+      icon: (
+        <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M3 6h18M3 14h18M3 18h18"></path>
+        </svg>
+      )
+    },
+    {
+      text: "Network with industry elite at exclusive Gala",
+      icon: (
+        <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12h.01M12 16h.01M8 12h.01M12 8h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      )
+    },
+    {
+      text: "Motivate teams and strengthen reputation",
+      icon: (
+        <svg className="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      )
+    }
   ];
 
   const galaInfo = [
-    { label: "Date", value: "April 9, 2026", icon: "📅" },
-    { label: "Time", value: "7:00 PM onwards", icon: "⏰" },
-    { label: "Venue", value: "Bharat Mandapam, New Delhi", icon: "📍" },
-    { label: "Dress Code", value: "Black Tie Optional", icon: "👔" },
-    { label: "Tickets", value: "Separate registration required", icon: "🎫" }
+    { label: "Date", value: "April 9, 2026", icon: (
+      <svg className="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2V7H3v12a2 2 0 002 2z"></path>
+      </svg>
+    ) },
+    { label: "Time", value: "7:00 PM onwards", icon: (
+      <svg className="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3M12 2a10 10 0 1010 10A10 10 0 0012 2z"></path>
+      </svg>
+    ) },
+    { label: "Venue", value: "Bharat Mandapam, New Delhi", icon: (
+      <svg className="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a5 5 0 00-10 0v2H5a2 2 0 00-2 2v9h18v-9a2 2 0 00-2-2h-2z"></path>
+      </svg>
+    ) },
+    { label: "Dress Code", value: "Black Tie Optional", icon: (
+      <svg className="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zM12 14l6.16-3.422M12 14v7M12 14L5.84 10.578M5 20h14v2H5v-2z"></path>
+      </svg>
+    ) },
+    { label: "Tickets", value: "Separate registration required", icon: (
+      <svg className="w-6 h-6 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 14l2 2 4-4M5 12h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v3a2 2 0 002 2z"></path>
+      </svg>
+    ) }
   ];
 
   const stats = [
@@ -68,15 +116,12 @@ const Awards = () => {
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 text-white py-20 flex flex-col items-center justify-center relative">
         <div className="px-6 md:px-12 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-pulse">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Celebrating Excellence in Aviation Marketing
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10">
             The IAMS Awards Gala is the industry's premier evening of recognition, honoring teams and innovations redefining passenger experience and driving commercial success.
           </p>
-        </div>
-        <div className="absolute -bottom-10 w-full flex justify-center animate-bounce">
-          <span className="text-white text-6xl opacity-40">⬇</span>
         </div>
       </section>
 
@@ -89,7 +134,7 @@ const Awards = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {stats.map((stat, idx) => (
               <div key={idx} className="bg-white rounded-3xl shadow-2xl p-10 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-3xl">
-                <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 mb-4 animate-bounce">
+                <div className="text-5xl md:text-6xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 mb-4">
                   {stat.value}
                 </div>
                 <div className="text-gray-700 text-lg md:text-xl text-center">{stat.label}</div>
@@ -103,23 +148,23 @@ const Awards = () => {
       <section className="max-w-[1400px] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Benefits */}
         <div className="space-y-6">
-          <h2 className="text-4xl font-bold text-blue-900 mb-6 animate-fadeIn">Benefits of Participation</h2>
+          <h2 className="text-4xl font-bold text-blue-900 mb-6">Benefits of Participation</h2>
           {benefits.map((b, i) => (
             <div key={i} className="flex items-start p-5 rounded-2xl bg-white shadow-lg border-l-4 border-blue-700 transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
-              <div className="bg-blue-100 p-4 rounded-full mr-5 animate-bounce flex items-center justify-center text-blue-900 text-2xl">
-                ✅
+              <div className="bg-blue-100 p-4 rounded-full mr-5 flex items-center justify-center text-blue-900 text-2xl">
+                {b.icon}
               </div>
-              <p className="text-gray-700 text-lg">{b}</p>
+              <p className="text-gray-700 text-lg">{b.text}</p>
             </div>
           ))}
         </div>
 
         {/* Gala Info */}
         <div className="bg-white rounded-2xl shadow-xl p-10 space-y-6 border border-gray-100">
-          <h2 className="text-4xl font-bold text-blue-900 text-center animate-fadeIn">Gala Information</h2>
+          <h2 className="text-4xl font-bold text-blue-900 text-center">Gala Information</h2>
           {galaInfo.map((item, idx) => (
             <div key={idx} className="flex items-center gap-4 p-3 rounded-xl hover:bg-blue-50 transition">
-              <div className="bg-blue-100 p-3 rounded-full text-blue-900 flex items-center justify-center animate-bounce text-2xl">
+              <div className="bg-blue-100 p-3 rounded-full text-blue-900 flex items-center justify-center">
                 {item.icon}
               </div>
               <div>
@@ -137,7 +182,7 @@ const Awards = () => {
       {/* Award Categories */}
       <section className="max-w-[1400px] mx-auto px-6 py-20 space-y-12">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-blue-900 animate-fadeIn">Award Categories</h2>
+          <h2 className="text-4xl font-bold text-blue-900">Award Categories</h2>
           <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mt-4">
             Recognizing excellence across all aspects of aviation marketing and customer experience
           </p>
@@ -146,7 +191,7 @@ const Awards = () => {
           {awardCategories.map((award, idx) => (
             <div key={idx} className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-blue-700 transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
               <div className="flex items-start gap-4 mb-4">
-                <div className="bg-blue-100 p-3 rounded-full text-blue-900 flex items-center justify-center animate-bounce">
+                <div className="bg-blue-100 p-3 rounded-full text-blue-900 flex items-center justify-center">
                   {award.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-blue-900">{award.title}</h3>
@@ -159,7 +204,7 @@ const Awards = () => {
 
       {/* CTA Section */}
       <section className="w-full bg-gradient-to-r from-blue-700 via-blue-900 to-blue-700 py-20 text-white text-center rounded-3xl transform transition-transform duration-500 hover:scale-105 shadow-xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse">Submit Your Nominations</h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">Submit Your Nominations</h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10">
           Join the prestigious IAMS Awards 2026 and gain recognition for your innovative contributions to aviation marketing.
         </p>

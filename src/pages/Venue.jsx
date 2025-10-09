@@ -400,34 +400,29 @@ const Venue = () => {
       </section>
 
       {/* Improved Navigation Header */}
-      <div className="sticky top-0 bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-200 overflow-x-hidden">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center py-4 overflow-x-hidden">
-            <div className="bg-white rounded-xl shadow-lg p-2 flex space-x-1 border border-gray-100">
-              {navigationItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`flex items-center px-6 py-4 rounded-lg transition-all duration-300 min-w-[120px] ${
-                    activeTab === item.id
-                      ? "bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white shadow-md transform scale-105"
-                      : "text-gray-600 hover:text-[#0080ff] hover:bg-gray-50"
-                  }`}
-                >
-                  <span
-                    className={`mr-3 ${
-                      activeTab === item.id ? "text-white" : "text-gray-500"
-                    }`}
-                  >
-                    {item.icon}
-                  </span>
-                  <span className="text-sm font-semibold">{item.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-200 overflow-x-hidden">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-wrap justify-center py-4 gap-2"> {/* flex-wrap + gap for spacing */}
+      {navigationItems.map((item) => (
+        <button
+          key={item.id}
+          onClick={() => setActiveTab(item.id)}
+          className={`flex items-center px-6 py-4 rounded-lg transition-all duration-300 min-w-[120px] ${
+            activeTab === item.id
+              ? "bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white shadow-md transform scale-105"
+              : "text-gray-600 hover:text-[#0080ff] hover:bg-gray-50"
+          }`}
+        >
+          <span className={`mr-3 ${activeTab === item.id ? "text-white" : "text-gray-500"}`}>
+            {item.icon}
+          </span>
+          <span className="text-sm font-semibold">{item.label}</span>
+        </button>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       {/* Venue Information */}
       {activeTab === "venue" && (
