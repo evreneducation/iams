@@ -1,7 +1,8 @@
 // src/pages/Sponsorship.js
 import React from 'react';
-
+import { Navigate, useNavigate } from 'react-router-dom';
 const Sponsorship = () => {
+  const navigate = useNavigate();
   const packages = [
     {
       name: "Platinum",
@@ -226,7 +227,11 @@ const Sponsorship = () => {
             Secure your sponsorship package today and position your brand at the forefront of aviation marketing innovation.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition">
+            <button className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition"
+              onClick={(()=>{
+                  navigate('/contact')
+              })}
+            >   
               Contact Us to Exhibit
             </button>
             <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition">

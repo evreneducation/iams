@@ -230,10 +230,11 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100 mt-4" : "max-h-0 opacity-0"
-          }`}
-        >
+  className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+    isMenuOpen ? "max-h-screen opacity-100 mt-4" : "max-h-0 opacity-0"
+  }`}
+>
+
           <nav className="pb-4 space-y-2">
             {navItems.map((item) => (
               <Link

@@ -127,7 +127,7 @@ const PostEventTours = () => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         prevIndex === delhiTourImages.length - 1 ? 0 : prevIndex + 1
       );
     }, 2000);
@@ -143,7 +143,7 @@ const PostEventTours = () => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex(current => 
+    setCurrentImageIndex((current) =>
       current === delhiTourImages.length - 1 ? 0 : current + 1
     );
     setIsAutoPlaying(false);
@@ -151,14 +151,20 @@ const PostEventTours = () => {
   };
 
   const prevImage = () => {
-    setCurrentImageIndex(current => 
+    setCurrentImageIndex((current) =>
       current === 0 ? delhiTourImages.length - 1 : current - 1
     );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 5000);
   };
 
-  return { currentImageIndex, goToImage, nextImage, prevImage, delhiTourImages };
+  return {
+    currentImageIndex,
+    goToImage,
+    nextImage,
+    prevImage,
+    delhiTourImages,
+  };
 };
 
 const Venue = () => {
@@ -256,7 +262,7 @@ const Venue = () => {
     goToImage,
     nextImage,
     prevImage,
-    delhiTourImages
+    delhiTourImages,
   } = PostEventTours();
 
   const postEventPackages = [
@@ -272,7 +278,7 @@ const Venue = () => {
       ],
       // price: "$75 per person",
       images: delhiTourImages,
-      isCarousel: true
+      isCarousel: true,
     },
     {
       title: "Taj Mahal: Eternal Wonder",
@@ -286,7 +292,7 @@ const Venue = () => {
       ],
       // price: "$150 per person",
       image: "/venue/4.jpeg",
-      isCarousel: false
+      isCarousel: false,
     },
   ];
 
@@ -366,36 +372,37 @@ const Venue = () => {
           ></div>
         </div>
 
-        <div className="relative py-32 md:py-40">
-          {" "}
-          {/* Increased height */}
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#003366] animate-fadeIn">
-                Venue & Travel
-              </h1>
-              <p
-                className="text-2xl md:text-3xl text-white font-light mb-8 animate-fadeIn"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Welcome to New Delhi & The Yashobhoomi
-              </p>
-              <p
-                className="text-xl text-white max-w-3xl mx-auto animate-fadeIn"
-                style={{ animationDelay: "0.4s" }}
-              >
-                India's Premier Convention Center - A Symbol of Global
-                Connection and Progress
-              </p>
+        <section className="relative overflow-x-hidden">
+          <div className="relative py-32 md:py-40">
+            {/* Increased height */}
+            <div className="container mx-auto text-center">
+              <div className="max-w-5xl mx-auto">
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 text-[#003366] animate-fadeIn">
+                  Venue & Travel
+                </h1>
+                <p
+                  className="text-2xl md:text-3xl text-white font-light mb-8 animate-fadeIn"
+                  style={{ animationDelay: "0.2s" }}
+                >
+                  Welcome to New Delhi & The Yashobhoomi
+                </p>
+                <p
+                  className="text-xl text-white max-w-3xl mx-auto animate-fadeIn"
+                  style={{ animationDelay: "0.4s" }}
+                >
+                  India's Premier Convention Center - A Symbol of Global
+                  Connection and Progress
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       </section>
 
       {/* Improved Navigation Header */}
-      <div className="sticky top-0 bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-200">
+      <div className="sticky top-0 bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-200 overflow-x-hidden">
         <div className="container mx-auto px-4">
-          <div className="flex justify-center py-4">
+          <div className="flex justify-center py-4 overflow-x-hidden">
             <div className="bg-white rounded-xl shadow-lg p-2 flex space-x-1 border border-gray-100">
               {navigationItems.map((item) => (
                 <button
@@ -507,7 +514,6 @@ const Venue = () => {
                       className="transform group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-300 pointer-events-none"></div>
-                    
                   </div>
 
                   {/* Address Card */}
@@ -537,13 +543,17 @@ const Venue = () => {
                           Location Details
                         </h3>
                         <div className="space-y-2 text-gray-700">
-                          <a href="https://maps.app.goo.gl/FnFfspPfjwPjmhTs8" target="_blank" className="text-lg font-semibold hover:text-blue-600">
+                          <a
+                            href="https://maps.app.goo.gl/FnFfspPfjwPjmhTs8"
+                            target="_blank"
+                            className="text-lg font-semibold hover:text-blue-600"
+                          >
                             Yashobhoomi Convention Center
                             <p className="text-base">
-                            Dwarka Sector 25, New Delhi
-                          </p>
+                              Dwarka Sector 25, New Delhi
+                            </p>
                           </a>
-                          
+
                           <p className="text-base">Delhi 110077, India</p>
                         </div>
                       </div>
@@ -848,110 +858,147 @@ const Venue = () => {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
-            {postEventPackages.map((tour, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
-              >
-                {/* Tour Image Section */}
-                <div className="h-80 bg-gray-200 relative overflow-hidden group">
-                  {tour.isCarousel ? (
-                    // Carousel for Delhi Tour
-                    <div className="relative w-full h-full">
-                      <img 
-                        src={tour.images[currentImageIndex]} 
-                        alt={`${tour.title} - Image ${currentImageIndex + 1}`}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                      />
-                      
-                      {/* Navigation Arrows */}
-                      <button 
-                        onClick={prevImage}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      
-                      <button 
-                        onClick={nextImage}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-
-                      {/* Dot Indicators */}
-                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                        {tour.images.map((_, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => goToImage(idx)}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                              idx === currentImageIndex 
-                                ? 'bg-white scale-125' 
-                                : 'bg-white/60 hover:bg-white/80'
+                {postEventPackages.map((tour, index) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
+                  >
+                    {/* Tour Image Section */}
+                    <div className="h-80 bg-gray-200 relative overflow-hidden group">
+                      {tour.isCarousel ? (
+                        // Carousel for Delhi Tour
+                        <div className="relative w-full h-full">
+                          <img
+                            src={tour.images[currentImageIndex]}
+                            alt={`${tour.title} - Image ${
+                              currentImageIndex + 1
                             }`}
+                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                           />
-                        ))}
-                      </div>
 
-                      {/* Image Counter */}
-                      <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 rounded-full text-xs">
-                        {currentImageIndex + 1} / {tour.images.length}
+                          {/* Navigation Arrows */}
+                          <button
+                            onClick={prevImage}
+                            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
+                          >
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M15 19l-7-7 7-7"
+                              />
+                            </svg>
+                          </button>
+
+                          <button
+                            onClick={nextImage}
+                            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
+                          >
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </button>
+
+                          {/* Dot Indicators */}
+                          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            {tour.images.map((_, idx) => (
+                              <button
+                                key={idx}
+                                onClick={() => goToImage(idx)}
+                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                  idx === currentImageIndex
+                                    ? "bg-white scale-125"
+                                    : "bg-white/60 hover:bg-white/80"
+                                }`}
+                              />
+                            ))}
+                          </div>
+
+                          {/* Image Counter */}
+                          <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 rounded-full text-xs">
+                            {currentImageIndex + 1} / {tour.images.length}
+                          </div>
+                        </div>
+                      ) : (
+                        // Single Image for Taj Mahal Tour
+                        <img
+                          src={tour.image}
+                          alt={tour.title}
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        />
+                      )}
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                        <h3 className="text-xl font-bold text-gray-800">
+                          {tour.title}
+                        </h3>
+                        <p className="text-sm text-[#0080ff] font-semibold">
+                          {tour.duration}
+                        </p>
                       </div>
                     </div>
-                  ) : (
-                    // Single Image for Taj Mahal Tour
-                    <img 
-                      src={tour.image} 
-                      alt={tour.title}
-                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                    />
-                  )}
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <h3 className="text-xl font-bold text-gray-800">{tour.title}</h3>
-                    <p className="text-sm text-[#0080ff] font-semibold">{tour.duration}</p>
+
+                    {/* Tour Details (same as before) */}
+                    <div className="p-8">
+                      <div className="flex justify-between items-center mb-6">
+                        <span className="text-4xl font-bold bg-gradient-to-r from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent">
+                          {tour.price}
+                        </span>
+                        <span className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
+                          {tour.duration}
+                        </span>
+                      </div>
+
+                      <h4 className="text-xl font-semibold text-[#003366] mb-5 flex items-center">
+                        <svg
+                          className="w-5 h-5 mr-2 text-[#21d6e0]"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        Tour Highlights:
+                      </h4>
+                      <ul className="space-y-3 mb-8">
+                        {tour.highlights.map((highlight, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start text-gray-700 text-base"
+                          >
+                            <div className="w-2 h-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full mr-4 mt-2 flex-shrink-0 animate-pulse"></div>
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                        Book This Tour
+                      </button>
+                    </div>
                   </div>
-                </div>
-                
-                {/* Tour Details (same as before) */}
-                <div className="p-8">
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-4xl font-bold bg-gradient-to-r from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent">
-                      {tour.price}
-                    </span>
-                    <span className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
-                      {tour.duration}
-                    </span>
-                  </div>
-                  
-                  <h4 className="text-xl font-semibold text-[#003366] mb-5 flex items-center">
-                    <svg className="w-5 h-5 mr-2 text-[#21d6e0]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    Tour Highlights:
-                  </h4>
-                  <ul className="space-y-3 mb-8">
-                    {tour.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-start text-gray-700 text-base">
-                        <div className="w-2 h-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full mr-4 mt-2 flex-shrink-0 animate-pulse"></div>
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                    Book This Tour
-                  </button>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
 
               <div className="text-center bg-gradient-to-r from-[#e6f7ff] to-[#f0f9ff] rounded-2xl p-8 border border-[#21d6e0]/30">
                 <p className="text-gray-700 text-lg mb-6 flex items-center justify-center">
