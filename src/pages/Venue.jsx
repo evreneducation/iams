@@ -400,135 +400,132 @@ const Venue = () => {
         </section>
       </section>
 
-     
-
       {/* Venue Information */}
       {/* {activeTab === "venue" && ( */}
-        <section
-          className="py-20 bg-white"
-          ref={(el) => (sectionRefs.current.venue = el)}
-        >
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                {/* Text Content */}
-                <div
-                  className={`transition-all duration-1000 ${
-                    isVisible.venue
-                      ? "translate-x-0 opacity-100"
-                      : "-translate-x-20 opacity-0"
-                  }`}
-                >
-                  <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-8">
-                    About Yashobhoomi
-                  </h2>
-                  <p className="text-xl text-gray-700 mb-6 leading-relaxed">
-                    Located in the heart of New Delhi, Yashobhoomi is a
-                    state-of-the-art facility designed for world-class events.
-                    Its modern architecture and cutting-edge technology provide
-                    the perfect backdrop for innovation and collaboration in the
-                    aviation industry.
-                  </p>
+      <section
+        className="py-20 bg-white"
+        ref={(el) => (sectionRefs.current.venue = el)}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Text Content */}
+              <div
+                className={`transition-all duration-1000 ${
+                  isVisible.venue
+                    ? "translate-x-0 opacity-100"
+                    : "-translate-x-20 opacity-0"
+                }`}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-8">
+                  About Yashobhoomi
+                </h2>
+                <p className="text-xl text-gray-700 mb-6 leading-relaxed">
+                  Located in the heart of New Delhi, Yashobhoomi is a
+                  state-of-the-art facility designed for world-class events. Its
+                  modern architecture and cutting-edge technology provide the
+                  perfect backdrop for innovation and collaboration in the
+                  aviation industry.
+                </p>
 
-                  <div className="bg-gradient-to-br from-[#e6f7ff] to-[#f0f9ff] p-8 rounded-2xl border border-[#21d6e0]/30 shadow-lg">
-                    <h3 className="text-2xl font-semibold text-[#003366] mb-6 flex items-center">
-                      <svg
-                        className="w-6 h-6 mr-3 text-[#21d6e0]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
+                <div className="bg-gradient-to-br from-[#e6f7ff] to-[#f0f9ff] p-8 rounded-2xl border border-[#21d6e0]/30 shadow-lg">
+                  <h3 className="text-2xl font-semibold text-[#003366] mb-6 flex items-center">
+                    <svg
+                      className="w-6 h-6 mr-3 text-[#21d6e0]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Venue Highlights
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      "State-of-the-art conference facilities",
+                      "High-speed WiFi throughout",
+                      "Multiple breakout rooms",
+                      "Exhibition hall capacity: 5,000+ attendees",
+                    ].map((item, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center text-lg text-gray-700 animate-fadeIn"
+                        style={{ animationDelay: `${i * 0.1}s` }}
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      Venue Highlights
-                    </h3>
-                    <ul className="space-y-4">
-                      {[
-                        "State-of-the-art conference facilities",
-                        "High-speed WiFi throughout",
-                        "Multiple breakout rooms",
-                        "Exhibition hall capacity: 5,000+ attendees",
-                      ].map((item, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center text-lg text-gray-700 animate-fadeIn"
-                          style={{ animationDelay: `${i * 0.1}s` }}
-                        >
-                          <div className="w-3 h-3 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] rounded-full mr-4 animate-pulse"></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                        <div className="w-3 h-3 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] rounded-full mr-4 animate-pulse"></div>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Map and Address */}
+              <div
+                className={`space-y-6 transition-all duration-1000 ${
+                  isVisible.venue
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-20 opacity-0"
+                }`}
+                style={{ transitionDelay: "0.3s" }}
+              >
+                {/* Venue Image */}
+                <div className="relative bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224294.63237058575!2d76.74146629453124!3d28.55163130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a509578bb01%3A0xc4f9b6f167e3d164!2sYashoBhoomi%20Dwarka%20Sector-25!5e0!3m2!1sen!2sin!4v1759814488470!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
 
-                {/* Map and Address */}
-                <div
-                  className={`space-y-6 transition-all duration-1000 ${
-                    isVisible.venue
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-20 opacity-0"
-                  }`}
-                  style={{ transitionDelay: "0.3s" }}
-                >
-                  {/* Venue Image */}
-                  <div className="relative bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224294.63237058575!2d76.74146629453124!3d28.55163130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a509578bb01%3A0xc4f9b6f167e3d164!2sYashoBhoomi%20Dwarka%20Sector-25!5e0!3m2!1sen!2sin!4v1759814488470!5m2!1sen!2sin"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      className="transform group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-300 pointer-events-none"></div>
-                  </div>
+                {/* Address Card */}
+                <div className="bg-white border-2 border-[#21d6e0]/30 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="flex items-start mb-4">
+                    <svg
+                      className="w-8 h-8 mr-4 text-[#21d6e0] mt-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                    <div>
+                      <h3 className="text-2xl font-semibold text-[#003366] mb-4">
+                        Location Details
+                      </h3>
+                      <div className="space-y-2 text-gray-700">
+                        <a
+                          href="https://maps.app.goo.gl/FnFfspPfjwPjmhTs8"
+                          target="_blank"
+                          className="text-lg font-semibold hover:text-blue-600"
+                        >
+                          Yashobhoomi Convention Center
+                          <p className="text-base">
+                            Dwarka Sector 25, New Delhi
+                          </p>
+                        </a>
 
-                  {/* Address Card */}
-                  <div className="bg-white border-2 border-[#21d6e0]/30 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div className="flex items-start mb-4">
-                      <svg
-                        className="w-8 h-8 mr-4 text-[#21d6e0] mt-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      <div>
-                        <h3 className="text-2xl font-semibold text-[#003366] mb-4">
-                          Location Details
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <a
-                            href="https://maps.app.goo.gl/FnFfspPfjwPjmhTs8"
-                            target="_blank"
-                            className="text-lg font-semibold hover:text-blue-600"
-                          >
-                            Yashobhoomi Convention Center
-                            <p className="text-base">
-                              Dwarka Sector 25, New Delhi
-                            </p>
-                          </a>
-
-                          <p className="text-base">Delhi 110077, India</p>
-                        </div>
+                        <p className="text-base">Delhi 110077, India</p>
                       </div>
                     </div>
                   </div>
@@ -536,82 +533,128 @@ const Venue = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
       {/* )} */}
 
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-16">
+        <h2 className="text-2xl md:text-3xl font-bold font-bold text-[#003366] mb-6 text-center">
+          Travel & Accommodation
+        </h2>
 
-<div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-16">
-  <h2 className="text-2xl md:text-3xl font-bold font-bold text-[#003366] mb-6 text-center">Travel & Accommodation</h2>
-  
-  <div className="grid gap-6 md:grid-cols-3">
-    {/* Hotel Partners */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-      <div className="flex items-center mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z" />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Hotel Partners</h3>
+        <div className="grid gap-6 md:grid-cols-3">
+          {/* Hotel Partners */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+            <div className="flex items-center mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Hotel Partners
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+              We have secured exclusive rates with several 5-star hotels near
+              the venue. Book through our portal to receive a discount.
+            </p>
+            <button
+              className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+              onClick={() => {
+                navigate("/hotelpartner");
+              }}
+            >
+              Book Your Hotel
+            </button>
+          </div>
+
+          {/* Getting There */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+            <div className="flex items-center mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Getting There
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+              Yashobhoomi is easily accessible from Indira Gandhi International
+              Airport (DEL). Find details on transport options.
+            </p>
+            <button
+              className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+              onClick={() => {
+                navigate("/travel-info");
+              }}
+            >
+              View Transport Options
+            </button>
+          </div>
+
+          {/* Visa Information */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+            <div className="flex items-center mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Visa Information
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+              India requires visas for most international visitors. We strongly
+              recommend starting your application process early.
+            </p>
+            <button
+              className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+              onClick={() => {
+                window.location.href =
+                  "https://indianvisaonline.gov.in/evisa/tvoa.html";
+              }}
+              target="_blank"
+            >
+              Official India Visa Portal
+            </button>
+          </div>
+        </div>
       </div>
-      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-        We have secured exclusive rates with several 5-star hotels near the venue.
-        Book through our portal to receive a discount.
-      </p>
-     <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-      onClick={()=>{
-         navigate("/hotelpartner")
-      }}>
-  Book Your Hotel
-</button>
-    </div>
-
-    {/* Getting There */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-      <div className="flex items-center mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6" />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Getting There</h3>
-      </div>
-      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-        Yashobhoomi is easily accessible from Indira Gandhi International Airport (DEL).
-        Find details on transport options.
-      </p>
-     <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-      onClick={()=>{
-         navigate("/travel-info")
-      }}>
-      View Transport Options
-</button>
-    </div>
-
-    {/* Visa Information */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-      <div className="flex items-center mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4" />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Visa Information</h3>
-      </div>
-      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-        India requires visas for most international visitors. We strongly recommend starting
-        your application process early.
-      </p>
-      <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-       onClick={()=>{
-         window.location.href="https://indianvisaonline.gov.in/evisa/tvoa.html"
-      }} target="_blank">
-  Official India Visa Portal
-  
-</button>
-    </div>
-  </div>
-</div>
-
-
 
       {/* Accommodation Section */}
       {/* {activeTab === "accommodation" && ( */}
-        {/* <section
+      {/* <section
           className="py-20 bg-gradient-to-br from-[#f0f9ff] to-white"
           ref={(el) => (sectionRefs.current.accommodation = el)}
         >
@@ -646,7 +689,7 @@ const Venue = () => {
                     style={{ transitionDelay: `${index * 0.2}s` }}
                   >
                     {/* Hotel Image */}
-                    {/* <div className="h-56 bg-gray-200 relative overflow-hidden group">
+      {/* <div className="h-56 bg-gray-200 relative overflow-hidden group">
                       <img
                         src={hotel.image}
                         alt={hotel.name}
@@ -663,7 +706,7 @@ const Venue = () => {
                       </div>
                     </div> */}
 
-                    {/* <div className="p-6">
+      {/* <div className="p-6">
                       <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-[#003366]">
                           {hotel.name}
@@ -678,7 +721,7 @@ const Venue = () => {
                         <span className="ml-2 text-sm">{hotel.distance}</span>
                       </div> */}
 
-                      {/* <ul className="space-y-3 mb-6">
+      {/* <ul className="space-y-3 mb-6">
                         {hotel.features.map((feature, idx) => (
                           <li
                             key={idx}
@@ -698,7 +741,7 @@ const Venue = () => {
                 ))}
               </div> */}
 
-              {/* <div className="text-center">
+      {/* <div className="text-center">
                 <Link
                   to="/hotel-booking"
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-[#003366] to-[#004080] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#004080] hover:to-[#003366] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl"
@@ -721,24 +764,16 @@ const Venue = () => {
               </div>
             </div>
           </div> */}
-        {/* </section> */}
+      {/* </section> */}
       {/* )} */}
-
-
-
-
-
-
-
-
 
       {/* Travel Information */}
       {/* {activeTab === "travel" && ( */}
-        {/* <section
+      {/* <section
           className="py-20 bg-white"
           ref={(el) => (sectionRefs.current.travel = el)}
         > */}
-          {/* <div className="container mx-auto px-4">
+      {/* <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div
                 className={`text-center mb-16 transition-all duration-1000 ${
@@ -755,9 +790,9 @@ const Venue = () => {
                 </p>
               </div> */}
 
-              {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                 {/* Travel Options */}
-                {/* <div
+      {/* <div
                   className={`transition-all duration-1000 ${
                     isVisible.travel
                       ? "translate-x-0 opacity-100"
@@ -804,7 +839,7 @@ const Venue = () => {
                 </div>
 
                 {/* Visa Information */}
-                {/* <div
+      {/* <div
                   className={`transition-all duration-1000 ${
                     isVisible.travel
                       ? "translate-x-0 opacity-100"
@@ -868,7 +903,7 @@ const Venue = () => {
                       </div>
                     </div> */}
 
-                    {/* <a
+      {/* <a
                       href="https://indianvisaonline.gov.in/evisa/tvoa.html"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -878,208 +913,202 @@ const Venue = () => {
                     </a>
                   </div>
                 </div> */}
-              {/* </div> */} 
-            {/* // </div> */}
-          {/* // </div> */} 
-        {/* // </section> */}
+      {/* </div> */}
+      {/* // </div> */}
+      {/* // </div> */}
+      {/* // </section> */}
       {/* )} */}
-
-
-
-
 
       {/* Post-Event Tours */}
       {/* {activeTab === "tours" && ( */}
-        <section
-          className="py-20 bg-gradient-to-br from-[#f0f9ff] to-white"
-          ref={(el) => (sectionRefs.current.tours = el)}
-        >
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <div
-                className={`text-center mb-16 transition-all duration-1000 ${
-                  isVisible.tours
-                    ? "translate-y-0 opacity-100"
-                    : "-translate-y-10 opacity-0"
-                }`}
-              >
-                <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
-                  Post-Event Packages
-                </h2>
-                <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-                  Extend your journey and discover the timeless beauty of
-                  India's cultural treasures
-                </p>
-              </div>
+      <section
+        className="py-20 bg-gradient-to-br from-[#f0f9ff] to-white"
+        ref={(el) => (sectionRefs.current.tours = el)}
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div
+              className={`text-center mb-16 transition-all duration-1000 ${
+                isVisible.tours
+                  ? "translate-y-0 opacity-100"
+                  : "-translate-y-10 opacity-0"
+              }`}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
+                Post-Event Packages
+              </h2>
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+                Extend your journey and discover the timeless beauty of India's
+                cultural treasures
+              </p>
+            </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
-                {postEventPackages.map((tour, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
-                  >
-                    {/* Tour Image Section */}
-                    <div className="h-80 bg-gray-200 relative overflow-hidden group">
-                      {tour.isCarousel ? (
-                        // Carousel for Delhi Tour
-                        <div className="relative w-full h-full">
-                          <img
-                            src={tour.images[currentImageIndex]}
-                            alt={`${tour.title} - Image ${
-                              currentImageIndex + 1
-                            }`}
-                            className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                          />
-
-                          {/* Navigation Arrows */}
-                          <button
-                            onClick={prevImage}
-                            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
-                          >
-                            <svg
-                              className="w-5 h-5"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M15 19l-7-7 7-7"
-                              />
-                            </svg>
-                          </button>
-
-                          <button
-                            onClick={nextImage}
-                            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
-                          >
-                            <svg
-                              className="w-5 h-5"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </button>
-
-                          {/* Dot Indicators */}
-                          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                            {tour.images.map((_, idx) => (
-                              <button
-                                key={idx}
-                                onClick={() => goToImage(idx)}
-                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                  idx === currentImageIndex
-                                    ? "bg-white scale-125"
-                                    : "bg-white/60 hover:bg-white/80"
-                                }`}
-                              />
-                            ))}
-                          </div>
-
-                          {/* Image Counter */}
-                          <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 rounded-full text-xs">
-                            {currentImageIndex + 1} / {tour.images.length}
-                          </div>
-                        </div>
-                      ) : (
-                        // Single Image for Taj Mahal Tour
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+              {postEventPackages.map((tour, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
+                >
+                  {/* Tour Image Section */}
+                  <div className="h-80 bg-gray-200 relative overflow-hidden group">
+                    {tour.isCarousel ? (
+                      // Carousel for Delhi Tour
+                      <div className="relative w-full h-full">
                         <img
-                          src={tour.image}
-                          alt={tour.title}
+                          src={tour.images[currentImageIndex]}
+                          alt={`${tour.title} - Image ${currentImageIndex + 1}`}
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                         />
-                      )}
 
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                      <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                        <h3 className="text-xl font-bold text-gray-800">
-                          {tour.title}
-                        </h3>
-                        <p className="text-sm text-[#0080ff] font-semibold">
-                          {tour.duration}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Tour Details (same as before) */}
-                    <div className="p-8">
-                      <div className="flex justify-between items-center mb-6">
-                        <span className="text-4xl font-bold bg-gradient-to-r from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent">
-                          {tour.price}
-                        </span>
-                        <span className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
-                          {tour.duration}
-                        </span>
-                      </div>
-
-                      <h4 className="text-xl font-semibold text-[#003366] mb-5 flex items-center">
-                        <svg
-                          className="w-5 h-5 mr-2 text-[#21d6e0]"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
+                        {/* Navigation Arrows */}
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
                         >
-                          <path
-                            fillRule="evenodd"
-                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        Tour Highlights:
-                      </h4>
-                      <ul className="space-y-3 mb-8">
-                        {tour.highlights.map((highlight, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start text-gray-700 text-base"
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
                           >
-                            <div className="w-2 h-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full mr-4 mt-2 flex-shrink-0 animate-pulse"></div>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M15 19l-7-7 7-7"
+                            />
+                          </svg>
+                        </button>
 
-                      <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                        Book This Tour
-                      </button>
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 transition-all duration-200 hover:scale-110 shadow-lg"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Dot Indicators */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                          {tour.images.map((_, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => goToImage(idx)}
+                              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                idx === currentImageIndex
+                                  ? "bg-white scale-125"
+                                  : "bg-white/60 hover:bg-white/80"
+                              }`}
+                            />
+                          ))}
+                        </div>
+
+                        {/* Image Counter */}
+                        <div className="absolute top-4 right-4 bg-black/60 text-white px-2 py-1 rounded-full text-xs">
+                          {currentImageIndex + 1} / {tour.images.length}
+                        </div>
+                      </div>
+                    ) : (
+                      // Single Image for Taj Mahal Tour
+                      <img
+                        src={tour.image}
+                        alt={tour.title}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    )}
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
+                      <h3 className="text-xl font-bold text-gray-800">
+                        {tour.title}
+                      </h3>
+                      <p className="text-sm text-[#0080ff] font-semibold">
+                        {tour.duration}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
 
-              <div className="text-center bg-gradient-to-r from-[#e6f7ff] to-[#f0f9ff] rounded-2xl p-8 border border-[#21d6e0]/30">
-                <p className="text-gray-700 text-lg mb-6 flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 mr-2 text-[#21d6e0]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                  All tours include professional guides, transportation, and
-                  entrance fees
-                </p>
-                <button className="bg-gradient-to-r from-[#003366] to-[#004080] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#004080] hover:to-[#003366] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
-                  Contact Tour Coordinator
-                </button>
-              </div>
+                  {/* Tour Details (same as before) */}
+                  <div className="p-8">
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-4xl font-bold bg-gradient-to-r from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent">
+                        {tour.price}
+                      </span>
+                      <span className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-5 py-2 rounded-full text-sm font-semibold shadow-lg">
+                        {tour.duration}
+                      </span>
+                    </div>
+
+                    <h4 className="text-xl font-semibold text-[#003366] mb-5 flex items-center">
+                      <svg
+                        className="w-5 h-5 mr-2 text-[#21d6e0]"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      Tour Highlights:
+                    </h4>
+                    <ul className="space-y-3 mb-8">
+                      {tour.highlights.map((highlight, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start text-gray-700 text-base"
+                        >
+                          <div className="w-2 h-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full mr-4 mt-2 flex-shrink-0 animate-pulse"></div>
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                      Book This Tour
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center bg-gradient-to-r from-[#e6f7ff] to-[#f0f9ff] rounded-2xl p-8 border border-[#21d6e0]/30">
+              <p className="text-gray-700 text-lg mb-6 flex items-center justify-center">
+                <svg
+                  className="w-6 h-6 mr-2 text-[#21d6e0]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+                All tours include professional guides, transportation, and
+                entrance fees
+              </p>
+              <button className="bg-gradient-to-r from-[#003366] to-[#004080] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#004080] hover:to-[#003366] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+                Contact Tour Coordinator
+              </button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
       {/* )} */}
     </div>
   );

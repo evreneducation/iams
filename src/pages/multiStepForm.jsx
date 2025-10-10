@@ -61,6 +61,10 @@ const defaultAttendee = (index) => ({
 
   const RegistrationForm = () => {
 
+
+    // Step 4 condition tracking state
+
+
     const navigate = useNavigate();
   // Step index (0..3)
   const [currentStep, setCurrentStep] = useState(0);
@@ -86,6 +90,19 @@ const defaultAttendee = (index) => ({
   const [termsConsent, setTermsConsent] = useState(false);
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [updatesConsent, setUpdatesConsent] = useState(false);
+const [showProvisionalModal, setShowProvisionalModal] = useState(false);
+const [provisionalTCs, setProvisionalTCs] = useState({
+  eligibility: false,
+  validity: false,
+  paymentDeadline: false,
+  invoice: false,
+  seatAvailability: false,
+  conversion: false,
+  communication: false,
+});
+
+const allProvisionalTCsChecked = () =>
+  Object.values(provisionalTCs).every(Boolean);
 
   // UI: progress, selected card styling
   const [selectedCard, setSelectedCard] = useState(null);
@@ -645,72 +662,95 @@ const [holdPayment, setHoldPayment] = useState(false);
 
   <SummaryBox />
 
-  <div className="space-y-4" style={{ fontFamily: 'Arsenal' }}>
-    {/* Legal & Consent (existing) */}
+  <div className="space-y-4">
+
+    {/* Existing Consents */}
     <div className="flex items-start">
-      <input id="terms-consent" name="terms_consent" type="checkbox" checked={termsConsent} onChange={(e) => setTermsConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
+      <input id="terms-consent" type="checkbox" checked={termsConsent} onChange={(e) => setTermsConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="terms-consent" className="ml-3 text-sm text-gray-700">
         I have read and agree to the <a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">Terms and Conditions</a>, including the cancellation policy. <span className="text-red-500">*</span>
       </label>
     </div>
+
     <div className="flex items-start">
-      <input id="privacy-consent" name="privacy_consent" type="checkbox" checked={privacyConsent} onChange={(e) => setPrivacyConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
+      <input id="privacy-consent" type="checkbox" checked={privacyConsent} onChange={(e) => setPrivacyConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="privacy-consent" className="ml-3 text-sm text-gray-700">
         I consent to my details being shared with event partners and fellow attendees via the B2B Connect platform for networking purposes. <span className="text-red-500">*</span>
       </label>
     </div>
+
     <div className="flex items-start">
-      <input id="updates-consent" name="updates_consent" type="checkbox" checked={updatesConsent} onChange={(e) => setUpdatesConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
+      <input id="updates-consent" type="checkbox" checked={updatesConsent} onChange={(e) => setUpdatesConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="updates-consent" className="ml-3 text-sm text-gray-700">
         I would like to receive future updates and newsletters from Traveon Ventures LLP.
       </label>
     </div>
 
-    {/* Payment Options (Single Select) */}
+    {/* Payment Options */}
     <div className="mt-6 p-6 border-2 border-dashed border-indigo-300 rounded-lg bg-indigo-50 space-y-3">
       <h4 className="text-lg font-semibold text-indigo-800">Payment Options</h4>
+
       <div className="flex items-start">
-        <input
-          type="checkbox"
-          id="instant-payment"
-          checked={instantPayment}
-          disabled={holdPayment} // disable if holdPayment is selected
-          onChange={(e) => {
-            setInstantPayment(e.target.checked);
-            if (e.target.checked) setHoldPayment(false); // deselect hold
-          }}
-          className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1"
-        />
-        <label htmlFor="instant-payment" className="ml-3 text-sm text-gray-700">
-          Instant Online Payment – Secure your seat immediately via credit/debit card or bank transfer.
-        </label>
+        <input type="checkbox" id="instant-payment" checked={instantPayment} disabled={false} onChange={(e) => { 
+          setInstantPayment(e.target.checked); 
+          if(e.target.checked) setHoldPayment(false); 
+        }} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
+        <label htmlFor="instant-payment" className="ml-3 text-sm text-gray-700">Instant Online Payment – Secure your seat immediately via credit/debit card or bank transfer.</label>
       </div>
 
       <div className="flex items-start">
-        <input
-          type="checkbox"
-          id="provisional-confirmation"
-          checked={holdPayment}
-          disabled={instantPayment} // disable if instantPayment is selected
-          onChange={(e) => {
-            setHoldPayment(e.target.checked);
-            if (e.target.checked) setInstantPayment(false); // deselect instant
-          }}
-          className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1"
+        <input 
+          type="checkbox" 
+          id="provisional-confirmation" 
+          checked={holdPayment && allProvisionalTCsChecked()} 
+          disabled={instantPayment} 
+          onClick={() => setShowProvisionalModal(true)} 
+          className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1 cursor-pointer" 
         />
-        <label htmlFor="provisional-confirmation" className="ml-3 text-sm text-gray-700">
-          Provisional Confirmation (15-Day Hold) – Reserve your seat now; payment due within 15 days of receiving invoice. If payment is not received within this period, the registration will be automatically cancelled without notice.
+        <label htmlFor="provisional-confirmation" className="ml-3 text-sm text-gray-700 cursor-pointer" onClick={() => setShowProvisionalModal(true)}>
+          Provisional Confirmation (15-Day Hold) – Click to review Terms & Conditions.
         </label>
       </div>
-    </div>
-
-    {/* Existing Payment Gateway Info */}
-    <div className="mt-8 p-6 border-2 border-dashed border-indigo-300 rounded-lg text-center bg-indigo-50">
-      <h4 className="text-lg font-semibold text-indigo-800">Payment Gateway Integration</h4>
-      <p className="text-sm text-indigo-700 mt-2">Upon clicking 'Submit & Pay', you will be redirected to our secure payment gateway to complete the transaction.</p>
-      <p className="text-xs text-indigo-500 mt-1">Note: A 3% Credit Card processing fee is included in the total.</p>
     </div>
   </div>
+
+  {/* Provisional Terms & Conditions Modal */}
+  {showProvisionalModal && (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg max-w-xl w-full p-6 space-y-4 overflow-y-auto max-h-[80vh]">
+        <h3 className="text-xl font-semibold text-indigo-800">Provisional Confirmation – Terms & Conditions</h3>
+
+        {Object.keys(provisionalTCs).map((key, index) => (
+          <div key={index} className="flex items-start">
+            <input
+              type="checkbox"
+              checked={provisionalTCs[key]}
+              onChange={(e) => setProvisionalTCs(prev => {
+                const newState = { ...prev, [key]: e.target.checked };
+                // Auto-check provisional checkbox if all conditions met
+                if(Object.values(newState).every(Boolean)) setHoldPayment(true);
+                return newState;
+              })}
+              className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1"
+            />
+            <label className="ml-3 text-sm text-gray-700">
+              {key === "eligibility" && "Eligibility: Designed for delegates needing internal approval."}
+              {key === "validity" && "Validity Period: Provisional seat held for 15 calendar days."}
+              {key === "paymentDeadline" && "Payment Deadline: Full payment within 15 days or booking cancelled."}
+              {key === "invoice" && "Invoice & Confirmation: Invoice issued upon acceptance; final confirmation after full payment."}
+              {key === "seatAvailability" && "Seat Availability: Status remains 'confirmed' during validity period."}
+              {key === "conversion" && "Conversion to Full Registration: Can convert anytime during 15 days by submitting payment."}
+              {key === "communication" && "Communication: All correspondence via official company email IDs only."}
+            </label>
+          </div>
+        ))}
+
+        <div className="flex justify-end mt-4">
+          <button onClick={() => setShowProvisionalModal(false)} className="btn btn-indigo">Close</button>
+        </div>
+      </div>
+    </div>
+  )}
 </section>
 
           {/* Navigation Buttons */}
