@@ -15,6 +15,9 @@ import About from "./pages/About";
 import Venue from "./pages/Venue";
 import Contact from "./pages/Contact";
 import RegistrationForm from "./pages/multiStepForm";
+import HotelPartners from "./pages/allhote";
+import AllHotel from "./pages/allhote";
+import TravelInfo from "./pages/travellsAndVisa";
 function App() {
   return (
     <Router>
@@ -35,6 +38,8 @@ function App() {
             <Route path="/venue-travel" element={<Venue />} />
             <Route path="/contact" element={<Contact/>} />
              <Route path="/registration-form" element={<RegistrationForm/>} />
+               <Route path="/hotelpartner" element={<AllHotel/>} />
+               <Route path="/travel-info" element={<TravelInfo/>} />
           </Routes>
         </main>
         <Footer />

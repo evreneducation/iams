@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // SVG Icons
 const LocationIcon = () => (
@@ -168,6 +168,7 @@ const PostEventTours = () => {
 };
 
 const Venue = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("venue");
   const [isVisible, setIsVisible] = useState({});
   const sectionRefs = useRef({});
@@ -296,12 +297,12 @@ const Venue = () => {
     },
   ];
 
-  const navigationItems = [
-    { id: "venue", label: "Venue Info", icon: <LocationIcon /> },
-    { id: "accommodation", label: "Hotels", icon: <HotelIcon /> },
-    { id: "travel", label: "Travel", icon: <TravelIcon /> },
-    { id: "tours", label: "Post-Event Tours", icon: <TourIcon /> },
-  ];
+  // const navigationItems = [
+  //   { id: "venue", label: "Venue Info", icon: <LocationIcon /> },
+  //   { id: "accommodation", label: "Hotels", icon: <HotelIcon /> },
+  //   { id: "travel", label: "Travel", icon: <TravelIcon /> },
+  //   { id: "tours", label: "Post-Event Tours", icon: <TourIcon /> },
+  // ];
 
   const TransportIcon = ({ type }) => {
     switch (type) {
@@ -399,33 +400,10 @@ const Venue = () => {
         </section>
       </section>
 
-      {/* Improved Navigation Header */}
-      <div className="bg-white/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300 border-b border-gray-200 overflow-x-hidden">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap justify-center py-4 gap-2"> {/* flex-wrap + gap for spacing */}
-      {navigationItems.map((item) => (
-        <button
-          key={item.id}
-          onClick={() => setActiveTab(item.id)}
-          className={`flex items-center px-6 py-4 rounded-lg transition-all duration-300 min-w-[120px] ${
-            activeTab === item.id
-              ? "bg-gradient-to-br from-[#21d6e0] to-[#0080ff] text-white shadow-md transform scale-105"
-              : "text-gray-600 hover:text-[#0080ff] hover:bg-gray-50"
-          }`}
-        >
-          <span className={`mr-3 ${activeTab === item.id ? "text-white" : "text-gray-500"}`}>
-            {item.icon}
-          </span>
-          <span className="text-sm font-semibold">{item.label}</span>
-        </button>
-      ))}
-    </div>
-  </div>
-</div>
-
+     
 
       {/* Venue Information */}
-      {activeTab === "venue" && (
+      {/* {activeTab === "venue" && ( */}
         <section
           className="py-20 bg-white"
           ref={(el) => (sectionRefs.current.venue = el)}
@@ -559,11 +537,81 @@ const Venue = () => {
             </div>
           </div>
         </section>
-      )}
+      {/* )} */}
+
+
+<div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-16">
+  <h2 className="text-2xl md:text-3xl font-bold font-bold text-[#003366] mb-6 text-center">Travel & Accommodation</h2>
+  
+  <div className="grid gap-6 md:grid-cols-3">
+    {/* Hotel Partners */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+      <div className="flex items-center mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z" />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Hotel Partners</h3>
+      </div>
+      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+        We have secured exclusive rates with several 5-star hotels near the venue.
+        Book through our portal to receive a discount.
+      </p>
+     <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+      onClick={()=>{
+         navigate("/hotelpartner")
+      }}>
+  Book Your Hotel
+</button>
+    </div>
+
+    {/* Getting There */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+      <div className="flex items-center mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6" />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Getting There</h3>
+      </div>
+      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+        Yashobhoomi is easily accessible from Indira Gandhi International Airport (DEL).
+        Find details on transport options.
+      </p>
+     <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+      onClick={()=>{
+         navigate("/travel-info")
+      }}>
+      View Transport Options
+</button>
+    </div>
+
+    {/* Visa Information */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
+      <div className="flex items-center mb-3">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4" />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Visa Information</h3>
+      </div>
+      <p className="text-gray-600 mb-4 flex-grow py-[30px]">
+        India requires visas for most international visitors. We strongly recommend starting
+        your application process early.
+      </p>
+      <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
+       onClick={()=>{
+         navigate("/travel-info")
+      }}>
+  Official India Visa Portal
+  
+</button>
+    </div>
+  </div>
+</div>
+
+
 
       {/* Accommodation Section */}
-      {activeTab === "accommodation" && (
-        <section
+      {/* {activeTab === "accommodation" && ( */}
+        {/* <section
           className="py-20 bg-gradient-to-br from-[#f0f9ff] to-white"
           ref={(el) => (sectionRefs.current.accommodation = el)}
         >
@@ -598,7 +646,7 @@ const Venue = () => {
                     style={{ transitionDelay: `${index * 0.2}s` }}
                   >
                     {/* Hotel Image */}
-                    <div className="h-56 bg-gray-200 relative overflow-hidden group">
+                    {/* <div className="h-56 bg-gray-200 relative overflow-hidden group">
                       <img
                         src={hotel.image}
                         alt={hotel.name}
@@ -613,9 +661,9 @@ const Venue = () => {
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <div className="p-6">
+                    {/* <div className="p-6">
                       <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-bold text-[#003366]">
                           {hotel.name}
@@ -628,9 +676,9 @@ const Venue = () => {
                       <div className="flex items-center text-gray-600 mb-5">
                         <LocationIcon />
                         <span className="ml-2 text-sm">{hotel.distance}</span>
-                      </div>
+                      </div> */}
 
-                      <ul className="space-y-3 mb-6">
+                      {/* <ul className="space-y-3 mb-6">
                         {hotel.features.map((feature, idx) => (
                           <li
                             key={idx}
@@ -648,9 +696,9 @@ const Venue = () => {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
-              <div className="text-center">
+              {/* <div className="text-center">
                 <Link
                   to="/hotel-booking"
                   className="inline-flex items-center gap-3 bg-gradient-to-r from-[#003366] to-[#004080] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#004080] hover:to-[#003366] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl"
@@ -672,17 +720,25 @@ const Venue = () => {
                 </Link>
               </div>
             </div>
-          </div>
-        </section>
-      )}
+          </div> */}
+        {/* </section> */}
+      {/* )} */}
+
+
+
+
+
+
+
+
 
       {/* Travel Information */}
-      {activeTab === "travel" && (
-        <section
+      {/* {activeTab === "travel" && ( */}
+        {/* <section
           className="py-20 bg-white"
           ref={(el) => (sectionRefs.current.travel = el)}
-        >
-          <div className="container mx-auto px-4">
+        > */}
+          {/* <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div
                 className={`text-center mb-16 transition-all duration-1000 ${
@@ -697,11 +753,11 @@ const Venue = () => {
                 <p className="text-xl text-gray-600">
                   From Indira Gandhi International Airport (DEL)
                 </p>
-              </div>
+              </div> */}
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+              {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                 {/* Travel Options */}
-                <div
+                {/* <div
                   className={`transition-all duration-1000 ${
                     isVisible.travel
                       ? "translate-x-0 opacity-100"
@@ -748,7 +804,7 @@ const Venue = () => {
                 </div>
 
                 {/* Visa Information */}
-                <div
+                {/* <div
                   className={`transition-all duration-1000 ${
                     isVisible.travel
                       ? "translate-x-0 opacity-100"
@@ -810,9 +866,9 @@ const Venue = () => {
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
-                    <a
+                    {/* <a
                       href="https://indianvisaonline.gov.in/evisa/tvoa.html"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -821,15 +877,19 @@ const Venue = () => {
                       Apply for Indian Visa
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+                </div> */}
+              {/* </div> */} 
+            {/* // </div> */}
+          {/* // </div> */} 
+        {/* // </section> */}
+      {/* )} */}
+
+
+
+
 
       {/* Post-Event Tours */}
-      {activeTab === "tours" && (
+      {/* {activeTab === "tours" && ( */}
         <section
           className="py-20 bg-gradient-to-br from-[#f0f9ff] to-white"
           ref={(el) => (sectionRefs.current.tours = el)}
@@ -1020,7 +1080,7 @@ const Venue = () => {
             </div>
           </div>
         </section>
-      )}
+      {/* )} */}
     </div>
   );
 };
