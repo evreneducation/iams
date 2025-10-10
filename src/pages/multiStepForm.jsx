@@ -751,6 +751,18 @@ const [holdPayment, setHoldPayment] = useState(false);
       </div>
     </div>
   )}
+  <div className="mt-8 p-6 border-2 border-dashed border-indigo-300 rounded-lg text-center bg-indigo-50">
+  <h4 className="text-lg font-semibold text-indigo-800">
+    Payment Gateway Integration
+  </h4>
+  <p className="text-sm text-indigo-700 mt-2">
+    Upon clicking <strong>'Submit & Pay'</strong>, you will be redirected to our secure payment gateway to complete the transaction.
+  </p>
+  <p className="text-xs text-indigo-500 mt-1">
+    Note: A 3% Credit Card processing fee is included in the total.
+  </p>
+</div>
+
 </section>
 
           {/* Navigation Buttons */}
