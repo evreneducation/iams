@@ -1,10 +1,10 @@
 // src/pages/Registration.js
 import React, { useState } from "react";
-import RegistrationForm from "../components/multiStepForm";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
+  
+  const navigate = useNavigate();
   const passes = [
     {
       name: "Early Bird Pass",
@@ -98,7 +98,7 @@ const Registration = () => {
               </ul>
 
               <button
-                onClick={() => setModalOpen(true)}
+                onClick={() => navigate('/registration-form')}
                 className="w-full bg-blue-900 text-white py-3 rounded font-semibold hover:bg-blue-800 transition"
               >
                 Register Now
@@ -132,7 +132,7 @@ const Registration = () => {
 
         <div className="text-center">
           <button
-            onClick={() => setModalOpen(true)}
+            onClick={() => navigate('/registration-form')}
             className="bg-blue-900 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-800 transition mr-4"
           >
             Register Now
@@ -144,21 +144,19 @@ const Registration = () => {
       </div>
 
       {/* Modal (show RegistrationForm here) */}
-      {modalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 transition-opacity duration-300">
+      
+        {/* <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 transition-opacity duration-300">
           <div className="bg-white rounded-xl shadow-xl max-w-3xl w-full p-6 relative transform scale-95 animate-scale-in overflow-y-auto max-h-[90vh]">
             <button
-              onClick={() => setModalOpen(false)}
+              onClick={() => navigagte('/registration-form')}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold"
             >
               &times;
             </button>
 
-            {/* Your multi-step form appears here */}
-            <RegistrationForm />
           </div>
-        </div>
-      )}
+        </div> */}
+   
 
       {/* Animation */}
       <style>{`

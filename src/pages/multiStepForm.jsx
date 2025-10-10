@@ -1,8 +1,9 @@
 // src/components/RegistrationForm.jsx
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "@fontsource/arsenal"; // defaults to weight 400
-
+import { Info } from "lucide-react";
 /**
  * RegistrationForm.jsx
  * Full React conversion of the provided multi-step HTML registration form.
@@ -59,8 +60,11 @@ const defaultAttendee = (index) => ({
 });
 
   const RegistrationForm = () => {
+
+    const navigate = useNavigate();
   // Step index (0..3)
   const [currentStep, setCurrentStep] = useState(0);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   // Step 1: delegate type + group size
   const [delegateTypeId, setDelegateTypeId] = useState("");
@@ -71,7 +75,10 @@ const defaultAttendee = (index) => ({
 
   // Step 3: company / strategic info
   const [companyName, setCompanyName] = useState("");
+   const [companyWebsite, setCompanyWebsite] = useState("");
   const [companyHQ, setCompanyHQ] = useState("");
+    const [industrySector, setIndustrySector] = useState("");
+  
   const [strategicObjective, setStrategicObjective] = useState("");
   const [referredBy, setReferredBy] = useState("");
 
@@ -239,6 +246,8 @@ const defaultAttendee = (index) => ({
   })),
   companyProfile: {
     companyName,
+    companyWebsite,
+    industrySector,
     companyHQ,
     strategicObjective,
     referredBy,
@@ -263,13 +272,15 @@ const defaultAttendee = (index) => ({
            console.log(res);
            if(res.data.message){
                alert("Registerd SucessFully");
+                setSubmittedSuccess(true);
+                navigate('/registration-form')
+                
            }
        })
        .catch((err)=>{
            console.log(err);
+            alert("Registeratio failed");
        })
-
-      setSubmittedSuccess(true);
       
     } catch (err) {
       console.error("Submission error:", err);
@@ -487,7 +498,7 @@ const defaultAttendee = (index) => ({
           {/* Step 3 */}
           <section id="step-3" className={currentStep !== 2 ? "hidden" : ""} style={{fontFamily:'Arsenal'}}>
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Step 3: Strategic Profile & Networking</h2>
-            <p className="text-gray-600 mb-6">Help us optimize the B2B Connect Lounge by telling us about your organization and networking goals.</p>
+            <p className="text-gray-600 mb-6">Help us optimize the B2B Connect  by telling us about your organization and networking goals.</p>
 
             <div className="space-y-4" style={{fontFamily:'Arsenal'}}>
               <div>
@@ -495,20 +506,121 @@ const defaultAttendee = (index) => ({
                 <input id="company-name" value={companyName} onChange={(e) => setCompanyName(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500" />
               </div>
 
-              <div style={{fontFamily:'Arsenal'}}>
-                <label htmlFor="company-hq" className="block text-sm font-medium text-gray-700">Company Headquarters Country <span className="text-red-500">*</span></label>
-                <input id="company-hq" value={companyHQ} onChange={(e) => setCompanyHQ(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500" />
+              <div style={{ fontFamily: 'Arsenal' }}>
+  <label
+    htmlFor="company-hq"
+    className="block text-sm font-medium text-gray-700"
+  >
+    Company Headquarters Country <span className="text-red-500">*</span>
+  </label>
+  <select
+    id="company-hq"
+    value={companyHQ}
+    onChange={(e) => setCompanyHQ(e.target.value)}
+    required
+    className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
+  >
+    <option value="">Select a country</option>
+    {[
+      "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Australia","Austria","Azerbaijan",
+      "Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia",
+      "Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada",
+      "Chile","China","Colombia","Comoros","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic",
+      "Denmark","Dominican Republic","Ecuador","Egypt","El Salvador","Estonia","Ethiopia","Fiji","Finland","France",
+      "Georgia","Germany","Ghana","Greece","Guatemala","Haiti","Honduras","Hungary","Iceland","India",
+      "Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan",
+      "Kenya","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Lithuania",
+      "Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico",
+      "Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nepal","Netherlands",
+      "New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Panama",
+      "Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda",
+      "Saudi Arabia","Senegal","Serbia","Seychelles","Singapore","Slovakia","Slovenia","Somalia","South Africa","South Korea",
+      "Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania",
+      "Thailand","Togo","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom",
+      "United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
+    ].map((country) => (
+      <option key={country} value={country}>
+        {country}
+      </option>
+    ))}
+  </select>
+</div>
+
+               <div>
+                <label htmlFor="company-website" className="block text-sm font-medium text-gray-700">Company website</label>
+                <input id="company-website" value={companyWebsite} onChange={(e) => setCompanyWebsite(e.target.value)}  className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500" />
               </div>
+<div style={{ fontFamily: 'Arsenal' }}>
+  <label
+    htmlFor="industry-sector"
+    className="block text-sm font-medium text-gray-700"
+  >
+    Industry Sector <span className="text-red-500">*</span>
+  </label>
+  <select
+    id="industry-sector"
+    value={industrySector}
+    onChange={(e) => setIndustrySector(e.target.value)}
+    required
+    className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
+  >
+    <option value="">Industry Sector</option>
+    {[
+      "Airline",
+      "Airport / Airport Management",
+      "IT Solution",
+      "System Provider",
+      "Architect / Advisor / Consultant",
+      "Hotel / Car Rental / Insurance",
+      "Bank / Credit Card / Fintech",
+      "Press / Media",
+      "Industry / Association / Institution",
+      "Others"
+    ].map((sector) => (
+      <option key={sector} value={sector}>
+        {sector}
+      </option>
+    ))}
+  </select>
+</div>
+
 
               <div style={{fontFamily:'Arsenal'}}>
                 <label htmlFor="strategic-objectives" className="block text-sm font-medium text-gray-700">Primary Strategic Objective for Attending (max 150 words) <span className="text-red-500">*</span></label>
                 <textarea id="strategic-objectives" rows="4" maxLength={150} value={strategicObjective} onChange={(e) => setStrategicObjective(e.target.value)} required className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-400" placeholder="e.g., 'To secure a partnership with a Star Alliance member' or 'To showcase our new AI-driven pricing solution.'"></textarea>
               </div>
 
-              <div style={{fontFamily:'Arsenal'}}>
-                <label htmlFor="referred-by" className="block text-sm font-medium text-gray-700">Referred By (Optional)</label>
-                <input id="referred-by" value={referredBy} onChange={(e) => setReferredBy(e.target.value)} className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500" />
-              </div>
+             <div style={{ fontFamily: "Arsenal" }} className="relative">
+      <label
+        htmlFor="referred-by"
+        className="block text-sm font-medium text-gray-700 flex items-center"
+      >
+        GST/VAT/TVA number (Optional)
+        <button
+          type="button"
+          onClick={() => setShowTooltip(!showTooltip)}
+          className="ml-2 text-blue-600 hover:text-blue-800 focus:outline-none"
+        >
+          <Info size={16} />
+        </button>
+      </label>
+
+      {/* Tooltip */}
+      {showTooltip && (
+        <div className="absolute z-10 mt-1 w-80 p-3 bg-white border border-gray-300 rounded-lg shadow-lg text-sm text-gray-700">
+          Please note, Delegates registering from the European Union (EU/EEA)
+          companies can state your VAT/TVA number on your invoice for compliance
+          reasons and to avoid over-taxation.
+        </div>
+      )}
+
+      <input
+        id="referred-by"
+        value={referredBy}
+        onChange={(e) => setReferredBy(e.target.value)}
+        className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
+      />
+    </div>
             </div>
           </section>
 

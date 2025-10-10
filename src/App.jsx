@@ -14,6 +14,7 @@ import ScrollToTop from "./utils/ScrollToTop";
 import About from "./pages/About";
 import Venue from "./pages/Venue";
 import Contact from "./pages/Contact";
+import RegistrationForm from "./pages/multiStepForm";
 function App() {
   return (
     <Router>
@@ -33,6 +34,7 @@ function App() {
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/venue-travel" element={<Venue />} />
             <Route path="/contact" element={<Contact/>} />
+             <Route path="/registration-form" element={<RegistrationForm/>} />
           </Routes>
         </main>
         <Footer />
