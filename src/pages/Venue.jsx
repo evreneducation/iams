@@ -598,8 +598,8 @@ const Venue = () => {
       </p>
       <button className="mt-auto px-5 py-2 bg-blue-600 text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
        onClick={()=>{
-         navigate("/travel-info")
-      }}>
+         window.location.href="https://indianvisaonline.gov.in/evisa/tvoa.html"
+      }} target="_blank">
   Official India Visa Portal
   
 </button>
