@@ -84,7 +84,7 @@ const Speakers = () => {
           <h2 className="text-3xl font-semibold mb-6">
             Speaker Application Deadline
           </h2>
-          <p className="text-2xl mb-8 font-light">
+          <p className="text-2xl mb-9 font-light">
             Submit your proposal by October 31 , 2025
           </p>
           <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-100 transition">
