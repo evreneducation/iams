@@ -7,10 +7,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -82,18 +84,17 @@ const Contact = () => {
 
   return (
     <>
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-12 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Partner with Us. Make Your Mark in Aviation.
-          </h1>
-          <p className="text-xl max-w-3xl mx-auto mb-8">
-            We're here to guide you every step of the way. Reach out to explore
-            sponsorship or exhibition opportunities, and a member of our team
-            will assist you promptly to maximize your impact at IAMS 2026.
-          </p>
-        </div>
-      </section>
+      <section className="bg-gradient-to-r from-[#0E7785] to-[#15A4B3] text-white py-12 mt-16">
+  <div className="container mx-auto px-4 text-center">
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      Partner with Us. Make Your Mark in Aviation.
+    </h1>
+    <p className="text-xl max-w-3xl mx-auto mb-8">
+      Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
+      We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
+    </p>
+  </div>
+</section>
 
       <section
         className="contact-banner relative min-h-[90vh] flex items-center py-30 px-4 md:px-12 overflow-hidden"
@@ -124,10 +125,10 @@ const Contact = () => {
 
             <div className="flex flex-col gap-5">
               {[
-                { icon: <FiMail />, title: "General Inquiries", text: "info@iams2026.com" },
-                { icon: <FiMail />, title: "Sponsorship & Exhibition", text: "sponsorship@iams2026.com" },
-                { icon: <FiMail />, title: "Speaker Opportunities", text: "speakers@iams2026.com" },
-                { icon: <FiMail />, title: "Media & Press", text: "media@iams2026.com" },
+                { icon: <FiMail />, title: "General Inquiries", text: "info@iamsglobal.com" },
+                { icon: <FiMail />, title: "Sponsorship & Exhibition", text: "sponsorship@iamsglobal.com" },
+                { icon: <FiMail />, title: "Speaker Opportunities", text: "speakers@iamsglobal.com" },
+                { icon: <FiMail />, title: "Media & Press", text: "media@iamsglobal.com" },
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -192,17 +193,17 @@ const Contact = () => {
                   Select Inquiry Type
                 </option>
                 <option value="General">General</option>
-                <option value="Sponsorship">Sponsorship</option>
+                <option value="Sponsorship & exhibition">Sponsorship & exhibition</option>
                 <option value="Awards">Awards</option>
                 <option value="Speaker">Speaker</option>
-                <option value="Media">Media</option>
+                <option value="Social media & Press">Social media & Press</option>
               </select>
               <textarea
                 name="message"
                 value={data.message}
                 onChange={handleChange}
                 required
-                placeholder="Your Project Details"
+                placeholder="Your message"
                 rows="4"
                 className="w-full py-3 bg-white/10 border-b border-white/40 text-black placeholder-black/50 focus:outline-none rounded-md px-3 resize-none form-element"
               ></textarea>
@@ -246,6 +247,67 @@ const Contact = () => {
         </div>
       </section>
 
+<div className="bg-blue-50 p-8 rounded-lg mb-16">
+          <h2
+            className="text-2xl font-semibold text-center mb-6"
+            style={{ color: "rgb(21, 164, 179)" }}
+          >
+            Important Information
+          </h2>
+          <ul className="list-disc pl-5 space-y-3 max-w-2xl mx-auto">
+            <li>
+              All passes include full conference access, exhibition entry,
+              networking meals, awards gala, and networking reception
+              invitation.
+            </li>
+            <li>
+              Group discounts apply for 3 or more attendees from the same
+              organization.
+            </li>
+            <li>
+              Cancellation policy: Full refund until January 31, 2026; 50%
+              refund until February 28, 2026; no refund after March 1, 2026.
+            </li>
+          </ul>
+        </div>
+ <div className="text-center py-[30px]">
+          <button
+            onClick={() => navigate("/registration-form")}
+            className="text-white px-8 py-3 rounded-lg font-semibold text-lg transition mr-4"
+            style={{
+              backgroundColor: "rgb(21, 164, 179)",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "rgb(17, 130, 142)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "rgb(21, 164, 179)")
+            }
+          
+          >
+            Register Now
+          </button>
+
+          <button
+            className="bg-white border px-8 py-3 rounded-lg font-semibold text-lg transition"
+            style={{
+              color: "rgb(21, 164, 179)",
+              borderColor: "rgb(21, 164, 179)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgb(240, 250, 250)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "white";
+            }}
+          >
+            Contact for Group Booking
+          </button>
+        </div>
+      
+
+      
+
       <>
   {/* existing code */}
   <ToastContainer
@@ -260,6 +322,7 @@ const Contact = () => {
     pauseOnHover
   />
 </>
+
 
     </>
   );

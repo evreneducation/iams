@@ -24,16 +24,16 @@ const delegateTypes = [
     id: "airline",
     label: "Airline,Airport,Hotel,& Car Rental",
     description:
-      "International & Domestic Airlines, LLCs, ULCCs, Airport Operators, Hotels, Car Rental.",
+      "Includes all Airlines, LCCs, ULCCs, Airport Operators, Hotels, and Car Rental Companies .",
     fee: 600,
     bgClass: "bg-green-50/50",
     textClass: "text-green-700",
   },
   {
     id: "supplier",
-    label: "Aviation Technology/Supplier",
+    label: "Aviation Technology / Supplier / Support Services",
     description:
-      "Tech Providers, Consultants, GDS, Service Vendors, MRO (Non-Sponsoring).",
+      "Includes Technology Providers, Consultants, GDS, Service Vendors, Banks, FinTech & Insurance(Non-Sponsoring).",
     fee: 1900,
     bgClass: "bg-yellow-50/50",
     textClass: "text-yellow-700",
@@ -42,7 +42,7 @@ const delegateTypes = [
     id: "general",
     label: "General Attendee/Media",
     description:
-      "Financial Institutions, Consultants, Trade Media, Non-Airline/Non-Vendor.",
+      "Includes Institutions, Trade bodies, Media, and Non-Airline / Non-Vendor Participants.",
     fee: 900,
     bgClass: "bg-red-50/50",
     textClass: "text-red-700",
@@ -93,13 +93,12 @@ const defaultAttendee = (index) => ({
 const [showProvisionalModal, setShowProvisionalModal] = useState(false);
 const [provisionalTCs, setProvisionalTCs] = useState({
   eligibility: false,
-  validity: false,
+  validityPeriod: false,
   paymentDeadline: false,
-  invoice: false,
+  invoiceConfirmation: false,
   seatAvailability: false,
-  conversion: false,
-  communication: false,
 });
+
 
 const allProvisionalTCsChecked = () =>
   Object.values(provisionalTCs).every(Boolean);
@@ -235,6 +234,8 @@ const [holdPayment, setHoldPayment] = useState(false);
 
   let subtotal = feePer * size; 
   let discountAmount = 0;
+  const originalTotal = feePer * size;
+
 
   if (size === 2) discountAmount = feePer * 1 * 0.5;      // 50% of 1 attendee
   else if (size === 3) discountAmount = feePer * 1 * 1;   // 100% of 1 attendee
@@ -242,10 +243,10 @@ const [holdPayment, setHoldPayment] = useState(false);
   // size 1 → discountAmount = 0
 
   subtotal = subtotal - discountAmount;
-  const cardFee = subtotal * CARD_FEE;
-  const total = subtotal + cardFee;
+  // const cardFee = subtotal * CARD_FEE;
+  const total = subtotal;
 
-  return { feePer, size, discountRate, discountAmount, subtotal, cardFee, total };
+  return { feePer, size, discountRate, discountAmount, subtotal, total ,originalTotal};
 };
 
 
@@ -264,7 +265,7 @@ const [holdPayment, setHoldPayment] = useState(false);
   groupSize: totals.size,
   discountRate: totals.discountRate,
   discountAmount: totals.discountAmount,
-  cardFee: totals.cardFee,
+  // cardFee: totals.cardFee,
   total: totals.total,
   instantPayment:instantPayment,
   holdPayment:holdPayment,
@@ -336,17 +337,20 @@ const [holdPayment, setHoldPayment] = useState(false);
           <p>
             Delegates: <span className="font-semibold">{totals.size}</span>
           </p>
+          <p>
+           Total Rate (Before Discount): <span className="font-semibold">-$ USD {totals.originalTotal}.00</span>
+          </p>
           {totals.discountAmount > 0 && (
             <p className="text-red-500">
               Group Discount ({(totals.discountRate * 100).toFixed(0)}%):{" "}
-              <span className="font-semibold">-${totals.discountAmount.toFixed(2)} USD</span>
+              <span className="font-semibold">-$ USD {totals.discountAmount.toFixed(2)} </span>
             </p>
           )}
-          <p>Subtotal: <span className="font-semibold">${(totals.subtotal).toFixed(2)} USD</span></p>
-          <p>Credit Card Fee (3%): <span className="font-semibold">${totals.cardFee.toFixed(2)} USD</span></p>
+          <p>Subtotal: <span className="font-semibold">$ USD {(totals.subtotal).toFixed(2)}</span></p>
+          
           <div className="mt-4 pt-4 border-t border-gray-200 flex justify-between items-center font-bold text-gray-900">
             <span>Total Due</span>
-            <span className="text-2xl text-indigo-600">${totals.total.toFixed(2)} USD</span>
+            <span className="text-2xl text-indigo-600">$ USD {totals.total.toFixed(2)}</span>
           </div>
         </div>
       </div>
@@ -360,7 +364,7 @@ const [holdPayment, setHoldPayment] = useState(false);
     <div className="min-h-screen flex items-start justify-center p-4 sm:p-6 lg:p-8 bg-gray-50" style={{fontFamily:'Arsenal'}}>
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-xl overflow-hidden my-10">
         {/* Header */}
-        <header className="p-6 sm:p-8 text-white" style={{backgroundColor:'rgb(0,172,168)'}} >
+        <header className="p-6 sm:p-8 text-white bg-[#15A4B3]">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             International Aviation Marketing Summit 2026
           </h1>
@@ -376,10 +380,10 @@ const [holdPayment, setHoldPayment] = useState(false);
               <div id="progress-bar" className="h-2 bg-indigo-600 rounded-full transition-all duration-500" style={{ width: progressPercent }} />
             </div>
             <div className="mt-3 flex justify-between text-xs sm:text-sm font-medium text-gray-500">
-              <span id="step-title-1" className={currentStep === 0 ? "text-indigo-600" : "text-gray-500"}>1. Delegate Type</span>
-              <span id="step-title-2" className={currentStep === 1 ? "text-indigo-600" : "text-gray-500"}>2. Attendee Details</span>
-              <span id="step-title-3" className={currentStep === 2 ? "text-indigo-600" : "text-gray-500"}>3. Business Profile</span>
-              <span id="step-title-4" className={currentStep === 3 ? "text-indigo-600" : "text-gray-500"}>4. Review & Payment</span>
+              <span id="step-title-1" className={currentStep === 0 ? "text-[#15A4B3]" : "text-gray-500"}>1. Delegate Type</span>
+              <span id="step-title-2" className={currentStep === 1 ?"text-[#15A4B3]" : "text-gray-500"}>2. Attendee Details</span>
+              <span id="step-title-3" className={currentStep === 2 ? "text-[#15A4B3]" : "text-gray-500"}>3. Business Profile</span>
+              <span id="step-title-4" className={currentStep === 3 ? "text-[#15A4B3]" : "text-gray-500"}>4. Review & Payment</span>
             </div>
           </div>
 
@@ -407,41 +411,61 @@ const [holdPayment, setHoldPayment] = useState(false);
                     <h3 className={`font-bold text-lg ${type.textClass}`}>{type.label}</h3>
                     <p className="text-sm text-gray-500 mt-1">{type.description}</p>
                     <p className={`text-2xl font-extrabold mt-3 ${type.textClass}`}>
-                      {type.fee === 0 ? "Complimentary" : `$${type.fee.toLocaleString()} USD`}
+                      {type.fee === 0 ? "Complimentary" : `$USD ${type.fee.toLocaleString()} `}
                     </p>
                   </div>
                 </label>
               ))}
             </div>
 
-            <div className="mt-8" style={{fontFamily:'Arsenal'}}>
-              {/* <label className="block text-sm font-medium text-gray-700 mb-2">Number of Attendees (Max 10 per Group)</label> */}
-              <select
-                id="group-size"
-                className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
-                value={groupSize}
-                onChange={(e) => setGroupSize(Number(e.target.value))}
-              >
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <option key={i} value={i + 1}>
-                    {i + 1} {i === 0 ? "Attendee" : i === 1 ? "Attendee (2)" : `Attendees (${i + 1})`}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <div className="mt-8" style={{ fontFamily: "Arsenal" }}>
+  <select
+    id="group-size"
+    className="w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
+    value={groupSize}
+    onChange={(e) => setGroupSize(Number(e.target.value))}
+  >
+    {Array.from({ length: 4 }).map((_, i) => {
+      let label = "";
+      switch (i + 1) {
+        case 1:
+          label = "1 Attendee - Full amount";
+          break;
+        case 2:
+          label = "2 Attendees - 25% off";
+          break;
+        case 3:
+          label = "3 Attendees - 33% off";
+          break;
+        case 4:
+          label = "4 Attendees - 40% off";
+          break;
+        default:
+          label = `${i + 1} Attendees`;
+      }
+      return (
+        <option key={i} value={i + 1}>
+          {label}
+        </option>
+      );
+    })}
+  </select>
+</div>
+
           </section>
 
           {/* Step 2 */}
           <section id="step-2" className={currentStep !== 1 ? "hidden" : ""} style={{fontFamily:'Arsenal'}}>
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Step 2: Attendee Information</h2>
             <p className="text-gray-600 mb-6">
-              These details will be used for your badge, access to the B2B Connect platform, and official communication. Please ensure accuracy.
+             These details will be used for your badge, IAMS 2026 guide, and official communications. Please ensure all information is complete and accurate.
+
             </p>
 
             <div id="attendee-forms" className="space-y-8" style={{fontFamily:'Arsenal'}}>
               {attendees.map((a, idx) => (
                 <div key={idx} className={`p-6 border border-gray-200 rounded-lg bg-white shadow-sm ${idx === 0 ? "group-contact" : ""}`} style={{fontFamily:'Arsenal'}}>
-                  <h4 className="text-lg font-bold text-indigo-600 mb-4">
+                  <h4 className="text-lg font-bold text-[#15A4B3] mb-4">
                     {idx === 0 ? "Group Contact (Attendee 1)" : `Attendee ${idx + 1}`}
                   </h4>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -529,7 +553,8 @@ const [holdPayment, setHoldPayment] = useState(false);
           {/* Step 3 */}
           <section id="step-3" className={currentStep !== 2 ? "hidden" : ""} style={{fontFamily:'Arsenal'}}>
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Step 3: Strategic Profile & Networking</h2>
-            <p className="text-gray-600 mb-6">Help us optimize the B2B Connect  by telling us about your organization and networking goals.</p>
+            <p className="text-gray-600 mb-6">Help us optimize your B2B Connect experience by providing information about your organization and networking objectives.
+.</p>
 
             <div className="space-y-4" style={{fontFamily:'Arsenal'}}>
               <div>
@@ -578,7 +603,7 @@ const [holdPayment, setHoldPayment] = useState(false);
 </div>
 
                <div>
-                <label htmlFor="company-website" className="block text-sm font-medium text-gray-700">Company website</label>
+                <label htmlFor="company-website" className="block text-sm font-medium text-gray-700">Company Website</label>
                 <input id="company-website" value={companyWebsite} onChange={(e) => setCompanyWebsite(e.target.value)}  className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500" />
               </div>
 <div style={{ fontFamily: 'Arsenal' }}>
@@ -595,7 +620,8 @@ const [holdPayment, setHoldPayment] = useState(false);
     required
     className="mt-1 block w-full border border-gray-300 rounded-lg p-3 focus:ring-indigo-500 focus:border-indigo-500"
   >
-    <option value="">Industry Sector</option>
+    <option value="">Select your industry sector
+</option>
     {[
       "Airline",
       "Airport / Airport Management",
@@ -668,21 +694,21 @@ const [holdPayment, setHoldPayment] = useState(false);
     <div className="flex items-start">
       <input id="terms-consent" type="checkbox" checked={termsConsent} onChange={(e) => setTermsConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="terms-consent" className="ml-3 text-sm text-gray-700">
-        I have read and agree to the <a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium">Terms and Conditions</a>, including the cancellation policy. <span className="text-red-500">*</span>
+        I have read and agree to the  <a href="#" className="text-indigo-600 hover:text-indigo-800 font-medium"><u>Terms and Conditions</u>,</a>, including the <b>cancellation policy.</b>  <span className="text-red-500">*</span>
       </label>
     </div>
 
     <div className="flex items-start">
       <input id="privacy-consent" type="checkbox" checked={privacyConsent} onChange={(e) => setPrivacyConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="privacy-consent" className="ml-3 text-sm text-gray-700">
-        I consent to my details being shared with event partners and fellow attendees via the B2B Connect platform for networking purposes. <span className="text-red-500">*</span>
+        I consent to my details being shared with event partners and fellow attendees for networking purposes. <span className="text-red-500">*</span>
       </label>
     </div>
 
     <div className="flex items-start">
       <input id="updates-consent" type="checkbox" checked={updatesConsent} onChange={(e) => setUpdatesConsent(e.target.checked)} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
       <label htmlFor="updates-consent" className="ml-3 text-sm text-gray-700">
-        I would like to receive future updates and newsletters from Traveon Ventures LLP.
+       I would like to receive future updates and newsletters from <b>Traveon Ventures LLP.</b>
       </label>
     </div>
 
@@ -695,7 +721,7 @@ const [holdPayment, setHoldPayment] = useState(false);
           setInstantPayment(e.target.checked); 
           if(e.target.checked) setHoldPayment(false); 
         }} className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1" />
-        <label htmlFor="instant-payment" className="ml-3 text-sm text-gray-700">Instant Online Payment – Secure your seat immediately via credit/debit card or bank transfer.</label>
+        <label htmlFor="instant-payment" className="ml-3 text-sm text-gray-700"><b>Instant Online Payment</b> – Secure your seat immediately via credit/debit card or bank transfer.</label>
       </div>
 
       <div className="flex items-start">
@@ -708,7 +734,7 @@ const [holdPayment, setHoldPayment] = useState(false);
           className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1 cursor-pointer" 
         />
         <label htmlFor="provisional-confirmation" className="ml-3 text-sm text-gray-700 cursor-pointer" onClick={() => setShowProvisionalModal(true)}>
-          Provisional Confirmation (15-Day Hold) – Click to review Terms & Conditions.
+          <b>Provisional Confirmation (15-Day Hold)</b> – Click to review Terms & Conditions.
         </label>
       </div>
     </div>
@@ -734,14 +760,18 @@ const [holdPayment, setHoldPayment] = useState(false);
               className="h-5 w-5 text-indigo-600 border-gray-300 rounded mt-1"
             />
             <label className="ml-3 text-sm text-gray-700">
-              {key === "eligibility" && "Eligibility: Designed for delegates needing internal approval."}
-              {key === "validity" && "Validity Period: Provisional seat held for 15 calendar days."}
-              {key === "paymentDeadline" && "Payment Deadline: Full payment within 15 days or booking cancelled."}
-              {key === "invoice" && "Invoice & Confirmation: Invoice issued upon acceptance; final confirmation after full payment."}
-              {key === "seatAvailability" && "Seat Availability: Status remains 'confirmed' during validity period."}
-              {key === "conversion" && "Conversion to Full Registration: Can convert anytime during 15 days by submitting payment."}
-              {key === "communication" && "Communication: All correspondence via official company email IDs only."}
-            </label>
+  {key === "eligibility" &&
+    "Eligibility: The Provisional Confirmation option is designed for delegates who require internal or senior management approval prior to payment (e.g., airline, airport, or corporate representatives)."}
+  {key === "validityPeriod" &&
+    "Validity Period: Upon submission of a valid registration form, a provisional seat will be held for 15 calendar days from the date of confirmation by the IAMS 2026 Secretariat."}
+  {key === "paymentDeadline" &&
+    "Payment Deadline: Full payment must be received within 15 days of the provisional confirmation notice. Failure to make payment within this period will result in automatic cancellation of the provisional booking without prior notice."}
+  {key === "invoiceConfirmation" &&
+    "Invoice & Confirmation: An official invoice will be issued upon acceptance of the provisional registration. A final Confirmed Registration Letter will be issued only upon receipt of payment in full."}
+  {key === "seatAvailability" &&
+    "Seat Availability: The status of all provisional bookings remains ‘confirmed’ during the ‘Validity Period’."}
+</label>
+
           </div>
         ))}
 
@@ -752,10 +782,10 @@ const [holdPayment, setHoldPayment] = useState(false);
     </div>
   )}
   <div className="mt-8 p-6 border-2 border-dashed border-indigo-300 rounded-lg text-center bg-indigo-50">
-  <h4 className="text-lg font-semibold text-indigo-800">
-    Payment Gateway Integration
+  <h4 className="text-lg font-semibold text-black">
+    <b>Payment Gateway Integration</b>
   </h4>
-  <p className="text-sm text-indigo-700 mt-2">
+  <p className="text-sm text-black mt-2">
     Upon clicking <strong>'Submit & Pay'</strong>, you will be redirected to our secure payment gateway to complete the transaction.
   </p>
   <p className="text-xs text-indigo-500 mt-1">
@@ -773,13 +803,13 @@ const [holdPayment, setHoldPayment] = useState(false);
 
             <div className="ml-auto flex items-center gap-4" style={{fontFamily:'Arsenal'}}>
               {currentStep < 3 && (
-                <button type="button" id="nextBtn" onClick={nextStep} className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition">
+                <button type="button" id="nextBtn" onClick={nextStep} className="px-6 py-3 bg-[#15A4B3] text-white font-semibold rounded-lg shadow-md  transition">
                   Next Step &rarr;
                 </button>
               )}
 
               {currentStep === 3 && (
-                <button type="submit" id="submitBtn" disabled={isSubmitting} className="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">
+                <button type="submit" id="submitBtn" disabled={isSubmitting} className="px-6 py-3 bg-[#15A4B3] text-white font-semibold rounded-lg shadow-md  transition">
                   {isSubmitting ? "Submitting..." : "Submit & Pay"}
                 </button>
               )}

@@ -4,7 +4,7 @@ const Speakers = () => {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-26 mt-16">
+      <section className="bg-[#15A4B3] to-blue-700 text-white py-26 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Visionary Speakers</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -26,7 +26,7 @@ const Speakers = () => {
       {/* Call to Action Section */}
       <div className="container mx-auto px-4 py-16">
         <div className="bg-white rounded-xl shadow-lg p-10 mb-16 text-center border border-blue-100">
-          <h2 className="text-3xl font-semibold mb-6 text-blue-900">
+          <h2 className="text-3xl font-semibold mb-6 text-[#15A4B3]">
             Call for Speakers
           </h2>
           <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700">
@@ -34,7 +34,7 @@ const Speakers = () => {
             IAMS 2026. If you're redefining aviation marketing, technology, or
             customer experience, we want to hear from you.
           </p>
-          <button className="bg-blue-900 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition transform hover:-translate-y-1">
+          <button className="bg-[#15A4B3] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition transform hover:-translate-y-1">
             Apply to Speak
           </button>
         </div>
@@ -80,7 +80,7 @@ const Speakers = () => {
 </div>
 
         {/* Deadline Section */}
-        <div className="bg-blue-900 text-white rounded-xl p-10 text-center">
+        <div className="bg-[#15A4B3] text-white rounded-xl p-10 text-center">
           <h2 className="text-3xl font-semibold mb-6">
             Speaker Application Deadline
           </h2>
