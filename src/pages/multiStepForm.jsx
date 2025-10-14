@@ -22,7 +22,7 @@ const CARD_FEE = 0.03; // 3% fee
 const delegateTypes = [
   {
     id: "airline",
-    label: "Airline,Airport,Hotel,& Car Rental",
+    label: "Airline , Airport , Hotel & Car Rental",
     description:
       "Includes all Airlines, LCCs, ULCCs, Airport Operators, Hotels, and Car Rental Companies .",
     fee: 600,
@@ -31,7 +31,7 @@ const delegateTypes = [
   },
   {
     id: "supplier",
-    label: "Aviation Technology / Supplier / Support Services",
+    label: "Aviation Technology , Supplier , Support Services",
     description:
       "Includes Technology Providers, Consultants, GDS, Service Vendors, Banks, FinTech & Insurance(Non-Sponsoring).",
     fee: 1900,
@@ -40,7 +40,7 @@ const delegateTypes = [
   },
   {
     id: "general",
-    label: "General Attendee/Media",
+    label: "General Attendee & Media",
     description:
       "Includes Institutions, Trade bodies, Media, and Non-Airline / Non-Vendor Participants.",
     fee: 900,

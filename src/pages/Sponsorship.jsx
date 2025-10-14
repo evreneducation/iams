@@ -75,7 +75,7 @@ const Sponsorship = () => {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <section className="text-white py-12 mt-16" style={{ backgroundColor: "rgb(21, 164, 179)" }}>
+      {/* <section className="text-white py-12 mt-16" style={{ backgroundColor: "rgb(21, 164, 179)" }}>
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Elevate Your Presence. Accelerate Your Growth</h1>
           <p className="text-xl max-w-3xl mx-auto mb-8">
@@ -83,7 +83,30 @@ const Sponsorship = () => {
             showcase your innovation, and unlock new business in a market poised for rapid transformation.
           </p>
         </div>
-      </section>
+      </section> */}
+
+
+
+ <section
+          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+          style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
+        >
+          <div className="absolute inset-0 "></div> {/* overlay */}
+          <div className="relative container mx-auto text-center py-22 md:py-30">
+            <div className="max-w-5xl mx-auto">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                   Elevate Your Presence. Accelerate Your Growth
+              </h1>
+                <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
+            Position your brand at the center of the aviation commerce ecosystem. Engage directly with key decision-makers,
+            showcase your innovation, and unlock new business in a market poised for rapid transformation.
+          </p>
+            </div>
+          </div>
+        </section>
+     
+
+
 
       {/* Stats Section */}
       <section className="py-16 bg-blue-50">

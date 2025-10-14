@@ -44,7 +44,7 @@ const Contact = () => {
         }
       );
 
-      toast.success(response.data.message);
+      toast.success("Email Sent SucessFully");
       setData({ name: "", email: "", company: "", inquiry: "", message: "" });
     } catch (err) {
       console.error(err);
@@ -102,7 +102,7 @@ const Contact = () => {
       Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
       We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
     </p>
-            </div>s
+            </div>
           </div>
         </section>
      

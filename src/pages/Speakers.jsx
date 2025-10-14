@@ -4,7 +4,7 @@ const Speakers = () => {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-[#15A4B3] to-blue-700 text-white py-26 mt-16">
+      {/* <section className="bg-[#15A4B3] to-blue-700 text-white py-26 mt-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Visionary Speakers</h1>
           <p className="text-xl max-w-3xl mx-auto">
@@ -13,7 +13,29 @@ const Speakers = () => {
             customer experience.
           </p>
         </div>
-      </section>
+      </section> */}
+
+
+<section
+          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+          style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
+        >
+          <div className="absolute inset-0 "></div> {/* overlay */}
+          <div className="relative container mx-auto text-center py-28 md:py-36">
+            <div className="max-w-5xl mx-auto">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                    Visionary Speakers
+              </h1>
+               <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white">
+            Hear from the industry's most innovative minds as they share
+            insights on the future of aviation marketing, technology, and
+            customer experience.
+          </p>
+            </div>s
+          </div>
+        </section>
+
+
 
       <div className="w-full px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 py-15">

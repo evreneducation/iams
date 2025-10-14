@@ -290,42 +290,28 @@ const About = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       {/* Hero Banner Section */}
-      <section className="relative text-white overflow-hidden bg-cover bg-center bg-no-repeat min-h-[90vh] flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/about/1.png')" }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/40 via-[#0080ff]/50 to-[#006666]/60"></div>
-        </div>
-
-        {/* Animated Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#21d6e0]/10 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-[#0080ff]/5 rounded-full blur-xl animate-bounce-slow"></div>
-        </div>
-
-        {/* Content */}
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
-              About the Summit
-            </h1>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-3 rounded-full text-xl font-semibold border border-white/30">
-                Propelled by Strategy
-              </span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-3 rounded-full text-xl font-semibold border border-white/30">
-                Fueled by Market Intelligence
-              </span>
-              <span className="bg-white/20 backdrop-blur-sm px-4 py-3 rounded-full text-xl font-semibold border border-white/30">
-                Engineered for Commercial Success
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+       <section
+                className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+                style={{
+                  // backgroundImage: `url('./about/1.png')`,
+                  background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="absolute inset-0 "></div> {/* overlay */}
+                <div className="relative container mx-auto text-center py-42 md:py-50">
+                  <div className="max-w-5xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                         About the Summit
+                    </h1>
+                    {/* <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+            Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
+            We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
+          </p> */}
+                  </div>
+                </div>
+              </section>
+           
 
       {/* Introduction Section */}
       <section className="py-16 md:py-24 bg-white">
