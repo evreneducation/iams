@@ -219,7 +219,7 @@ const Venue = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-51">
       {/* Hero Section with Updated Colors and Height */}
       <section className="relative overflow-hidden">
         {/* Updated Animated Background */}
