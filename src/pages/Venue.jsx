@@ -338,7 +338,7 @@ const Venue = () => {
   height="100%"
   style={{ border: 0 }}
   allowFullScreen
-  // loading="lazy"
+  loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
   className="transform group-hover:scale-105 transition-transform duration-300"
 />
