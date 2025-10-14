@@ -156,7 +156,7 @@ const Venue = () => {
       "/venue/taj1.jpg",
       "/venue/taj2.jpg",
       "/venue/agra1.jpg",
-        "/venue/agra2.jpg",
+        "/venue/taj3.jpg",
     ],
     isCarousel: true, // <-- set to true
   },
@@ -274,7 +274,7 @@ const Venue = () => {
                 }`}
               >
                 <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-8">
-                  About Yashobhoomi
+                 About the Venue
                 </h2>
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                   Located minutes from IGI Airport and steps from the Aerocity
@@ -333,15 +333,16 @@ const Venue = () => {
                 {/* Venue Image */}
                 <div className="relative mt-[200px] bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224294.63237058575!2d76.74146629453124!3d28.55163130000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a509578bb01%3A0xc4f9b6f167e3d164!2sYashoBhoomi%20Dwarka%20Sector-25!5e0!3m2!1sen!2sin!4v1759814488470!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="transform group-hover:scale-105 transition-transform duration-300"
-                  />
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.655320252194!2d77.1228015!3d28.550078199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c6a3301b9a3%3A0x49055efdcccb35d9!2sHoliday%20Inn%20New%20Delhi%20Int&#39;L%20Airport%2C%20an%20IHG%20Hotel!5e0!3m2!1sen!2sin!4v1760416843948!5m2!1sen!2sin"
+  width="100%"
+  height="100%"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+  className="transform group-hover:scale-105 transition-transform duration-300"
+/>
+
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
 
@@ -369,7 +370,7 @@ const Venue = () => {
                     </svg>
                     <div>
                       <h3 className="text-2xl font-semibold text-[#003366] mb-4">
-                        Location Details
+                     Holiday Inn New Delhi Aerocity
                       </h3>
                       <div className="space-y-2 text-gray-700">
                         <a
@@ -377,13 +378,12 @@ const Venue = () => {
                           target="_blank"
                           className="text-lg font-semibold hover:text-blue-600"
                         >
-                          Yashobhoomi Convention Center
+                          Asset Area 12 Hospitality District Aero City, 
+
                           <p className="text-base">
-                            Dwarka Sector 25, New Delhi
+                           New Delhi 110037 India
                           </p>
                         </a>
-
-                        <p className="text-base">Delhi 110077, India</p>
                       </div>
                     </div>
                   </div>
@@ -426,14 +426,14 @@ const Venue = () => {
              We have secured a preferential rate with Holiday Inn New Delhi Aerocity exclusively reserved for IAMS 2026 delegates.
               Book through our official portal to avail this exclusive offer.
             </p>
-            <button
+            {/* <button
               className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
               onClick={() => {
                 navigate("/hotelpartner");
               }}
             >
               Book Your Hotel
-            </button>
+            </button> */}
           </div>
 
           {/* Getting There */}
@@ -461,14 +461,14 @@ const Venue = () => {
              Holiday Inn New Delhi Aerocity is minutes from Delhi International (IGI) Airport and seamlessly connected to all major business hubs by the Aerocity Metro.
 
             </p>
-            <button
+            {/* <button
               className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
               onClick={() => {
                 navigate("/travel-info");
               }}
             >
               View Transport Options
-            </button>
+            </button> */}
           </div>
 
           {/* Visa Information */}
@@ -496,7 +496,7 @@ const Venue = () => {
              Entry into India requires a Visa for most international delegates. To guarantee timely processing, we strongly advise initiating your application earlier and consulting the official guidelines
 
             </p>
-            <button
+            {/* <button
               className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
               onClick={() => {
                 window.location.href =
@@ -505,7 +505,7 @@ const Venue = () => {
               target="_blank"
             >
               Official India Visa Portal
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -668,9 +668,9 @@ const Venue = () => {
                       ))}
                     </ul>
 
-                    <button className="w-full bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    {/* <button className="w-full bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white py-5 rounded-xl font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
                       Book This Tour
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               ))}
