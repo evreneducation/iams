@@ -96,13 +96,13 @@ const Contact = () => {
           <div className="relative container mx-auto text-center py-32 md:py-40">
             <div className="max-w-5xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                    Content Us
+                    Contact Us
               </h1>
               <p className="text-xl text-white max-w-3xl mx-auto mb-8">
       Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
       We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
     </p>
-            </div>
+            </div>s
           </div>
         </section>
      
