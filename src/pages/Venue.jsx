@@ -10,11 +10,11 @@ const PostEventTours = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const delhiTourImages = [
-    "/venue/5.jpeg",
-    "/venue/6.jpeg",
-    "/venue/7.jpg",
-    "/venue/8.jpg",
-    "/venue/9.jpg",
+    "/venue/redfortdelhi.jpg",
+    "/venue/indiagate.jpg",
+    "/venue/lotustample.jpg",
+    "/venue/qutubminar.jpg",
+    "/venue/akshardham.jpg",
   ];
 
   // Auto-rotate images every 2 seconds
@@ -546,11 +546,14 @@ const Venue = () => {
                     {tour.isCarousel ? (
                       // Carousel for Delhi Tour
                       <div className="relative w-full h-full">
-                        <img
-                          src={tour.images[currentImageIndex]}
-                          alt={`${tour.title} - Image ${currentImageIndex + 1}`}
-                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                        />
+                        <div className="w-full h-full overflow-hidden">
+  <img
+    src={tour.images[currentImageIndex]}
+    alt={`${tour.title} - Image ${currentImageIndex + 1}`}
+    className="w-full h-full object-cover bg-black transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
+
 
                         {/* Navigation Arrows */}
                         <button
