@@ -331,7 +331,7 @@ const Venue = () => {
                 style={{ transitionDelay: "0.3s" }}
               >
                 {/* Venue Image */}
-                <div className="relative mt-[200px] bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                <div className="relative mt-[200px] bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300 p-[5px]">
                   <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.655320252194!2d77.1228015!3d28.550078199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c6a3301b9a3%3A0x49055efdcccb35d9!2sHoliday%20Inn%20New%20Delhi%20Int&#39;L%20Airport%2C%20an%20IHG%20Hotel!5e0!3m2!1sen!2sin!4v1760416843948!5m2!1sen!2sin"
   width="100%"
