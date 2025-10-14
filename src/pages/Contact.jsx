@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiMail } from "react-icons/fi";
-
+import contact from '../../public/contact/contact.jpg'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -84,17 +84,28 @@ const Contact = () => {
 
   return (
     <>
-      <section className="bg-gradient-to-r from-[#0E7785] to-[#15A4B3] text-white py-12 mt-16">
-  <div className="container mx-auto px-4 text-center">
-    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-      Partner with Us. Make Your Mark in Aviation.
-    </h1>
-    <p className="text-xl max-w-3xl mx-auto mb-8">
+    
+ <section
+          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${contact})`,
+            backgroundSize: "100% 100%",
+          }}
+        >
+          <div className="absolute inset-0 "></div> {/* overlay */}
+          <div className="relative container mx-auto text-center py-32 md:py-40">
+            <div className="max-w-5xl mx-auto">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                    Content Us
+              </h1>
+              <p className="text-xl text-white max-w-3xl mx-auto mb-8">
       Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
       We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
     </p>
-  </div>
-</section>
+            </div>
+          </div>
+        </section>
+     
 
       <section
         className="contact-banner relative min-h-[90vh] flex items-center py-30 px-4 md:px-12 overflow-hidden"
@@ -247,63 +258,6 @@ const Contact = () => {
         </div>
       </section>
 
-<div className="bg-blue-50 p-8 rounded-lg mb-16">
-          <h2
-            className="text-2xl font-semibold text-center mb-6"
-            style={{ color: "rgb(21, 164, 179)" }}
-          >
-            Important Information
-          </h2>
-          <ul className="list-disc pl-5 space-y-3 max-w-2xl mx-auto">
-            <li>
-              All passes include full conference access, exhibition entry,
-              networking meals, awards gala, and networking reception
-              invitation.
-            </li>
-            <li>
-              Group discounts apply for 3 or more attendees from the same
-              organization.
-            </li>
-            <li>
-              Cancellation policy: Full refund until January 31, 2026; 50%
-              refund until February 28, 2026; no refund after March 1, 2026.
-            </li>
-          </ul>
-        </div>
- <div className="text-center py-[30px]">
-          <button
-            onClick={() => navigate("/registration-form")}
-            className="text-white px-8 py-3 rounded-lg font-semibold text-lg transition mr-4"
-            style={{
-              backgroundColor: "rgb(21, 164, 179)",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "rgb(17, 130, 142)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "rgb(21, 164, 179)")
-            }
-          
-          >
-            Register Now
-          </button>
-
-          <button
-            className="bg-white border px-8 py-3 rounded-lg font-semibold text-lg transition"
-            style={{
-              color: "rgb(21, 164, 179)",
-              borderColor: "rgb(21, 164, 179)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgb(240, 250, 250)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "white";
-            }}
-          >
-            Contact for Group Booking
-          </button>
-        </div>
       
 
       

@@ -50,7 +50,7 @@ const Registration = () => {
         </h1>
         <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12">
           Join{" "}
-          <span className="text-2xl text-black">
+          <span className="text-xl ">
             hundreds of global industry leaders
           </span>{" "}
           for two days of unparalleled learning and networking in the dynamic
@@ -173,6 +173,9 @@ const Registration = () => {
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "white";
+            }}
+            onClick={()=>{
+                navigate('/contact')
             }}
           >
             Contact for Group Booking

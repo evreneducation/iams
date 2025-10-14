@@ -152,7 +152,7 @@ const Venue = () => {
       "Professional Guide",
     ],
     images: [ // <-- use an array of images
-      "/venue/4.jpeg",
+      "/venue/taj4.jpg",
       "/venue/taj1.jpg",
       "/venue/taj2.jpg",
       "/venue/agra1.jpg",
@@ -224,36 +224,41 @@ const Venue = () => {
       <section className="relative overflow-hidden">
         {/* Updated Animated Background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-700 via-cyan-600 to-blue-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black-700 via-cyan-600 to-blue-500"></div>
           <div className="absolute -right-20 -top-20 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
           <div
             className="absolute -left-20 top-1/2 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
         </div>
+<section
+  className="relative bg-center bg-no-repeat overflow-hidden flex items-center justify-center"
+  style={{
+    backgroundImage: `url(${venueimage})`,
+    backgroundSize: "contain",
+    backgroundPosition: "center",
+    minHeight: "80vh", // responsive height
+  }}
+>
+  {/* Light bluish-black overlay for better blending */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-blue-900/30 to-black/50 backdrop-blur-[1px]"></div>
 
-        <section
-          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${venueimage})`,
-            backgroundSize: "100% 100%",
-          }}
-        >
-          <div className="absolute inset-0 "></div> {/* overlay */}
-          <div className="relative container mx-auto text-center py-32 md:py-40">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                Venue & Travel
-              </h1>
-              <p
-                className="text-2xl md:text-3xl text-white font-light mb-8 animate-fadeIn"
-                style={{ animationDelay: "0.2s" }}
-              >
-                Welcome to New Delhi & Holiday Inn New Delhi Aerocity
-              </p>
-            </div>
-          </div>
-        </section>
+  <div className="relative w-full px-6 sm:px-8 md:px-10 lg:px-16 py-24 md:py-36 text-center flex flex-col items-center justify-center">
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+        Venue & Travel
+      </h1>
+      <p
+        className="text-xl sm:text-2xl md:text-3xl text-white font-light mb-8 animate-fadeIn"
+        style={{ animationDelay: "0.2s" }}
+      >
+        Welcome to New Delhi & Holiday Inn New Delhi Aerocity
+      </p>
+    </div>
+  </div>
+</section>
+
+
       </section>
 
       {/* Venue Information */}
@@ -395,120 +400,85 @@ const Venue = () => {
       </section>
       {/* )} */}
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 my-25">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[30px]">
-               Travel & Accommodation
-              </h2>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25">
+  <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]">
+    Travel & Accommodation
+  </h2>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* Hotel Partners */}
-          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-            <div className="flex items-center mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-7 h-7 text-blue-600 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z"
-                />
-              </svg>
-              <h3 className="text-lg font-semibold text-blue-900">
-               Hotel Stay 
-              </h3>
-            </div>
-            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-             We have secured a preferential rate with Holiday Inn New Delhi Aerocity exclusively reserved for IAMS 2026 delegates.
-              Book through our official portal to avail this exclusive offer.
-            </p>
-            {/* <button
-              className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-              onClick={() => {
-                navigate("/hotelpartner");
-              }}
-            >
-              Book Your Hotel
-            </button> */}
-          </div>
-
-          {/* Getting There */}
-          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-            <div className="flex items-center mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-7 h-7 text-blue-600 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6"
-                />
-              </svg>
-              <h3 className="text-lg font-semibold text-blue-900">
-               Getting There
-              </h3>
-            </div>
-            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-             Holiday Inn New Delhi Aerocity is minutes from Delhi International (IGI) Airport and seamlessly connected to all major business hubs by the Aerocity Metro.
-
-            </p>
-            {/* <button
-              className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-              onClick={() => {
-                navigate("/travel-info");
-              }}
-            >
-              View Transport Options
-            </button> */}
-          </div>
-
-          {/* Visa Information */}
-          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-6 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col h-full">
-            <div className="flex items-center mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-7 h-7 text-blue-600 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4"
-                />
-              </svg>
-              <h3 className="text-lg font-semibold text-blue-900">
-                Visa Information
-              </h3>
-            </div>
-            <p className="text-gray-600 mb-4 flex-grow py-[30px]">
-             Entry into India requires a Visa for most international delegates. To guarantee timely processing, we strongly advise initiating your application earlier and consulting the official guidelines
-
-            </p>
-            {/* <button
-              className="mt-auto px-5 py-2 bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white text-white font-medium rounded-lg border border-blue-500 hover:bg-blue-700 transition-colors duration-300"
-              onClick={() => {
-                window.location.href =
-                  "https://indianvisaonline.gov.in/evisa/tvoa.html";
-              }}
-              target="_blank"
-            >
-              Official India Visa Portal
-            </button> */}
-          </div>
-        </div>
+  <div className="grid gap-5 md:grid-cols-3">
+    {/* Hotel Partners */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+      <div className="flex items-center mb-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-7 h-7 text-blue-600 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z"
+          />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Hotel Stay</h3>
       </div>
+      <p className="text-gray-600 mb-2 pt-1">
+        We have secured a preferential rate with Holiday Inn New Delhi Aerocity exclusively reserved for IAMS 2026 delegates. Book through our official portal to avail this exclusive offer.
+      </p>
+    </div>
+
+    {/* Getting There */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+      <div className="flex items-center mb-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-7 h-7 text-blue-600 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6"
+          />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Getting There</h3>
+      </div>
+      <p className="text-gray-600 mb-2 pt-1">
+        Holiday Inn New Delhi Aerocity is minutes from Delhi International (IGI) Airport and seamlessly connected to all major business hubs by the Aerocity Metro.
+      </p>
+    </div>
+
+    {/* Visa Information */}
+    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+      <div className="flex items-center mb-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-7 h-7 text-blue-600 mr-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4"
+          />
+        </svg>
+        <h3 className="text-lg font-semibold text-blue-900">Visa Information</h3>
+      </div>
+      <p className="text-gray-600 mb-2 pt-1">
+        Entry into India requires a Visa for most international delegates. To guarantee timely processing, we strongly advise initiating your application earlier and consulting the official guidelines.
+      </p>
+    </div>
+  </div>
+</div>
 
       
       {/* Post-Event Tours */}
@@ -553,8 +523,6 @@ const Venue = () => {
     className="w-full h-full object-cover bg-black transition-transform duration-500 group-hover:scale-105"
   />
 </div>
-
-
                         {/* Navigation Arrows */}
                         <button
                           onClick={prevImage}
@@ -697,7 +665,9 @@ const Venue = () => {
                 All tours include professional guides, transportation, and
                 entrance fees
               </p>
-             <button className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl">
+             <button className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl" onClick={()=>{
+                 navigate('/contact')
+             }} >
   Contact Tour Coordinator
 </button>
 
