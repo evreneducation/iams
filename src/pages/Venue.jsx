@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import venueimage from "../../public/venue/venuefront.jpg";
 // SVG Icons
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 const PostEventTours = () => {
@@ -63,6 +64,16 @@ const PostEventTours = () => {
 };
 
 const Venue = () => {
+
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
+
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("venue");
   const [isVisible, setIsVisible] = useState({});
@@ -91,8 +102,6 @@ const Venue = () => {
       Object.values(observers).forEach((observer) => observer.disconnect());
     };
   }, [activeTab]);
-
- 
 
   const travelOptions = [
     {
@@ -127,42 +136,42 @@ const Venue = () => {
     delhiTourImages,
   } = PostEventTours();
 
- const postEventPackages = [
-  {
-    title: "Delhi: The Majestic Capital",
-    duration: "6-Hour City Tour",
-    highlights: [
-      "Red Fort & Chandni Chowk",
-      "India Gate & Rajpath",
-      "Qutub Minar",
-      "Lotus Temple",
-      "Local Market Experience",
-    ],
-    images: delhiTourImages,
-    isCarousel: true,
-  },
-  {
-    title: "Taj Mahal: Eternal Wonder",
-    duration: "12 Hours Day Tour",
-    highlights: [
-      "Sunrise at Taj Mahal",
-      "Agra Fort",
-      "Local Craft Demonstrations",
-      "Traditional Lunch",
-      "Professional Guide",
-    ],
-    images: [ // <-- use an array of images
-      "/venue/taj4.jpg",
-      "/venue/taj1.jpg",
-      "/venue/taj2.jpg",
-      "/venue/agra1.jpg",
+  const postEventPackages = [
+    {
+      title: "Delhi: The Majestic Capital",
+      duration: "6-Hour City Tour",
+      highlights: [
+        "Red Fort & Chandni Chowk",
+        "India Gate & Rajpath",
+        "Qutub Minar",
+        "Lotus Temple",
+        "Local Market Experience",
+      ],
+      images: delhiTourImages,
+      isCarousel: true,
+    },
+    {
+      title: "Taj Mahal: Eternal Wonder",
+      duration: "12 Hours Day Tour",
+      highlights: [
+        "Sunrise at Taj Mahal",
+        "Agra Fort",
+        "Local Craft Demonstrations",
+        "Traditional Lunch",
+        "Professional Guide",
+      ],
+      images: [
+        // <-- use an array of images
+        "/venue/taj4.jpg",
+        "/venue/taj1.jpg",
+        "/venue/taj2.jpg",
+        "/venue/agra1.jpg",
         "/venue/taj3.jpg",
-    ],
-    isCarousel: true, // <-- set to true
-  },
-];
+      ],
+      isCarousel: true, // <-- set to true
+    },
+  ];
 
- 
   const TransportIcon = ({ type }) => {
     switch (type) {
       case "subway":
@@ -221,45 +230,38 @@ const Venue = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-51">
       {/* Hero Section with Updated Colors and Height */}
-      <section className="relative overflow-hidden">
-        {/* Updated Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black-700 via-cyan-600 to-blue-500"></div>
-          <div className="absolute -right-20 -top-20 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div
-            className="absolute -left-20 top-1/2 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl animate-pulse"
-            style={{ animationDelay: "1s" }}
-          ></div>
-        </div>
+    <section className="relative overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-br from-[#0F7F8A] via-[#1AA6B5] to-[#94E0E5]"></div>
+
 <section
-  className="relative bg-center bg-no-repeat overflow-hidden flex items-center justify-center"
+  className="relative flex items-center justify-center text-center text-white overflow-hidden"
   style={{
-    backgroundImage: `url(${venueimage})`,
-    backgroundSize: "contain",
-    backgroundPosition: "center",
-    minHeight: "80vh", // responsive height
+    background: "linear-gradient(90deg, #e9a69c 0%, #feae89ff 20%, #3b82a0 75%, #204a74 100%)", // warm sunset to bluish tone
   }}
 >
-  {/* Light bluish-black overlay for better blending */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-blue-900/30 to-black/50 backdrop-blur-[1px]"></div>
+  <div
+    className="w-full h-[500px] md:h-[550px] lg:h-[600px] bg-center bg-no-repeat"
+    style={{
+      backgroundImage: `url(${venueimage})`,
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+    }}
+  ></div>
 
-  <div className="relative w-full px-6 sm:px-8 md:px-10 lg:px-16 py-24 md:py-36 text-center flex flex-col items-center justify-center">
-    <div className="max-w-5xl mx-auto">
-      <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-        Venue & Travel
-      </h1>
-      <p
-        className="text-xl sm:text-2xl md:text-3xl text-white font-light mb-8 animate-fadeIn"
-        style={{ animationDelay: "0.2s" }}
-      >
-        Welcome to New Delhi & Holiday Inn New Delhi Aerocity
-      </p>
-    </div>
+  {/* Overlay for smooth transition & readability */}
+  <div className="absolute inset-0 bg-gradient-to-t from-[#00000033] via-transparent to-transparent"></div>
+
+  {/* Text content */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+    <h1 className="text-4xl md:text-6xl font-bold mb-4">Venue & Travel</h1>
+    <p className="text-lg md:text-2xl font-light">
+      Welcome to New Delhi & Holiday Inn New Delhi Aerocity
+    </p>
   </div>
 </section>
 
-
-      </section>
+</section>
 
       {/* Venue Information */}
       {/* {activeTab === "venue" && ( */}
@@ -279,7 +281,7 @@ const Venue = () => {
                 }`}
               >
                 <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-8">
-                 About the Venue
+                  About the Venue
                 </h2>
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
                   Located minutes from IGI Airport and steps from the Aerocity
@@ -338,15 +340,15 @@ const Venue = () => {
                 {/* Venue Image */}
                 <div className="relative mt-[200px] bg-gray-200 rounded-2xl h-96 overflow-hidden border-2 border-[#0080ff]/30 shadow-xl group hover:shadow-2xl transition-all duration-300 p-[5px]">
                   <iframe
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.655320252194!2d77.1228015!3d28.550078199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c6a3301b9a3%3A0x49055efdcccb35d9!2sHoliday%20Inn%20New%20Delhi%20Int&#39;L%20Airport%2C%20an%20IHG%20Hotel!5e0!3m2!1sen!2sin!4v1760416843948!5m2!1sen!2sin"
-  width="100%"
-  height="100%"
-  style={{ border: 0 }}
-  allowFullScreen
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-  className="transform group-hover:scale-105 transition-transform duration-300"
-/>
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.655320252194!2d77.1228015!3d28.550078199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1c6a3301b9a3%3A0x49055efdcccb35d9!2sHoliday%20Inn%20New%20Delhi%20Int&#39;L%20Airport%2C%20an%20IHG%20Hotel!5e0!3m2!1sen!2sin!4v1760416843948!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="transform group-hover:scale-105 transition-transform duration-300"
+                  />
 
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-all duration-300 pointer-events-none"></div>
                 </div>
@@ -375,7 +377,7 @@ const Venue = () => {
                     </svg>
                     <div>
                       <h3 className="text-2xl font-semibold text-[#003366] mb-4">
-                     Holiday Inn New Delhi Aerocity
+                        Holiday Inn New Delhi Aerocity
                       </h3>
                       <div className="space-y-2 text-gray-700">
                         <a
@@ -383,11 +385,8 @@ const Venue = () => {
                           target="_blank"
                           className="text-lg font-semibold hover:text-blue-600"
                         >
-                          Asset Area 12 Hospitality District Aero City, 
-
-                          <p className="text-base">
-                           New Delhi 110037 India
-                          </p>
+                          Asset Area 12 Hospitality District Aero City,
+                          <p className="text-base">New Delhi 110037 India</p>
                         </a>
                       </div>
                     </div>
@@ -400,87 +399,98 @@ const Venue = () => {
       </section>
       {/* )} */}
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25">
-  <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]">
-    Travel & Accommodation
-  </h2>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25"  data-aos="fade-down">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]">
+          Travel & Accommodation
+        </h2>
 
-  <div className="grid gap-5 md:grid-cols-3">
-    {/* Hotel Partners */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
-      <div className="flex items-center mb-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-7 h-7 text-blue-600 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z"
-          />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Hotel Stay</h3>
+        <div className="grid gap-5 md:grid-cols-3">
+          {/* Hotel Partners */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 10h18M9 21V10m6 11V10M5 21h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v13a2 2 0 002 2z"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Hotel Stay
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-2 pt-1">
+              We have secured a preferential rate with Holiday Inn New Delhi
+              Aerocity exclusively reserved for IAMS 2026 delegates. Book
+              through our official portal to avail this exclusive offer.
+            </p>
+          </div>
+
+          {/* Getting There */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Getting There
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-2 pt-1">
+              Holiday Inn New Delhi Aerocity is minutes from Delhi International
+              (IGI) Airport and seamlessly connected to all major business hubs
+              by the Aerocity Metro.
+            </p>
+          </div>
+
+          {/* Visa Information */}
+          <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
+            <div className="flex items-center mb-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-7 h-7 text-blue-600 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4"
+                />
+              </svg>
+              <h3 className="text-lg font-semibold text-blue-900">
+                Visa Information
+              </h3>
+            </div>
+            <p className="text-gray-600 mb-2 pt-1">
+              Entry into India requires a Visa for most international delegates.
+              To guarantee timely processing, we strongly advise initiating your
+              application earlier and consulting the official guidelines.
+            </p>
+          </div>
+        </div>
       </div>
-      <p className="text-gray-600 mb-2 pt-1">
-        We have secured a preferential rate with Holiday Inn New Delhi Aerocity exclusively reserved for IAMS 2026 delegates. Book through our official portal to avail this exclusive offer.
-      </p>
-    </div>
 
-    {/* Getting There */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
-      <div className="flex items-center mb-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-7 h-7 text-blue-600 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10.5 7.5l7.5 7.5m0 0L18 18m0-3l1.5 1.5M4.5 15l6-6m-6 0l6 6"
-          />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Getting There</h3>
-      </div>
-      <p className="text-gray-600 mb-2 pt-1">
-        Holiday Inn New Delhi Aerocity is minutes from Delhi International (IGI) Airport and seamlessly connected to all major business hubs by the Aerocity Metro.
-      </p>
-    </div>
-
-    {/* Visa Information */}
-    <div className="bg-gradient-to-br from-blue-40 to-blue-100 border border-blue-200 rounded-2xl p-3 shadow-md transition-all transform hover:scale-[1.04] hover:shadow-lg duration-300 flex flex-col">
-      <div className="flex items-center mb-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-7 h-7 text-blue-600 mr-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 11c0 .828-.895 1.5-2 1.5s-2-.672-2-1.5.895-1.5 2-1.5 2 .672 2 1.5zM17 7h2a2 2 0 012 2v8a2 2 0 01-2 2h-2m-2 0H9m0 0H7a2 2 0 01-2-2V9a2 2 0 012-2h2m2 0h4"
-          />
-        </svg>
-        <h3 className="text-lg font-semibold text-blue-900">Visa Information</h3>
-      </div>
-      <p className="text-gray-600 mb-2 pt-1">
-        Entry into India requires a Visa for most international delegates. To guarantee timely processing, we strongly advise initiating your application earlier and consulting the official guidelines.
-      </p>
-    </div>
-  </div>
-</div>
-
-      
       {/* Post-Event Tours */}
       {/* {activeTab === "tours" && ( */}
       <section
@@ -500,15 +510,18 @@ const Venue = () => {
                 Post-Event Packages
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-               Extend your stay and discover the timeless beauty of India’s cultural treasures. Our curated excursions are exclusive and stress-free, designed to deliver exceptional luxury and comfort for a perfect, memorable conclusion to your time in New Delhi.
-
+                Extend your stay and discover the timeless beauty of India’s
+                cultural treasures. Our curated excursions are exclusive and
+                stress-free, designed to deliver exceptional luxury and comfort
+                for a perfect, memorable conclusion to your time in New Delhi.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16"   data-aos="zoom-in">
               {postEventPackages.map((tour, index) => (
                 <div
                   key={index}
+                
                   className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
                 >
                   {/* Tour Image Section */}
@@ -517,12 +530,14 @@ const Venue = () => {
                       // Carousel for Delhi Tour
                       <div className="relative w-full h-full">
                         <div className="w-full h-full overflow-hidden">
-  <img
-    src={tour.images[currentImageIndex]}
-    alt={`${tour.title} - Image ${currentImageIndex + 1}`}
-    className="w-full h-full object-cover bg-black transition-transform duration-500 group-hover:scale-105"
-  />
-</div>
+                          <img
+                            src={tour.images[currentImageIndex]}
+                            alt={`${tour.title} - Image ${
+                              currentImageIndex + 1
+                            }`}
+                            className="w-full h-full object-cover bg-black transition-transform duration-500 group-hover:scale-105"
+                          />
+                        </div>
                         {/* Navigation Arrows */}
                         <button
                           onClick={prevImage}
@@ -592,14 +607,15 @@ const Venue = () => {
                     )}
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        {tour.title}
-                      </h3>
-                      <p className="text-sm text-[#0080ff] font-semibold">
-                        {tour.duration}
-                      </p>
-                    </div>
+                    <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 shadow-lg px-5 py-3 rounded-xl">
+  <h3 className="text-xl font-bold text-white drop-shadow-sm">
+    {tour.title}
+  </h3>
+  <p className="text-sm text-[#b8e0ff] font-semibold">
+    {tour.duration}
+  </p>
+</div>
+
                   </div>
 
                   {/* Tour Details (same as before) */}
@@ -665,12 +681,14 @@ const Venue = () => {
                 All tours include professional guides, transportation, and
                 entrance fees
               </p>
-             <button className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl" onClick={()=>{
-                 navigate('/contact')
-             }} >
-  Contact Tour Coordinator
-</button>
-
+              <button
+                className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl"
+                onClick={() => {
+                  navigate("/contact");
+                }}
+              >
+                Contact Tour Coordinator
+              </button>
             </div>
           </div>
         </div>

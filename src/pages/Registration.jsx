@@ -1,9 +1,24 @@
 // src/pages/Registration.js
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import { useEffect } from "react";
 
 const Registration = () => {
   const navigate = useNavigate();
+
+
+  
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
 
   const passes = [
     {
@@ -43,21 +58,33 @@ const Registration = () => {
 
   return (
     <>
-      {/* Main Section */}
-      <div className="container mx-auto px-4 py-30">
-        <h1 className="text-4xl font-bold text-center mb-6">
-          Secure Your Place at IAMS 2026
-        </h1>
-        <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12">
-          Join{" "}
-          <span className="text-xl ">
-            hundreds of global industry leaders
-          </span>{" "}
-          for two days of unparalleled learning and networking in the dynamic
-          capital of New Delhi, India.
-        </p>
+      {/* Hero Section (Full Width, No Top Margin) */}
+      <section
+        className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat w-full"
+        style={{
+          background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
+        }}
+      >
+        <div className="absolute inset-0"></div>
+        <div className="relative text-center py-28 md:py-36 px-6">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white animate-fadeIn">
+              Secure Your Place at IAMS 2026
+            </h1>
+            <p className="text-lg md:text-xl text-center text-white max-w-3xl mx-auto mb-12">
+              Join{" "}
+              <span className="font-semibold text-white">
+                hundreds of global industry leaders
+              </span>{" "}
+              for two days of unparalleled learning and networking in the
+              dynamic capital of New Delhi, India.
+            </p>
+          </div>
+        </div>
+      </section>
 
-        {/* Passes */}
+      {/* Passes Section */}
+      <div className="container mx-auto px-4 py-20"    data-aos="fade-down">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
           {passes.map((pass, index) => (
             <div
@@ -121,7 +148,7 @@ const Registration = () => {
         </div>
 
         {/* Important Info */}
-        <div className="bg-blue-50 p-8 rounded-lg mb-16">
+        <div className="bg-blue-50 p-8 rounded-lg mb-16"    data-aos="zoom-in">
           <h2
             className="text-2xl font-semibold text-center mb-6"
             style={{ color: "rgb(21, 164, 179)" }}
@@ -145,6 +172,7 @@ const Registration = () => {
           </ul>
         </div>
 
+        {/* Bottom Buttons */}
         <div className="text-center">
           <button
             onClick={() => navigate("/registration-form")}
@@ -174,9 +202,7 @@ const Registration = () => {
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "white";
             }}
-            onClick={()=>{
-                navigate('/contact')
-            }}
+            onClick={() => navigate("/contact")}
           >
             Contact for Group Booking
           </button>

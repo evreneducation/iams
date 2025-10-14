@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "@fontsource/arsenal"; // defaults to weight 400
 import { Info } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 /**
  * RegistrationForm.jsx
  * Full React conversion of the provided multi-step HTML registration form.
@@ -61,6 +64,15 @@ const defaultAttendee = (index) => ({
 
 const RegistrationForm = () => {
   // Step 4 condition tracking state
+
+  
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
 
   const navigate = useNavigate();
   // Step index (0..3)
@@ -395,6 +407,7 @@ const RegistrationForm = () => {
     <div
       className="min-h-screen flex items-start justify-center p-4 sm:p-6 lg:p-8 bg-gray-50"
       style={{ fontFamily: "Arsenal" }}
+      data-aos="zoom-in"
     >
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-xl overflow-hidden my-10">
         {/* Header */}
