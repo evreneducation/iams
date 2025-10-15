@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import registernow from '../../public/registeration/register.jpg'
 import { useEffect } from "react";
 
 const Registration = () => {
@@ -59,29 +59,29 @@ const Registration = () => {
   return (
     <>
       {/* Hero Section (Full Width, No Top Margin) */}
-      <section data-aos="fade-down"
-        className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat w-full"
-        style={{
-          background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
-        }}
-      >
-        <div className="absolute inset-0"></div>
-        <div className="relative text-center py-28 md:py-36 px-6">
-          <div className="max-w-5xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-center mb-6 text-white animate-fadeIn">
-              Secure Your Place at IAMS 2026
-            </h1>
-            <p className="text-lg md:text-xl text-center text-white max-w-3xl mx-auto mb-12">
-              Join{" "}
-              <span className="font-semibold text-white">
-                hundreds of global industry leaders
-              </span>{" "}
-              for two days of unparalleled learning and networking in the
-              dynamic capital of New Delhi, India.
-            </p>
-          </div>
-        </div>
-      </section>
+      
+       <section data-aos="fade-down"
+                className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url(${registernow})`,
+                  backgroundSize: "100% 100%",
+                  marginTop:'80px',
+                  // objectFit:'cover'
+                }}
+              >
+                <div className="absolute inset-0 "></div> {/* overlay */}
+                <div className="relative container mx-auto text-center py-32 md:py-40">
+                  <div className="max-w-5xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                          Register Now
+                    </h1>
+                    <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+           Join hundreds of global industry leaders for two days of unparalleled learning and networking in the dynamic capital of New Delhi, India.
+          </p>
+                  </div>
+                </div>
+              </section>
+           
 
       {/* Passes Section */}
       <div className="container mx-auto px-4 py-20"    data-aos="zoom-in">

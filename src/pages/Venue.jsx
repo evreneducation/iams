@@ -236,11 +236,12 @@ const Venue = () => {
 <section
   className="relative flex items-center justify-center text-center text-white overflow-hidden"
   style={{
-    background: "linear-gradient(90deg, #e9a69c 0%, #feae89ff 20%, #3b82a0 75%, #204a74 100%)", // warm sunset to bluish tone
+   background: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",
+ // warm sunset to bluish tone
   }}
 >
   <div
-    className="w-full h-[500px] md:h-[550px] lg:h-[600px] bg-center bg-no-repeat"
+    className="w-[75%] h-[500px] md:h-[550px] lg:h-[600px] bg-center bg-no-repeat"
     style={{
       backgroundImage: `url(${venueimage})`,
       backgroundSize: "contain",
@@ -500,11 +501,8 @@ const Venue = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div
-              className={`text-center mb-16 transition-all duration-1000 ${
-                isVisible.tours
-                  ? "translate-y-0 opacity-100"
-                  : "-translate-y-10 opacity-0"
-              }`}
+              className="text-center mb-16 transition-all duration-1000"
+              
             >
               <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
                 Post-Event Packages

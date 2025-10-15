@@ -31,28 +31,32 @@ const SpeakerCard = ({ speaker }) => {
   return (
     <>
       {/* Normal Card (Closed State) */}
-      <div data-aos="zoom-in"
-        className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-all duration-300"
-        onClick={() => setIsOpen(true)}
-      >
-        <div className="h-64 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] relative" >
-          <img
-            src={speaker.image || "/speakers/dummy-speaker.jpg"}
-            alt={speaker.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black/10"></div>
-        </div>
-        <div className="p-6">
-          <h3 className="text-2xl font-bold mb-2 text-[#003366]">
-            {speaker.name}
-          </h3>
-          <p className="text-lg text-[#0080ff] font-semibold mb-4">
-            {speaker.designation}
-          </p>
-          <p className="text-gray-600 line-clamp-3">{speaker.about}</p>
-        </div>
-      </div>
+     <div
+  data-aos="zoom-in"
+  className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-all duration-300"
+  onClick={() => setIsOpen(true)}
+>
+  {/* Image container */}
+  <div className="relative w-full" style={{ background: "linear-gradient(to bottom right, #21d6e0, #0080ff)" }}>
+    <img
+      src={speaker.image || "/speakers/dummy-speaker.jpg"}
+      alt={speaker.name}
+      className="w-full h-auto object-contain"
+    />
+    <div className="absolute inset-0 bg-black/10"></div>
+  </div>
+
+  {/* Text content */}
+  <div className="p-6">
+    <h3 className="text-2xl font-bold mb-2 text-[#003366]">
+      {speaker.name}
+    </h3>
+    <p className="text-lg text-[#0080ff] font-semibold mb-4">
+      {speaker.designation}
+    </p>
+    <p className="text-gray-600 line-clamp-3">{speaker.about}</p>
+  </div>
+</div>
 
       {/* Floating Modal (Open State) */}
       {isOpen && (

@@ -62,11 +62,11 @@ export default function ArchitectsSection() {
 
           <div className="text-center mt-16">
             <Link
-              to="/sponsorship"
-              className="inline-block bg-gradient-to-r from-[#003366] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
-            >
-              Become a Sponsor
-            </Link>
+                            to="/agenda"
+                            className="inline-block bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+                          >
+                            Become a Sponsor
+                          </Link>
           </div>
         </div>
       </div>

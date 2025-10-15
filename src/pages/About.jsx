@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import aboutbanner from '../../public/about/aboutbanner.jpg'
 
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -305,7 +306,7 @@ const About = () => {
     <div className="bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       {/* Hero Banner Section */}
        <section data-aos="fade-down"
-                className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+                className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
                 style={{
                   // backgroundImage: `url('./about/1.png')`,
                   background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
@@ -662,65 +663,14 @@ const About = () => {
             
           </div>
 
+
           {/* Animated Plane */}
-          <div className="mt-12 relative h-20">
-            <div className="absolute left-1/2 transform -translate-x-1/2 animate-takeoff">
-              <svg
-                className="w-12 h-12 text-[#21d6e0]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
-            </div>
-          </div>
+          
         </div>
       </section>
 
       {/* Global Reach Section */}
-      <section
-        ref={globalSectionRef}
-        className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbff] to-[#e6f2ff]"
-      >
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#003366]">
-              Bridging Global Aviation Markets
-            </h2>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-              {[
-                { region: "Asia", color: "from-[#21d6e0] to-[#00a8ff]" },
-                { region: "Middle East", color: "from-[#0080ff] to-[#0066cc]" },
-                { region: "Europe", color: "from-[#0066cc] to-[#004080]" },
-                { region: "Global", color: "from-[#004080] to-[#003366]" },
-              ].map((item, index) => (
-                <AnimatedRegionItem
-                  key={index}
-                  item={item}
-                  index={index}
-                  isVisible={isGlobalSectionVisible}
-                />
-              ))}
-            </div>
-
-            <p
-              className="text-lg text-gray-700 max-w-3xl mx-auto transition-all duration-1000"
-              style={{
-                opacity: isGlobalSectionVisible ? 1 : 0,
-                transform: isGlobalSectionVisible
-                  ? "translateY(0)"
-                  : "translateY(20px)",
-                transitionDelay: isGlobalSectionVisible ? "2s" : "0s",
-              }}
-            >
-              Connecting aviation leaders across continents to foster
-              innovation, share best practices, and build the future of air
-              travel together.
-            </p>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 };

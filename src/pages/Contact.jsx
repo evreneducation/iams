@@ -96,8 +96,8 @@ useEffect(() => {
   return (
     <>
     
- <section data-aos="fade-down"
-          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+ <section data-aos="fade-down" 
+          className="relative my-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${contact})`,
             backgroundSize: "100% 100%",

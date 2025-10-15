@@ -25,7 +25,7 @@ const CARD_FEE = 0.03; // 3% fee
 const delegateTypes = [
   {
     id: "airline",
-    label: "Airline , Airport , Hotel & Car Rental",
+    label: "Airline, Airport, Hotel & Car Rental",
     description:
       "Includes all Airlines, LCCs, ULCCs, Airport Operators, Hotels, and Car Rental Companies .",
     fee: 600,
@@ -34,7 +34,7 @@ const delegateTypes = [
   },
   {
     id: "supplier",
-    label: "Aviation Technology , Supplier , Support Services",
+    label: "Aviation Technology, Supplier & Support Services",
     description:
       "Includes Technology Providers, Consultants, GDS, Service Vendors, Banks, FinTech & Insurance(Non-Sponsoring).",
     fee: 1900,
@@ -407,7 +407,7 @@ const RegistrationForm = () => {
     <div
       className="min-h-screen flex items-start justify-center p-4 sm:p-6 lg:p-8 bg-gray-50"
       style={{ fontFamily: "Arsenal" }}
-      data-aos="zoom-in"
+     
     >
       <div className="w-full max-w-4xl bg-white shadow-2xl rounded-xl overflow-hidden my-10">
         {/* Header */}

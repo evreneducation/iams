@@ -457,15 +457,14 @@ const Home = () => {
 
             {/* View All Button */}
             <div className="text-center">
-              <Link
+              {/* <Link
                 to="/speakers"
                 className="inline-block bg-transparent border-2 border-[#0080ff] text-[#0080ff] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#0080ff] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
               >
                 View All Speakers
-              </Link>
+              </Link> */}
               <p className="text-gray-500 mt-4 text-sm">
-                This section is crucial for building credibility and will be
-                populated as speakers are confirmed.
+                This section is currently being updated as speaker confirmations are underway
               </p>
             </div>
           </div>
@@ -732,7 +731,7 @@ const AnimatedNumbersSection = () => {
       desc: "Industry Leaders & Decision-Makers",
     },
     { target: 25, label: "Awards", desc: "Categories Celebrating Excellence" },
-    { target: 1, label: "Awards", desc: "Unmissable Awards Gala Night" },
+    { target: 18, label: "Exhibitors", desc: "Showcasing Innovation, Solution and Growth" },
   ];
 
   return (

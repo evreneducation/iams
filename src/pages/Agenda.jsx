@@ -180,7 +180,7 @@ const Agenda = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#1646d8] text-white py-28 md:py-26" data-aos="fade-down" style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}>
+      <div className="relative overflow-hidden bg-[#1646d8] text-white py-28 md:py-26 mt-[60px]"  data-aos="fade-down" style={{  background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)", }}>
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative container mx-auto px-6 py-20 text-center" >
           <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">

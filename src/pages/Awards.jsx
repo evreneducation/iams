@@ -7,6 +7,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import awards from '../../public/awards/awards.jpeg'
+import galadinner from '../../public/awards/galadinner.jpg'
 
 const Awards = () => {
   const navigate = useNavigate();
@@ -292,27 +294,28 @@ const categories = [
         </div>
       </section> */}
 
-      <section data-aos="fade-down"
-        className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
-        style={{
-          background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
-        }}
-      >
-        <div className="absolute inset-0 "></div> {/* overlay */}
-        <div className="relative container mx-auto text-center py-28 md:py-36">
-          <div className="max-w-5xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-              IAMS 2026 Awards
-            </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white" >
-              The IAMS Awards Gala is the industry's premier evening of
+
+       <section data-aos="fade-down" 
+                className="relative my-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
+                style={{
+                  backgroundImage: `url(${awards})`,
+                  backgroundSize: "100% 100%",
+                }}
+              >
+                <div className="absolute inset-0 "></div> {/* overlay */}
+                <div className="relative container mx-auto text-center py-32 md:py-40">
+                  <div className="max-w-5xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+                        IAMS 2026 Awards
+                    </h1>
+                    <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+             The IAMS Awards Gala is the industry's premier evening of
               recognition, honoring teams and innovations redefining passenger
               experience and driving commercial success.
-            </p>
-          </div>
-          
-        </div>
-      </section>
+          </p>
+                  </div>
+                </div>
+              </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-[#E6F7F9]">
@@ -360,81 +363,64 @@ const categories = [
 
 
 
+     
       {/* Benefits + Gala Info */}
-      {/* Benefits + Gala Info */}
-<section className="max-w-[1400px] mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12">
-  {/* Benefits Box */}
-  <div className="flex flex-col bg-white rounded-2xl shadow-xl p-10 border border-gray-100 h-full" data-aos="fade-right">
-    <h2
-      className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-center py-3
-         bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+<section className="max-w-[1400px] mx-auto px-6 py-20">
+  {/* Common Heading */}
+  <h2
+    className="text-4xl md:text-5xl font-extrabold mb-14 tracking-tight text-center py-3
+      bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+    data-aos="fade-down"
+  >
+    Gala Information
+  </h2>
+
+  {/* Content Grid */}
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+    {/* Left Side – Info Card */}
+    <div
+      className="flex flex-col bg-white rounded-2xl shadow-xl p-10 border border-gray-100"
+      data-aos="fade-right"
     >
-      Benefits of Participation
-    </h2>
-
-    <div className="flex-1 space-y-6">
-      {benefits.map((b, i) => (
-        <div
-          key={i}
-          className="flex items-start p-5 rounded-2xl bg-white shadow-lg border-l-4 transform transition-all duration-500 hover:scale-105 hover:shadow-xl"
-          style={{ borderColor: "#15A4B3" }}
-        >
+      <div className="flex-1 space-y-6">
+        {galaInfo.map((item, idx) => (
           <div
-            className="p-4 rounded-full mr-5 flex items-center justify-center text-2xl"
-            style={{
-              backgroundColor: "rgba(21,164,179,0.15)",
-              color: "#15A4B3",
-            }}
+            key={idx}
+            className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#E6F7F9] transition"
           >
-            {b.icon}
+            <div
+              className="p-3 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: "rgba(21,164,179,0.15)",
+                color: "#15A4B3",
+              }}
+            >
+              {item.icon}
+            </div>
+            <div>
+              <p className="font-semibold text-gray-800">{item.label}</p>
+              <p className="text-gray-700">{item.value}</p>
+            </div>
           </div>
-          <p className="text-gray-700 text-lg">{b.text}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  {/* Gala Information Box */}
-  <div className="flex flex-col bg-white rounded-2xl shadow-xl p-10 border border-gray-100 h-full" data-aos="fade-left">
-    <h2
-      className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-center py-3
-         bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
-    >
-      Gala Information
-    </h2>
-
-    <div className="flex-1 space-y-6">
-      {galaInfo.map((item, idx) => (
-        <div
-          key={idx}
-          className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#E6F7F9] transition"
-        >
-          <div
-            className="p-3 rounded-full flex items-center justify-center"
-            style={{
-              backgroundColor: "rgba(21,164,179,0.15)",
-              color: "#15A4B3",
-            }}
-          >
-            {item.icon}
-          </div>
-          <div>
-            <p className="font-semibold text-gray-800">{item.label}</p>
-            <p className="text-gray-700">{item.value}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
-    {/* Optional Button */}
-    {/* <button
-      className="w-full mt-6 text-white py-4 rounded-2xl font-bold text-lg hover:scale-105 transition transform shadow-lg"
-      style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
+    {/* Right Side – Image */}
+    <div
+      className="flex justify-center items-center"
+      data-aos="fade-left"
     >
-      Book Gala Tickets
-    </button> */}
+      <img
+          style={{objectFit:'100% 100%'}}
+        src={galadinner}
+        alt="Gala Event"
+        className="rounded-2xl shadow-xl w-full object-cover h-full lg:h-auto max-h-[600px]"
+      />
+    </div>
   </div>
 </section>
+
 
       {/* Categories */}
       <section
@@ -448,10 +434,10 @@ const categories = [
 
       {/* Title */}
       <div className="relative text-center mb-16 z-10">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl py-[10px] font-extrabold tracking-tight bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
           IAMS 2026 Awards — Categories
         </h2>
-        <div className="w-24 h-1 bg-[#15A4B3] mx-auto rounded-full mt-4"></div>
+        {/* <div className="w-24 h-1 bg-[#15A4B3] mx-auto rounded-full mt-4"></div> */}
       </div>
 
       {/* Category Cards */}

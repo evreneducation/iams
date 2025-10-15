@@ -1,6 +1,7 @@
 // src/pages/Sponsorship.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
@@ -99,16 +100,16 @@ const Sponsorship = () => {
 
 
 
- <section
+ <section 
  data-aos="fade-down"
-          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+          className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
           style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
         >
           <div className="absolute inset-0 "></div> {/* overlay */}
           <div className="relative container mx-auto text-center py-22 md:py-30">
             <div className="max-w-5xl mx-auto">
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                   Elevate Your Presence. Accelerate Your Growth
+                  Become a Sponsor
               </h1>
                 <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
             Position your brand at the center of the aviation commerce ecosystem. Engage directly with key decision-makers,
@@ -266,37 +267,52 @@ const Sponsorship = () => {
                   </li>
                 ))}
               </ul>
-
-           
-              <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
-            Exhibitor Opportunities
-          </h2>
-              <ul className="space-y-3">
-                {[
-                  "Showcase your solutions in our dynamic exhibition hub.",
-                  "Booth Packages: Standard (3x3m) & Premium (6x3m)",
-                  "Custom-designed spaces available",
-                  "Inclusion in the Exhibitor Directory",
-                  "Dedicated networking time"
-                ].map((pkg, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-green-50 transition-all duration-300"
-                  >
-                    <svg className="w-5 h-5 text-green-700 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    <span className="text-gray-700">{pkg}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
+<section className="max-w-5xl mx-auto px-6 py-16 mb-[70px]">
+  {/* Section Heading */}
+  <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#0E7785] to-[#15A4B3]">
+    Exhibitor Opportunities
+  </h2>
+
+  {/* Grid */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {[
+      "Showcase your solutions in our dynamic exhibition hub.",
+      "Booth Packages: Standard (3x3m) & Premium (6x3m)",
+      "Custom-designed spaces available",
+      "Inclusion in the Exhibitor Directory",
+      "Dedicated networking time"
+    ].map((item, idx, arr) => (
+      <div
+        key={idx}
+        data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} // alternating AOS
+        className={`flex flex-col p-4 rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl bg-gradient-to-br from-[#15A4B3] to-[#0E7785] 
+          ${arr.length % 2 !== 0 && idx === arr.length - 1 ? "md:col-span-2 md:w-1/2 md:mx-auto" : ""}`}
+      >
+        {/* Icon */}
+        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-md mb-3">
+          <svg
+            className="w-6 h-6 text-[#0E7785]"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+
+        {/* Text */}
+        <p className="text-white font-medium text-lg text-center">{item}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
         {/* Packages Section */}
         <div className="mb-16" data-aos="zoom-in">
@@ -346,7 +362,7 @@ const Sponsorship = () => {
                     </li>
                   ))}
                 </ul>
-                <button
+                {/* <button
                   className="w-full py-3 rounded font-semibold transition"
                   style={{
                     backgroundColor: pkg.featured ? "rgb(21, 164, 179)" : "rgb(240,240,240)",
@@ -354,7 +370,7 @@ const Sponsorship = () => {
                   }}
                 >
                   Inquire Now
-                </button>
+                </button> */}
               </div>
             ))}
           </div>
@@ -370,13 +386,25 @@ const Sponsorship = () => {
             Secure your place at IAMS 2026 — as a sponsor, exhibitor, or strategic partner — and position your brand at the forefront of aviation’s next era of commercial innovation. Contact us to collaborate.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button
-              className="bg-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-blue-100 transition"
-              style={{ color: "rgb(21, 164, 179)" }}
-              onClick={() => navigate('/contact')}
-            >
-              Partner with us
-            </button>
+             <Link
+                to="/registration"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-3 rounded-lg font-semibold hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+              Partner With Us
+              </Link>
           </div>
         </div>
       </div>

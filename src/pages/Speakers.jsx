@@ -1,6 +1,6 @@
 import speakers from "../speaker/data";
 import SpeakerCard from "../components/SpeakerCard";
-
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
@@ -33,7 +33,7 @@ const Speakers = () => {
 
 <section
 data-aos="fade-down"
-          className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+          className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
           style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
         >
           <div className="absolute inset-0 "></div> {/* overlay */}
@@ -72,9 +72,25 @@ data-aos="fade-down"
             IAMS 2026. If you're redefining aviation marketing, technology, or
             customer experience, we want to hear from you.
           </p>
-          <button className="bg-[#15A4B3] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition transform hover:-translate-y-1">
-            Apply to Speak
-          </button>
+          <Link
+                to="/registration"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-3 rounded-lg font-semibold hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  />
+                </svg>
+              Apply to Speak
+              </Link>
         </div>
 
         {/* Benefits Section */}
@@ -139,17 +155,7 @@ data-aos="fade-down"
 </section>
 
         {/* Deadline Section */}
-        <div className="bg-[#15A4B3] text-white rounded-xl p-10 text-center">
-          <h2 className="text-3xl font-semibold mb-6">
-            Speaker Application Deadline
-          </h2>
-          <p className="text-2xl mb-9 font-light">
-            Submit your proposal by October 31 , 2025
-          </p>
-          <button className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-100 transition">
-            Submit Proposal
-          </button>
-        </div>
+       
       </div>
     </div>
   );
