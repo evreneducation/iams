@@ -282,9 +282,7 @@ const Home = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-lg font-semibold text-[#0080ff] mt-4 text-center">
-                  Strategy & Opportunity Visual
-                </p>
+               
               </div>
 
               {/* Text Content - Contains heading (desktop) and paragraphs */}
@@ -330,86 +328,92 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"  data-aos="zoom-in">
-              {/* Column 1: Forge Alliances */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
-                  <svg
-                    className="w-8 h-8 text-[#0080ff]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
-                  Forge Alliances
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Connect with C-level executives and decision-makers in curated
-                  B2B meetings and high-value networking sessions.
-                </p>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-aos="zoom-in">
+  {/* Column 1: Forge Alliances */}
+  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="flex items-center gap-4 mb-6">
+      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+        <svg
+          className="w-8 h-8 text-[#0080ff]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+          />
+        </svg>
+      </div>
+      <h3 className="text-2xl font-bold text-[#003366]">
+        Forge Alliances
+      </h3>
+    </div>
+    <p className="text-gray-700 leading-relaxed">
+      Connect with C-level executives and decision-makers in curated
+      B2B meetings and high-value networking sessions.
+    </p>
+  </div>
 
-              {/* Column 2: Gain Intelligence */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#21d6e0]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
-                  <svg
-                    className="w-8 h-8 text-[#0080ff]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
-                  Gain Intelligence
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Access a deep-dive agenda on AI/ML, NDC, sustainability,
-                  loyalty, and next-gen passenger journeys.
-                </p>
-              </div>
+  {/* Column 2: Gain Intelligence */}
+  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#21d6e0]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="flex items-center gap-4 mb-6">
+      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+        <svg
+          className="w-8 h-8 text-[#0080ff]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+          />
+        </svg>
+      </div>
+      <h3 className="text-2xl font-bold text-[#003366]">
+        Gain Intelligence
+      </h3>
+    </div>
+    <p className="text-gray-700 leading-relaxed">
+      Access a deep-dive agenda on AI/ML, NDC, sustainability,
+      loyalty, and next-gen passenger journeys.
+    </p>
+  </div>
 
-              {/* Column 3: Drive Growth */}
-              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
-                  <svg
-                    className="w-8 h-8 text-[#0080ff]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-[#003366]">
-                  Drive Growth
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Discover new profit centers, unleash ancillary revenue
-                  streams, and position your brand at the forefront of
-                  innovation.
-                </p>
-              </div>
-            </div>
+  {/* Column 3: Drive Growth */}
+  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="flex items-center gap-4 mb-6">
+      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+        <svg
+          className="w-8 h-8 text-[#0080ff]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        </svg>
+      </div>
+      <h3 className="text-2xl font-bold text-[#003366]">
+        Drive Growth
+      </h3>
+    </div>
+    <p className="text-gray-700 leading-relaxed">
+      Discover new profit centers, unleash ancillary revenue
+      streams, and position your brand at the forefront of
+      innovation.
+    </p>
+  </div>
+</div>
 
             <div className="text-center"  data-aos="zoom-in">
               <Link

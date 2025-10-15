@@ -7,7 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { useState } from "react";
-import awards from '../../public/awards/awards.jpeg'
+import awards from '../../public/awards/awardss.jpg'
 import galadinner from '../../public/awards/galadinner.jpg'
 
 const Awards = () => {

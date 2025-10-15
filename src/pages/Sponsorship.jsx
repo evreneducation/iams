@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
+
+import exibhit from '../../public/assembly/exibitorimage.png'
 const Sponsorship = () => {
   const navigate = useNavigate();
 
@@ -48,23 +50,10 @@ const Sponsorship = () => {
       features: [
         "Session Speaker Slot (15 min)",
         "Logo on event website and select printed material.",
-        "N/A",
         "Featured Session Branding",
         "Shared Display Area Option",
         "1 Airlines Full-Access Pass (Includes Gala)",
         "P.O.A."
-      ]
-    },
-    {
-      name: "Feature / Benefit",
-      features: [
-        "THOUGHT LEADERSHIP",
-        "DIGITAL BRANDING & PR",
-        "LEAD GENERATION (ROI)",
-        "NAMING RIGHTS",
-        "Exhibition Space",
-        "Delegate Access",
-        "Investment Level"
       ]
     }
   ];
@@ -270,46 +259,56 @@ const Sponsorship = () => {
             </div>
           </div>
         </div>
-<section className="max-w-5xl mx-auto px-6 py-16 mb-[70px]">
+<section className="max-w-6xl mx-auto px-6 py-16 mb-[70px]">
   {/* Section Heading */}
   <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#0E7785] to-[#15A4B3]">
     Exhibitor Opportunities
   </h2>
 
-  {/* Grid */}
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {[
-      "Showcase your solutions in our dynamic exhibition hub.",
-      "Booth Packages: Standard (3x3m) & Premium (6x3m)",
-      "Custom-designed spaces available",
-      "Inclusion in the Exhibitor Directory",
-      "Dedicated networking time"
-    ].map((item, idx, arr) => (
-      <div
-        key={idx}
-        data-aos={idx % 2 === 0 ? "fade-right" : "fade-left"} // alternating AOS
-        className={`flex flex-col p-4 rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl bg-gradient-to-br from-[#15A4B3] to-[#0E7785] 
-          ${arr.length % 2 !== 0 && idx === arr.length - 1 ? "md:col-span-2 md:w-1/2 md:mx-auto" : ""}`}
-      >
-        {/* Icon */}
-        <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-md mb-3">
-          <svg
-            className="w-6 h-6 text-[#0E7785]"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </div>
+  {/* Two-Column Layout */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    {/* Left: Image */}
+    <div data-aos="fade-right" className="flex justify-center">
+      <img
+        src={exibhit} // 🔁 Replace with your image
+        alt="Exhibition Booth"
+        className="rounded-3xl w-full h-auto object-cover shadow-lg"
+      />
+    </div>
 
-        {/* Text */}
-        <p className="text-white font-medium text-lg text-center">{item}</p>
-      </div>
-    ))}
+    {/* Right: Opportunities List */}
+    <div data-aos="fade-left" className="space-y-5">
+      {[
+        "Showcase your solutions in our dynamic exhibition hub.",
+        "Booth Packages: Standard (3x3m) & Premium (6x3m)",
+        "Custom-designed spaces available",
+        "Inclusion in the Exhibitor Directory",
+        "Dedicated networking time",
+      ].map((item, idx) => (
+        <div
+          key={idx}
+          className="flex items-center gap-4 p-4 rounded-3xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 hover:shadow-2xl bg-gradient-to-r from-[#15A4B3] to-[#0E7785]"
+        >
+          {/* Icon */}
+          <div className="w-12 h-12 rounded-full flex items-center justify-center bg-white shadow-md flex-shrink-0">
+            <svg
+              className="w-6 h-6 text-[#0E7785]"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+
+          {/* Text */}
+          <p className="text-white font-medium text-lg">{item}</p>
+        </div>
+      ))}
+    </div>
   </div>
 </section>
 
@@ -323,7 +322,7 @@ const Sponsorship = () => {
           <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12">
             Choose the package that best fits your marketing objectives and budget
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
               <div
                 key={index}

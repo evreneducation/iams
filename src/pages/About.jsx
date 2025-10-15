@@ -386,7 +386,7 @@ const About = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             {/* Animated Icon */}
-            <div className="inline-flex items-center justify-center p-6 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-3xl mb-8 border border-[#0080ff]/20 animate-pulse">
+            {/* <div className="inline-flex items-center justify-center p-6 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-3xl mb-8 border border-[#0080ff]/20 animate-pulse">
               <svg
                 className="w-12 h-12 text-[#0080ff]"
                 fill="none"
@@ -400,7 +400,7 @@ const About = () => {
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-            </div>
+            </div> */}
 
             {/* Mission Text with Animation */}
             <div className="space-y-6" data-aos="fade-down">
@@ -417,14 +417,14 @@ const About = () => {
             {/* Moving Stats with Animated Numbers */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
               {[
-                { target: 50, label: "Countries", suffix: "+", duration: 2000 },
+                { target: 40, label: "Countries", suffix: "+", duration: 2000 },
                 {
-                  target: 300,
+                  target: 80,
                   label: "Companies",
                   suffix: "+",
                   duration: 2200,
                 },
-                { target: 1000, label: "Leaders", suffix: "+", duration: 2400 },
+                { target: 120, label: "Leaders", suffix: "+", duration: 2400 },
                 { target: 4, label: "Continents", suffix: "", duration: 1800 },
               ].map((stat, index) => (
                 <div key={index} className="group relative" data-aos="zoom-in" >
