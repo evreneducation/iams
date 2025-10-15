@@ -1,9 +1,23 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 const AnimatedRegionItem = ({ item, index, isVisible }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const itemRef = useRef(null);
+
+   useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
+
 
   useEffect(() => {
     if (isVisible && !hasAnimated) {
@@ -290,7 +304,7 @@ const About = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       {/* Hero Banner Section */}
-       <section
+       <section data-aos="fade-down"
                 className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
                 style={{
                   // backgroundImage: `url('./about/1.png')`,
@@ -318,7 +332,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+              <div data-aos="fade-right">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                   The Premier Aviation Marketing Platform
                 </h2>
@@ -337,7 +351,7 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative" data-aos="fade-left">
                 {/* Image Container with proper spacing */}
                 <div className="rounded-2xl overflow-hidden aspect-video shadow-2xl mb-8">
                   <img
@@ -388,7 +402,7 @@ const About = () => {
             </div>
 
             {/* Mission Text with Animation */}
-            <div className="space-y-6">
+            <div className="space-y-6" data-aos="fade-down">
               <h2 className="text-3xl md:text-4xl font-bold text-[#003366] animate-slide-in-up">
                 Our Mission
               </h2>
@@ -412,12 +426,12 @@ const About = () => {
                 { target: 1000, label: "Leaders", suffix: "+", duration: 2400 },
                 { target: 4, label: "Continents", suffix: "", duration: 1800 },
               ].map((stat, index) => (
-                <div key={index} className="group relative">
+                <div key={index} className="group relative" data-aos="zoom-in" >
                   <div className="bg-white/90 backdrop-blur-lg p-6 rounded-2xl border border-[#0080ff]/20 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden">
                     {/* Hover Effect Background */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="relative z-10">
+                    <div className="relative z-10" >
                       {/* Animated Number */}
                       <div className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent mb-2">
                         <AnimatedNumber
@@ -477,7 +491,7 @@ const About = () => {
       <section ref={sectionRef} className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16" data-aos="fade-down">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                 Unique Selling Propositions
               </h2>
@@ -487,7 +501,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="zoom-in">
               {[
                 {
                   icon: (
@@ -629,7 +643,7 @@ const About = () => {
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-[#001933] to-[#004080] text-white">
+      <section data-aos="fade-down" style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}  className="py-16 md:py-24 bg-gradient-to-br from-[#001933] to-[#004080] text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             This is your runway to transformation.
@@ -645,9 +659,7 @@ const About = () => {
             >
               Register Your Interest
             </Link>
-            <button className="bg-transparent border-2 border-white/50 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 hover:border-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm">
-              Download Brochure
-            </button>
+            
           </div>
 
           {/* Animated Plane */}

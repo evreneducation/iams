@@ -6,12 +6,16 @@ import { ChevronRight } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-
+import { useState } from "react";
 
 const Awards = () => {
   const navigate = useNavigate();
 
+const [activeIndex, setActiveIndex] = useState(null);
 
+const handleToggle = (index) => {
+  setActiveIndex(activeIndex === index ? null : index);
+};
   useEffect(() => {
     AOS.init({
       duration: 1000, // animation duration in ms
@@ -288,7 +292,7 @@ const categories = [
         </div>
       </section> */}
 
-      <section
+      <section data-aos="fade-down"
         className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
         style={{
           background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
@@ -300,7 +304,7 @@ const categories = [
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
               IAMS 2026 Awards
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white" >
               The IAMS Awards Gala is the industry's premier evening of
               recognition, honoring teams and innovations redefining passenger
               experience and driving commercial success.
@@ -313,13 +317,13 @@ const categories = [
       {/* Stats Section */}
       <section className="py-16 bg-[#E6F7F9]">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-700 text-center">
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-700 text-center" data-aos="zoom-in">
           Where achievement meets prestige — the IAMS Awards Gala celebrates
           visionary teams and groundbreaking innovations transforming global
           aviation’s commercial landscape.
         </p>
 
-        <h2
+        <h2 data-aos="zoom-in"
           className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight text-center py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
         >
@@ -452,43 +456,61 @@ const categories = [
 
       {/* Category Cards */}
      
-<div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto z-10 justify-items-center">
-  {categories.map((cat, index) => (
-    <motion.div
-      key={index}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="w-full max-w-[360px] relative bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden group border border-white/40"
-    >
-      {/* Front View */}
-      <div className="p-8 flex flex-col items-center justify-center text-center min-h-[320px] transition-all duration-500 group-hover:translate-y-[-100%]">
-        <h4 className="text-2xl font-bold bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
-          {cat.title}
-        </h4>
-        <ChevronRight className="mt-6 text-[#15A4B3] opacity-70 group-hover:opacity-100 transition-all duration-500" size={32} />
-      </div>
+ <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto z-10 justify-items-center">
+      {categories.map((cat, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          onClick={() => handleToggle(index)} // Mobile tap toggle
+          className="w-full max-w-[360px] relative bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden group border border-white/40 cursor-pointer"
+        >
+          {/* Front View */}
+          <div
+            className={`p-8 flex flex-col items-center justify-center text-center min-h-[320px] transition-all duration-500 
+              ${
+                activeIndex === index
+                  ? "translate-y-[-100%]" // Show slide on mobile
+                  : "group-hover:translate-y-[-100%]" // Show slide on hover (desktop)
+              }`}
+          >
+            <h4 className="text-2xl font-bold bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
+              {cat.title}
+            </h4>
+            <ChevronRight
+              className="mt-6 text-[#15A4B3] opacity-70 group-hover:opacity-100 transition-all duration-500"
+              size={32}
+            />
+          </div>
 
-      {/* Hidden Slide-Out Info */}
-      <div className="absolute inset-0 p-8 bg-gradient-to-br from-[#0E7785] to-[#15A4B3] text-white translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-in-out rounded-2xl">
-        <h4 className="text-xl font-semibold mb-4 border-b border-white/30 pb-2">
-          {cat.title}
-        </h4>
-        <ul className="space-y-2 text-left text-sm md:text-base">
-          {cat.items.map((item, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-2 opacity-90 hover:opacity-100 transition"
-              style={{ fontSize: "12px" }}
-            >
-              <span className="text-[#f4f8f9] mt-1">•</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  ))}
-</div>
+          {/* Hidden Slide-Out Info */}
+          <div
+            className={`absolute inset-0 p-8 bg-gradient-to-br from-[#0E7785] to-[#15A4B3] text-white transition-all duration-500 ease-in-out rounded-2xl 
+              ${
+                activeIndex === index
+                  ? "translate-y-0" // Show on click (mobile)
+                  : "translate-y-full group-hover:translate-y-0" // Show on hover (desktop)
+              }`}
+          >
+            <h4 className="text-xl font-semibold mb-4 border-b border-white/30 pb-2">
+              {cat.title}
+            </h4>
+            <ul className="space-y-2 text-left text-sm md:text-base">
+              {cat.items.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 opacity-90 hover:opacity-100 transition"
+                  style={{ fontSize: "12px" }}
+                >
+                  <span className="text-[#f4f8f9] mt-1">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+      ))}
+    </div>
 
     </section>
 

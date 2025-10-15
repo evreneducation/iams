@@ -1,9 +1,21 @@
 // src/pages/Sponsorship.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
 const Sponsorship = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
+
   const packages = [
     {
       name: "Platinum Sponsor",
@@ -88,6 +100,7 @@ const Sponsorship = () => {
 
 
  <section
+ data-aos="fade-down"
           className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
           style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
         >
@@ -109,13 +122,10 @@ const Sponsorship = () => {
 
 
       {/* Stats Section */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16 bg-blue-50" data-aos="zoom-in">
         <div className="max-w-7xl mx-auto px-6">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-center mb-12"
-            style={{ color: "rgb(21, 164, 179)" }}
-          >
-            Why Sponsor or Exhibit at IAMS 2026?
+            <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
+             Why Sponsor or Exhibit at IAMS 2026?
           </h2>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -144,15 +154,14 @@ const Sponsorship = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16" > 
             {/* Left Column */}
-            <div>
-              <h2
-                className="text-3xl md:text-4xl font-bold mb-6"
-                style={{ color: "rgb(21, 164, 179)" }}
-              >
-                Strategic Partnerships
-              </h2>
+            <div data-aos="fade-right">
+             
+               <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
+            Strategic Partnerships
+          </h2>
+              
               <p className="mb-8 text-gray-700 text-lg md:text-xl">
                 Connect with top decision-makers from airline e-commerce, marketing, revenue management, distribution, loyalty, alliances and customer service.
               </p>
@@ -233,10 +242,11 @@ const Sponsorship = () => {
             </div>
 
             {/* Right Column */}
-            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
-              <h2 className="text-3xl font-bold mb-8" style={{ color: "rgb(21, 164, 179)" }}>
-                Who Should Exhibit?
-              </h2>
+            <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100" data-aos="fade-left">
+              
+               <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
+           Who Should Exhibit?
+          </h2>
               <ul className="mb-8 space-y-3">
                 {exhibitors.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3 p-3 rounded-lg hover:bg-blue-50 transition-all duration-300">
@@ -257,9 +267,10 @@ const Sponsorship = () => {
                 ))}
               </ul>
 
-              <h3 className="text-2xl font-semibold mb-4" style={{ color: "rgb(21, 164, 179)" }}>
-                Exhibitor Opportunities
-              </h3>
+           
+              <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
+            Exhibitor Opportunities
+          </h2>
               <ul className="space-y-3">
                 {[
                   "Showcase your solutions in our dynamic exhibition hub.",
@@ -288,10 +299,11 @@ const Sponsorship = () => {
         </div>
 
         {/* Packages Section */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-4" style={{ color: "rgb(21, 164, 179)" }}>
+        <div className="mb-16" data-aos="zoom-in">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]" style={{ color: "rgb(21, 164, 179)" }}>
             Sponsorship Packages
           </h2>
+          
           <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto mb-12">
             Choose the package that best fits your marketing objectives and budget
           </p>

@@ -230,7 +230,7 @@ const Venue = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-51">
       {/* Hero Section with Updated Colors and Height */}
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden" data-aos="fade-down">
   <div className="absolute inset-0 bg-gradient-to-br from-[#0F7F8A] via-[#1AA6B5] to-[#94E0E5]"></div>
 
 <section

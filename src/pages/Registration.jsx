@@ -59,7 +59,7 @@ const Registration = () => {
   return (
     <>
       {/* Hero Section (Full Width, No Top Margin) */}
-      <section
+      <section data-aos="fade-down"
         className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat w-full"
         style={{
           background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
@@ -84,7 +84,7 @@ const Registration = () => {
       </section>
 
       {/* Passes Section */}
-      <div className="container mx-auto px-4 py-20"    data-aos="fade-down">
+      <div className="container mx-auto px-4 py-20"    data-aos="zoom-in">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
           {passes.map((pass, index) => (
             <div

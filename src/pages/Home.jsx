@@ -3,8 +3,20 @@ import { Link } from "react-router-dom";
 import ArchitectsSection from "../utils/InfiniteScroll";
 import SpeakerCard from "../components/SpeakerCard";
 import speakers from "../speaker/data.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
+
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -68,7 +80,7 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30">
       {/* Hero Section with Background Image */}
-      <section
+      <section data-aos="fade-down"
         className="relative text-white py-12 md:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat min-h-[90vh] flex items-center"
         id="hero-section"
       >
@@ -253,16 +265,16 @@ const Home = () => {
       <section className="py-12 md:py-20 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff] mt-8">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" >
               {/* Heading only for mobile */}
-              <div className="order-1 lg:hidden">
+              <div className="order-1 lg:hidden"  data-aos="fade-right">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                   Where Strategy Meets Opportunity
                 </h2>
               </div>
 
               {/* Image Placeholder */}
-              <div className="order-2 lg:order-2 relative">
+              <div className="order-2 lg:order-2 relative"  data-aos="fade-left">
                 <div className="rounded-2xl overflow-hidden aspect-[16/9]">
                   <img
                     src="/landingpage/1.jpeg"
@@ -278,7 +290,7 @@ const Home = () => {
               {/* Text Content - Contains heading (desktop) and paragraphs */}
               <div className="order-3 lg:order-1">
                 {/* Heading for desktop only */}
-                <h2 className="hidden lg:block text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
+                <h2 className="hidden lg:block text-4xl md:text-5xl font-bold mb-6 text-[#003366]" >
                   Where Strategy Meets Opportunity
                 </h2>
                 <div className="space-y-6">
@@ -307,7 +319,7 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16"  data-aos="fade-down">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                 Unlock Your Aviation Potential
               </h2>
@@ -318,7 +330,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"  data-aos="zoom-in">
               {/* Column 1: Forge Alliances */}
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                 <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex mb-6">
@@ -399,7 +411,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="text-center">
+            <div className="text-center"  data-aos="zoom-in">
               <Link
                 to="/agenda"
                 className="inline-block bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
@@ -412,16 +424,21 @@ const Home = () => {
       </section>
 
       {/* At a Glance Section with Animated Numbers */}
-      <AnimatedNumbersSection />
+      <div data-aos="fade-up">
+        <AnimatedNumbersSection />
+      </div>
 
       {/* Who You'll Meet Section */}
-      <ArchitectsSection />
+       <div data-aos="zoom-out">
+ <ArchitectsSection />
+       </div>
+     
 
       {/* Featured Speakers Sneak Peek Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
+            <div className="text-center mb-16" data-aos="fade-down">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                 Learn from the Leaders
               </h2>
@@ -459,7 +476,7 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gradient-to-br from-white to-[#f0f9ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-full mb-6 border border-[#0080ff]/20">
+            <div data-aos="zoom-in" className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-full mb-6 border border-[#0080ff]/20">
               <svg
                 className="w-8 h-8 text-[#0080ff]"
                 fill="none"
@@ -474,15 +491,15 @@ const Home = () => {
                 />
               </svg>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#003366]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#003366]" data-aos="fade-right">
               Propelled by Strategy, Fueled by Intelligence
             </h2>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed" data-aos="fade-left">
               The International Aviation Marketing Summit 2026 is the definitive
               platform dedicated to aviation marketing, e-commerce, loyalty, and
               technology—a niche underserved by existing industry conferences.
             </p>
-            <div className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20">
+            <div className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20" data-aos="zoom-in">
               <p className="text-lg text-[#003366] font-medium italic">
                 "Our mission is to unite the complete ecosystem driving growth,
                 innovation, and sustained profitability across airline
@@ -494,12 +511,13 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-[#001933] to-[#004080] text-white">
+      <section className="py-16 md:py-24  text-white bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10" >
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Join the Future of Aviation
-          </h2>
-          <p className="text-xl max-w-2xl mx-auto mb-12 opacity-90">
+      
+             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]" data-aos="fade-down">
+                  Join the Future of Aviation
+              </h2>
+          <p className="text-xl max-w-2xl mx-auto mb-12 opacity-90 text-lg text-[#003366] font-medium" data-aos="fade-down">
             Be part of the conversation that's shaping the next generation of
             aviation marketing
           </p>
@@ -525,7 +543,7 @@ const Home = () => {
                 linkText: "View Awards",
               },
             ].map((card, i) => (
-              <div
+              <div  style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }} data-aos="zoom-in"
                 key={i}
                 className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >

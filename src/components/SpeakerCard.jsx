@@ -1,8 +1,21 @@
 import React, { useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from 'react';
+
 
 const SpeakerCard = ({ speaker }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration in ms
+        easing: "ease-in-out", // easing function
+        once: true, // animation happens only once
+      });
+    }, []);
+  
 
   const handleMouseMove = (e) => {
     if (!isOpen) return;
@@ -18,11 +31,11 @@ const SpeakerCard = ({ speaker }) => {
   return (
     <>
       {/* Normal Card (Closed State) */}
-      <div
+      <div data-aos="zoom-in"
         className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-2 transition-all duration-300"
         onClick={() => setIsOpen(true)}
       >
-        <div className="h-64 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] relative">
+        <div className="h-64 bg-gradient-to-br from-[#21d6e0] to-[#0080ff] relative" >
           <img
             src={speaker.image || "/speakers/dummy-speaker.jpg"}
             alt={speaker.name}
