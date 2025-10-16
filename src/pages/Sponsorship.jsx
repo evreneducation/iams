@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
+import sponsorbanner from "../../public/sponsor/sponsor.jpg"
 
 import exibhit from '../../public/assembly/exibitorimage.png'
 const Sponsorship = () => {
@@ -88,26 +89,35 @@ const Sponsorship = () => {
       </section> */}
 
 
+     <section
+  data-aos="fade-down"
+  className="relative mt-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+  style={{
+    backgroundImage: `url(${sponsorbanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* very light overlay for subtle depth */}
+  <div className="absolute inset-0 bg-black/10"></div>
 
- <section 
- data-aos="fade-down"
-          className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
-          style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
-        >
-          <div className="absolute inset-0 "></div> {/* overlay */}
-          <div className="relative container mx-auto text-center py-22 md:py-30">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                  Become a Sponsor
-              </h1>
-                <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
+  {/* center content vertically and horizontally */}
+  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
+    <div className="max-w-4xl mx-auto">
+      {/* ultra-subtle glass blur behind text */}
+      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm">
+          Become a Sponsor
+        </h1>
+         <p className="text-xl max-w-3xl mx-auto mb-8 text-white">
             Position your brand at the center of the aviation commerce ecosystem. Engage directly with key decision-makers,
             showcase your innovation, and unlock new business in a market poised for rapid transformation.
           </p>
-            </div>
-          </div>
-        </section>
-     
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 

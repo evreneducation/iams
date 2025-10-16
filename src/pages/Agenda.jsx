@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import agendabanner from '../../public/agenda/agenda.jpg'
 
 
 
@@ -180,117 +180,53 @@ const Agenda = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#1646d8] text-white py-28 md:py-26 mt-[60px]"  data-aos="fade-down" style={{  background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)", }}>
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative container mx-auto px-6 py-20 text-center" >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Aviation Summit <span className="text-blue-300">2026</span>
-          </h1>
-          <p className="text-xl md:text-2xl font-light mb-2">
-            Two Days of Innovation & Transformation
-          </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
-              <span><strong>Venue:</strong> Bharat Mandapam, New Delhi</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
-              <span><strong>Dates:</strong> April 9-10, 2026</span>
-            </div>
+<div
+  className="relative overflow-hidden mt-[60px] h-[380px] md:h-[480px] bg-cover bg-center bg-no-repeat"
+  data-aos="fade-down"
+  style={{
+    backgroundImage: `url(${agendabanner})`,
+  }}
+>
+  {/* Gradient overlay for strong text visibility */}
+  <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/40 via-[#0080ff]/30 to-[#006666]/50"></div>
+
+  {/* Decorative floating elements like Hero */}
+  <div className="absolute inset-0 overflow-hidden">
+    <div className="absolute -right-10 -top-10 w-72 h-72 bg-[#21d6e0]/10 rounded-full blur-xl"></div>
+    <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-[#0080ff]/5 rounded-full blur-xl"></div>
+    <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#21d6e0] to-transparent opacity-30"></div>
+    <div className="absolute bottom-1/3 right-0 w-1/2 h-1 bg-gradient-to-l from-transparent via-[#0080ff] to-transparent opacity-30"></div>
+  </div>
+
+  {/* Center content */}
+  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
+    <div className="max-w-4xl mx-auto">
+      {/* Removed glass/backdrop blur */}
+      <div className="px-6 py-8 md:px-10 md:py-10 inline-block">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-white drop-shadow-md">
+          Agenda & Highlights
+        </h1>
+        <p className="text-xl md:text-2xl font-light mb-6 text-white/90 drop-shadow-md">
+          Explore the sessions, speakers, and strategic insights
+        </p>
+
+        {/* Venue & Dates like hero section style */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-white/90 drop-shadow-md">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 bg-[#21d6e0] rounded-full"></div>
+            <span><strong>Venue:</strong> Bharat Mandapam, New Delhi</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 bg-[#21d6e0] rounded-full"></div>
+            <span><strong>Dates:</strong> April 9-10, 2026</span>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
 
-      {/* Flight Path Timeline */}
-      <div className="container mx-auto px-6 py-16">
-        <div ref={containerRef} className="relative">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              Your Journey Through Innovation
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Follow our interactive timeline as we navigate through two days of
-              cutting-edge aviation technology and industry transformation.
-            </p>
-          </div>
-
-          <div className="runway-container relative h-80 mb-16 mx-auto max-w-2xl">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 400 300"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <defs>
-                <linearGradient id="runwayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{ stopColor: "#e2e8f0", stopOpacity: 0.3 }} />
-                  <stop offset="100%" style={{ stopColor: "#cbd5e1", stopOpacity: 0.6 }} />
-                </linearGradient>
-              </defs>
-
-              <path
-                className="runway-path"
-                d="M 50,50 C 120,50 150,80 200,120 C 250,160 280,180 350,220"
-                fill="none"
-                stroke="url(#runwayGradient)"
-                strokeWidth="20"
-                strokeLinecap="round"
-                opacity="0.4"
-              />
-              <path
-                className="runway-path"
-                d="M 50,50 C 120,50 150,80 200,120 C 250,160 280,180 350,220"
-                fill="none"
-                stroke="#3b82f6"
-                strokeWidth="4"
-                strokeDasharray="8,8"
-              />
-            </svg>
-
-            {/* Day 1 Marker */}
-            <div className="absolute top-8 left-8 transform -translate-x-1/2">
-              <button
-                onClick={() => setActivePopup(activePopup === "day1" ? null : "day1")}
-                className="w-4 h-4 bg-blue-600 rounded-full shadow-lg focus:outline-none cursor-pointer"
-              ></button>
-              <p className="mt-2 text-sm font-semibold text-blue-900 whitespace-nowrap text-center">
-                Day 1 Start
-              </p>
-            </div>
-
-            {/* Day 2 Marker */}
-            <div className="absolute bottom-8 right-8 transform translate-x-1/2">
-              <button
-                onClick={() => setActivePopup(activePopup === "day2" ? null : "day2")}
-                className="w-4 h-4 bg-green-600 rounded-full shadow-lg focus:outline-none cursor-pointer"
-              ></button>
-              <p className="mb-2 text-sm font-semibold text-green-900 whitespace-nowrap text-center">
-                Day 2 End
-              </p>
-            </div>
-
-            {/* Animated Plane */}
-            <div
-              ref={planeRef}
-              className="absolute w-16 h-16 transition-all duration-200 drop-shadow-lg"
-              style={{ left: "25px", top: "25px" }}
-            >
-              <svg
-                className="w-full h-full text-blue-600 drop-shadow-md"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19L8 20.5V22l4-1 4 1v-1.5L13 19v-5.5l8 2.5z" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Render Popups */}
-      {activePopup === "day1" && renderPopup("day1")}
-      {activePopup === "day2" && renderPopup("day2")}
-
+    
       {/* CTA Section */}
       <div className="container mx-auto px-6 py-20" 
 data-aos="zoom-in">

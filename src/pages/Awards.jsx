@@ -294,28 +294,33 @@ const categories = [
         </div>
       </section> */}
 
+<section
+  data-aos="fade-down"
+  className="relative my-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+  style={{
+    backgroundImage: `url(${awards})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* subtle overlay for depth */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
 
-       <section data-aos="fade-down" 
-                className="relative my-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
-                style={{
-                  backgroundImage: `url(${awards})`,
-                  backgroundSize: "100% 100%",
-                }}
-              >
-                <div className="absolute inset-0 "></div> {/* overlay */}
-                <div className="relative container mx-auto text-center py-32 md:py-40">
-                  <div className="max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                        IAMS 2026 Awards
-                    </h1>
-                    <p className="text-xl text-white max-w-3xl mx-auto mb-8">
-             The IAMS Awards Gala is the industry's premier evening of
-              recognition, honoring teams and innovations redefining passenger
-              experience and driving commercial success.
-          </p>
-                  </div>
-                </div>
-              </section>
+  {/* center content vertically and horizontally */}
+  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
+    <div className="max-w-4xl mx-auto">
+      {/* ultra-subtle glass blur behind text */}
+      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
+          IAMS 2026 Awards
+        </h1>
+        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-2 text-white/90 drop-shadow-sm">
+          The IAMS Awards Gala is the industry's premier evening of recognition, honoring teams and innovations redefining passenger experience and driving commercial success.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Stats Section */}
       <section className="py-16 bg-[#E6F7F9]">

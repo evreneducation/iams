@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
+import speakerimage  from '../../public/speakers/speaker.jpg';
 
 const Speakers = () => {
 
@@ -29,27 +30,35 @@ const Speakers = () => {
           </p>
         </div>
       </section> */}
-
-
 <section
-data-aos="fade-down"
-          className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
-          style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}
-        >
-          <div className="absolute inset-0 "></div> {/* overlay */}
-          <div className="relative container mx-auto text-center py-28 md:py-36">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                    Visionary Speakers
-              </h1>
-               <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-white">
-            Hear from the industry's most innovative minds as they share
-            insights on the future of aviation marketing, technology, and
-            customer experience.
-          </p>
-            </div>
-          </div>
-        </section>
+  data-aos="fade-down"
+  className="relative mt-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+  style={{
+    backgroundImage: `url(${speakerimage})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* very light overlay for balance */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
+
+  {/* center text vertically and horizontally */}
+  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center">
+    <div className="max-w-4xl mx-auto">
+      {/* ultra-subtle glass blur behind text */}
+      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm">
+          Visionary Speakers
+        </h1>
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-2 text-white/90 drop-shadow-sm">
+          Hear from the industry's most innovative minds as they share insights
+          on the future of aviation marketing, technology, and customer experience.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 

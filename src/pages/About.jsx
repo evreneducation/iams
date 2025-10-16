@@ -305,28 +305,31 @@ const About = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       {/* Hero Banner Section */}
-       <section data-aos="fade-down"
-                className="relative mt-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
-                style={{
-                  // backgroundImage: `url('./about/1.png')`,
-                  background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
-                  backgroundSize: "cover",
-                }}
-              >
-                <div className="absolute inset-0 "></div> {/* overlay */}
-                <div className="relative container mx-auto text-center py-42 md:py-50">
-                  <div className="max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                         About the Summit
-                    </h1>
-                    {/* <p className="text-xl text-white max-w-3xl mx-auto mb-8">
-            Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
-            We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
-          </p> */}
-                  </div>
-                </div>
-              </section>
-           
+     <section
+  data-aos="fade-down"
+  className="relative mt-[60px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+  style={{
+    backgroundImage: `url(${aboutbanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* very light overlay for balance */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
+
+  {/* center text vertically and horizontally */}
+  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center">
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
+          About the Summit
+        </h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Introduction Section */}
       <section className="py-16 md:py-24 bg-white">
