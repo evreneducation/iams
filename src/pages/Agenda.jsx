@@ -17,87 +17,9 @@ const Agenda = () => {
     }, []);
   
 
-  const [scrollProgress, setScrollProgress] = useState(0);
   const containerRef = useRef(null);
   const planeRef = useRef(null);
-  const [activePopup, setActivePopup] = useState(null); // "day1", "day2" or null
-
-  const day1Events = [
-    { time: "9:00 AM", title: "Opening Keynote", description: "CEO's Vision for Enterprise Transformation" },
-    { time: "10:30 AM", title: "E-commerce & Personalization", description: "Strategies for digital customer experience" },
-    { time: "12:00 PM", title: "Lunch & Networking", description: "Connect with industry leaders and peers" },
-    { time: "1:30 PM", title: "AI & ML Excellence", description: "Operational excellence through AI" },
-    { time: "3:00 PM", title: "IROPS Modernization", description: "Transforming disruption management" },
-    { time: "4:30 PM", title: "Panel Discussion", description: "Connected Ecosystem for Aviation" },
-  ];
-
-  const day2Events = [
-    { time: "9:00 AM", title: "Keynote: Loyalty & Merchandising", description: "Next-generation passenger engagement" },
-    { time: "10:30 AM", title: "Tech Foundation", description: "GDS to NDC evolution and cybersecurity" },
-    { time: "12:00 PM", title: "Lunch & Networking", description: "Continued networking and collaboration" },
-    { time: "1:30 PM", title: "Sustainability Innovation", description: "Building a greener aviation future" },
-    { time: "3:00 PM", title: "Digital Talent Development", description: "Preparing for the future workforce" },
-    { time: "4:30 PM", title: "Panel Discussion", description: "Charting Course for Aviation 2030" },
-  ];
-
-  const generatePDF = () => {
-    const printWindow = window.open("", "_blank");
-    const pdfContent = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>Aviation Summit 2026 - Agenda</title>
-          <style>
-            body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
-            .header { text-align: center; margin-bottom: 40px; }
-            .title { font-size: 24px; font-weight: bold; color: #1e3a8a; margin-bottom: 10px; }
-            .venue { font-size: 16px; margin-bottom: 5px; }
-            .day-section { margin-bottom: 40px; page-break-inside: avoid; }
-            .day-title { font-size: 20px; font-weight: bold; color: #1e3a8a; margin-bottom: 20px; border-bottom: 2px solid #1e3a8a; padding-bottom: 5px; }
-            .event { margin-bottom: 15px; padding: 10px; border-left: 3px solid #3b82f6; background: #f8fafc; }
-            .event-time { font-weight: bold; color: #1e40af; }
-            .event-title { font-weight: bold; margin-top: 5px; }
-            .event-desc { color: #666; margin-top: 5px; }
-            @media print { body { margin: 20px; } }
-          </style>
-        </head>
-        <body>
-          <div class="header">
-            <div class="title">Aviation Summit 2026 - Agenda</div>
-            <div class="venue"><strong>Venue:</strong> Bharat Mandapam, New Delhi</div>
-            <div class="venue"><strong>Dates:</strong> April 9-10, 2026</div>
-          </div>
-          
-          <div class="day-section">
-            <div class="day-title">Day 1: Digital Core & Customer-Centric Future</div>
-            ${day1Events.map(event => `
-              <div class="event">
-                <div class="event-time">${event.time}</div>
-                <div class="event-title">${event.title}</div>
-                ${event.description ? `<div class="event-desc">${event.description}</div>` : ""}
-              </div>`).join("")}
-          </div>
-          
-          <div class="day-section">
-            <div class="day-title">Day 2: Innovation, Loyalty & Sustainable Growth</div>
-            ${day2Events.map(event => `
-              <div class="event">
-                <div class="event-time">${event.time}</div>
-                <div class="event-title">${event.title}</div>
-                ${event.description ? `<div class="event-desc">${event.description}</div>` : ""}
-              </div>`).join("")}
-          </div>
-        </body>
-      </html>
-    `;
-    printWindow.document.write(pdfContent);
-    printWindow.document.close();
-    printWindow.focus();
-    setTimeout(() => {
-      printWindow.print();
-      printWindow.close();
-    }, 250);
-  };
+// "day1", "day2" or null
 
   useEffect(() => {
     const handleScroll = () => {
@@ -143,81 +65,41 @@ const Agenda = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const renderPopup = (day) => {
-    const events = day === "day1" ? day1Events : day2Events;
-    const color = day === "day1" ? "blue" : "green";
-
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-40 p-4">
-        <div className="relative bg-white rounded-2xl shadow-2xl p-6 max-w-md w-full">
-          {/* Close Button */}
-          <button
-            onClick={() => setActivePopup(null)}
-            className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold"
-          >
-            &times;
-          </button>
-
-          <h4 className={`text-lg font-bold mb-4 text-${color}-900`}>
-            {day === "day1" ? "Day 1 Agenda" : "Day 2 Agenda"}
-          </h4>
-
-          <ul className="space-y-2 max-h-64 overflow-y-auto">
-            {events.map((event, idx) => (
-              <li key={idx} className={`border-l-2 border-${color}-500 pl-2`}>
-                <p className={`font-semibold text-${color}-800`}>
-                  {event.time} - {event.title}
-                </p>
-                {event.description && <p className="text-gray-600 text-sm">{event.description}</p>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
-  };
-
+ 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Hero Section */}
 <div
-  className="relative overflow-hidden mt-[60px] h-[380px] md:h-[480px] bg-cover bg-center bg-no-repeat"
+  className="relative overflow-hidden mt-[60px] bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
   data-aos="fade-down"
   style={{
     backgroundImage: `url(${agendabanner})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
   }}
 >
-  {/* Gradient overlay for strong text visibility */}
-  <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/40 via-[#0080ff]/30 to-[#006666]/50"></div>
+  {/* very light overlay for subtle depth */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
 
-  {/* Decorative floating elements like Hero */}
-  <div className="absolute inset-0 overflow-hidden">
-    <div className="absolute -right-10 -top-10 w-72 h-72 bg-[#21d6e0]/10 rounded-full blur-xl"></div>
-    <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-[#0080ff]/5 rounded-full blur-xl"></div>
-    <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#21d6e0] to-transparent opacity-30"></div>
-    <div className="absolute bottom-1/3 right-0 w-1/2 h-1 bg-gradient-to-l from-transparent via-[#0080ff] to-transparent opacity-30"></div>
-  </div>
-
-  {/* Center content */}
+  {/* center content vertically and horizontally */}
   <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
     <div className="max-w-4xl mx-auto">
-      {/* Removed glass/backdrop blur */}
-      <div className="px-6 py-8 md:px-10 md:py-10 inline-block">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-white drop-shadow-md">
-          Agenda & Highlights
+      {/* ultra-thin glass behind text */}
+      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight text-white drop-shadow-sm">
+          Aviation Summit <span className="text-blue-300">2026</span>
         </h1>
-        <p className="text-xl md:text-2xl font-light mb-6 text-white/90 drop-shadow-md">
-          Explore the sessions, speakers, and strategic insights
+        <p className="text-xl md:text-2xl font-light mb-4 text-white/90 drop-shadow-sm">
+          Two Days of Innovation & Transformation
         </p>
 
-        {/* Venue & Dates like hero section style */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-white/90 drop-shadow-md">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 text-lg text-white/90 drop-shadow-sm">
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-[#21d6e0] rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
             <span><strong>Venue:</strong> Bharat Mandapam, New Delhi</span>
           </div>
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-[#21d6e0] rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-300 rounded-full"></div>
             <span><strong>Dates:</strong> April 9-10, 2026</span>
           </div>
         </div>
@@ -225,6 +107,19 @@ const Agenda = () => {
     </div>
   </div>
 </div>
+
+
+<div className="text-center mb-20 px-4 md:px-0 mt-[80px]">
+  <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+    Your Journey Through Innovation
+  </h2>
+  <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+    Follow our interactive timeline as we navigate through two days of
+    cutting-edge aviation technology and industry transformation.
+  </p>
+</div>
+
+
 
     
       {/* CTA Section */}
@@ -273,7 +168,7 @@ data-aos="zoom-in">
               </div>
 
               <button
-                onClick={generatePDF}
+             
                 className="group relative inline-flex items-center gap-3 bg-white text-blue-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
               >
                 <svg
