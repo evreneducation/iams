@@ -497,11 +497,16 @@ const Home = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#003366]" data-aos="fade-right">
               Propelled by Strategy, Fueled by Intelligence
             </h2>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed" data-aos="fade-left">
-              The International Aviation Marketing Summit 2026 is the definitive
-              platform dedicated to aviation marketing, e-commerce, loyalty, and
-              technology—a niche underserved by existing industry conferences.
-            </p>
+           <p
+  className="text-xl text-gray-700 mb-8 leading-relaxed"
+  data-aos="fade-left"
+>
+  IAMS 2026 is the definitive platform dedicated to aviation marketing,
+  e-commerce, revenue management, distribution, loyalty, alliances, customer
+  service,&nbsp;and&nbsp;technology—a niche underserved by existing industry
+  conferences.
+</p>
+
             <div className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20" data-aos="zoom-in">
               <p className="text-lg text-[#003366] font-medium italic">
                 "Our mission is to unite the complete ecosystem driving growth,
