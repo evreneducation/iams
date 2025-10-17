@@ -18,16 +18,7 @@ const Speakers = () => {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      {/* <section className="bg-[#15A4B3] to-blue-700 text-white py-26 mt-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">Visionary Speakers</h1>
-          <p className="text-xl max-w-3xl mx-auto">
-            Hear from the industry's most innovative minds as they share
-            insights on the future of aviation marketing, technology, and
-            customer experience.
-          </p>
-        </div>
-      </section> */}
+
       <section
         data-aos="fade-down"
         className="relative mt-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
@@ -58,8 +49,21 @@ const Speakers = () => {
         </div>
       </section>
 
+      <div className="text-center mb-16 mt-[40px]" data-aos="fade-down">
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+        >
+          Learn from the Leaders
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          This section is currently being updated as speaker confirmations are
+          underway
+        </p>
+      </div>
+
       <div className="w-full px-4" data-aos="zoom-in">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 py-15">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 ">
           {speakers.map((speaker) => (
             <SpeakerCard key={speaker.id} speaker={speaker} />
           ))}
@@ -69,8 +73,10 @@ const Speakers = () => {
       {/* Call to Action Section */}
       <div className="container mx-auto px-4 py-16" data-aos="fade-down">
         <div className="bg-white rounded-xl shadow-lg p-10 mb-16 text-center border border-blue-100">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
+          <h2
+            className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+          >
             Call for Speakers
           </h2>
           <p className="mb-8 max-w-2xl mx-auto text-lg text-gray-700">

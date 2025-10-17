@@ -29,7 +29,7 @@ const Sponsorship = () => {
         "Exclusive Gala Dinner Sponsor",
         "Premium, Double-Sized Stand",
         "4 Airlines Full-Access Passes (Includes Gala)",
-        "P.O.A. (Price on Application)",
+        "P.O.A (Price on Application)",
       ],
       featured: true,
     },
@@ -42,7 +42,7 @@ const Sponsorship = () => {
         "Host/Sponsor of a Networking Break",
         "Standard Exhibition Stand",
         "2 Airlines Full-Access Passes (Includes Gala)",
-        "P.O.A",
+        "P.O.A (Price on Application)",
       ],
     },
     {
@@ -53,7 +53,7 @@ const Sponsorship = () => {
         "Featured Session Branding",
         "Shared Display Area Option",
         "1 Airlines Full-Access Pass (Includes Gala)",
-        "P.O.A.",
+        "P.O.A (Price on Application)",
       ],
     },
   ];
@@ -147,20 +147,24 @@ const Sponsorship = () => {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+                className="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl h-[220px] w-full"
               >
-                <div
-                  className="text-2xl md:text-2xl font-extrabold mb-2"
-                  style={{
-                    background:
-                      "linear-gradient(to right, rgb(21, 164, 179), rgb(15, 130, 142))",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {stat.value}
+                <div className="flex flex-col items-start">
+                  <div
+                    className="text-2xl md:text-2xl font-extrabold mb-3 text-left"
+                    style={{
+                      background:
+                        "linear-gradient(to right, rgb(21, 164, 179), rgb(15, 130, 142))",
+                      WebkitBackgroundClip: "text",
+                      color: "transparent",
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-700 text-base leading-snug text-left">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-gray-700 text-lg">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -276,40 +280,49 @@ const Sponsorship = () => {
 
             {/* Right Column */}
             <div
-              className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100"
+              className="bg-white p-10 rounded-3xl shadow-lg border border-gray-100 flex flex-col justify-start h-full pt-5"
               data-aos="fade-left"
             >
-              <h2
-                className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]"
-                style={{ color: "rgb(21, 164, 179)" }}
-              >
-                Who Should Exhibit?
-              </h2>
-              <ul className="mb-8 space-y-3">
-                {exhibitors.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-3 p-3 rounded-lg hover:bg-blue-50 transition-all duration-300"
-                  >
-                    <svg
-                      className="w-5 h-5 flex-shrink-0 mt-1"
-                      style={{ color: "rgb(21, 164, 179)" }}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+              <div className="flex-1 flex flex-col justify-start">
+                <h2
+                  className="text-4xl md:text-5xl font-bold text-center mb-8"
+                  style={{ color: "rgb(21, 164, 179)" }}
+                >
+                  Who Should Exhibit?
+                </h2>
+
+                <ul className="space-y-1 pt-[50px]">
+                  {exhibitors.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 p-3 rounded-xl border border-gray-100 bg-gradient-to-r from-[#f9fcff] to-[#ffffff] hover:shadow-md hover:-translate-y-[2px] transition-all duration-300"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                    <span className="text-gray-800 font-medium">{item}</span>
-                  </li>
-                ))}
-              </ul>
+                      <div
+                        className="p-2 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(21,164,179,0.1)" }}
+                      >
+                        <svg
+                          className="w-5 h-5 flex-shrink-0"
+                          style={{ color: "rgb(21, 164, 179)" }}
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                      </div>
+                      <span className="text-gray-800 font-medium ">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
+
         <section className="max-w-6xl mx-auto px-6 py-16 mb-[70px]">
           {/* Section Heading */}
           <h2 className="text-4xl md:text-5xl font-extrabold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-[#0E7785] to-[#15A4B3]">

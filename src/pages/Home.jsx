@@ -320,13 +320,12 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16" data-aos="fade-down">
-           
               <h2
-                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+                className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
-                >
-                  Unlock Your Aviation Potential
-                </h2>
+              >
+                Unlock Your Aviation Potential
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Join industry pioneers and transform your commercial strategy
                 with cutting-edge insights and unparalleled networking
@@ -451,17 +450,15 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16" data-aos="fade-down">
-             
               <h2
-                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+                className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
-                >
-                                 Learn from the Leaders
-
-                </h2>
+              >
+                Learn from the Leaders
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Gain insights from industry pioneers and visionaries shaping the
-                future of aviation
+                This section is currently being updated as speaker confirmations
+                are underway
               </p>
             </div>
 
@@ -524,7 +521,7 @@ const Home = () => {
             >
               IAMS 2026 is the definitive platform dedicated to aviation
               marketing, e-commerce, revenue management, distribution, loyalty,
-              alliances, customer service,&nbsp;and&nbsp;technology—a niche
+              alliances, customer service, and technology—an interlinked niche
               underserved by existing industry conferences.
             </p>
 
@@ -629,10 +626,10 @@ const Home = () => {
             <h2
               className={`text-3xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center transition-all duration-800 ease-out ${
-                isAdditionalInfoVisible
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-20 opacity-0"
-              }`}
+               isAdditionalInfoVisible
+                 ? "translate-x-0 opacity-100"
+                 : "translate-x-20 opacity-0"
+             }`}
             >
               Why Aviation Leaders Choose IAMS
             </h2>
@@ -789,13 +786,12 @@ const AnimatedNumbersSection = () => {
       className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbff] to-[#e6f2ff]"
     >
       <div className="container mx-auto px-4">
-      
-         <h2
-                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
-                >
-                  At a Glance: Key Numbers
-                </h2>
+        >
+          At a Glance: Key Numbers
+        </h2>
         <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
           Discover the scale and impact of the premier aviation marketing event
         </p>

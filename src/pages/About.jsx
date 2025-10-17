@@ -332,11 +332,13 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div data-aos="fade-right">
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
+                <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+                >
                   The Premier Aviation Marketing Platform
                 </h2>
-                
+
                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                   <p>
                     The International Aviation Marketing Summit 2026 is the
@@ -404,8 +406,10 @@ const About = () => {
 
             {/* Mission Text with Animation */}
             <div className="space-y-6" data-aos="fade-down">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
+              <h2
+                className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+              >
                 Our Mission
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed animate-slide-in-up delay-200">
@@ -494,8 +498,10 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16" data-aos="fade-down">
-              <h2 className="text-4text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
+              <h2
+                className="text-4text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+              >
                 Unique Selling Propositions
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">

@@ -279,8 +279,10 @@ const Venue = () => {
                     : "-translate-x-20 opacity-0"
                 }`}
               >
-                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent   mb-8">
+                <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent   mb-8"
+                >
                   About the Venue
                 </h2>
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
@@ -403,8 +405,10 @@ const Venue = () => {
         className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25"
         data-aos="fade-down"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-[#003366]text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6 text-center py-[20px]">
+        <h2
+          className="text-4xl md:text-5xl font-bold text-[#003366]text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6 text-center py-[20px]"
+        >
           Travel & Accommodation
         </h2>
 
@@ -504,8 +508,10 @@ const Venue = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 transition-all duration-1000">
-              <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6">
+              <h2
+                className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6"
+              >
                 Post-Event Packages
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">

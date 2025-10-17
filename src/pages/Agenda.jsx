@@ -354,8 +354,10 @@ const Agenda = () => {
       </div>
 
       <div className="text-center mb-20 px-4 md:px-0 mt-[80px]">
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
-             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+        >
           Your Journey Through Innovation
         </h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -363,7 +365,6 @@ const Agenda = () => {
           cutting-edge aviation technology and industry transformation.
         </p>
       </div>
-
 
       <div className="max-w-5xl mx-auto mt-12 rounded-2xl shadow-xl overflow-hidden">
         {/* Tabs */}
@@ -490,35 +491,31 @@ const Agenda = () => {
       </div>
 
       {/* CTA Section */}
-      
-        <div className="text-center mx-auto w-[70%] bg-gradient-to-r from-[#e6f7ff] to-[#f0f9ff] rounded-2xl p-8 border border-[#21d6e0]/30 my-[50px]">
-             
-             <h2
-            className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight 
+
+      <div className="text-center mx-auto w-[70%] bg-gradient-to-r from-[#e6f7ff] to-[#f0f9ff] rounded-2xl p-8 border border-[#21d6e0]/30 my-[50px]">
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight 
                bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent py-[5px] "
-          > 
+        >
           Download the Agenda
-          </h2>
-              <p className="text-gray-700 text-lg mb-6 flex items-center justify-center">
-              Get the complete detailed agenda with speaker information,
-                session descriptions, and networking opportunities.
-              </p>
-              <button
-                className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl"
-                onClick={() => {
-                  navigate("/contact");
-                }}
-              >
-                 Download Now
-              </button>
-              <p className="text-gray-400 text-sm mt-4">
-                PDF format • Printable • Mobile friendly
-              </p>
-            </div>
-
+        </h2>
+        <p className="text-gray-700 text-lg mb-6 flex items-center justify-center">
+          Get the complete detailed agenda with speaker information, session
+          descriptions, and networking opportunities.
+        </p>
+        <button
+          className="bg-gradient-to-r from-[#8ed0d8] to-[#15A4B3] text-white px-10 py-5 rounded-xl font-semibold text-lg hover:from-[#15A4B3] hover:to-[#8ed0d8] transition-all duration-300 transform hover:-translate-y-2 shadow-xl hover:shadow-2xl"
+          onClick={() => {
+            navigate("/contact");
+          }}
+        >
+          Download Now
+        </button>
+        <p className="text-gray-400 text-sm mt-4">
+          PDF format • Printable • Mobile friendly
+        </p>
+      </div>
     </div>
-
-    
   );
 };
 

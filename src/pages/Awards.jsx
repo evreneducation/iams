@@ -355,24 +355,29 @@ const Awards = () => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+                className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-start justify-start transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl min-h-[180px]"
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ delay: index * 0.2 }}
               >
-                <div
-                  className="text-2xl md:text-2xl font-extrabold mb-2"
-                  style={{
-                    background: "linear-gradient(to right, #15A4B3, #0E7785)",
-                    WebkitBackgroundClip: "text",
-                    color: "transparent",
-                  }}
-                >
-                  {stat.value}
+                {/* Wrap title + label in a single flex-col container */}
+                <div className="flex flex-col justify-start h-full w-full">
+                  <div
+                    className="text-2xl md:text-2xl font-extrabold mb-2 text-left"
+                    style={{
+                      background: "linear-gradient(to right, #15A4B3, #0E7785)",
+                      WebkitBackgroundClip: "text",
+                      color: "transparent",
+                    }}
+                  >
+                    {stat.value}
+                  </div>
+                  <div className="text-gray-700 text-lg leading-snug text-left mt-1">
+                    {stat.label}
+                  </div>
                 </div>
-                <div className="text-gray-700 text-lg">{stat.label}</div>
               </motion.div>
             ))}
           </div>
