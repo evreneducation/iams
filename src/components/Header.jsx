@@ -3,6 +3,52 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  <style>
+  {`
+    /* ✅ Tight layout for mid-width laptops (1025px–1150px) */
+    @media (min-width: 1025px) and (max-width: 1150px) {
+      header .container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+
+      /* Reduce logo text spacing */
+      header .ml-8 {
+        margin-left: 0.5rem !important;
+      }
+
+      /* Shrink logo text size slightly */
+      header a[href="/"] span:first-child {
+        font-size: 1.1rem !important;
+      }
+
+      /* Compact nav links */
+      header nav a {
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+        font-size: 0.93rem !important;
+      }
+
+      /* Reduce space between nav links */
+      header nav {
+        gap: 0.15rem !important;
+      }
+
+      /* Register Now button smaller */
+      header a[href="/registration"] {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        font-size: 0.92rem !important;
+      }
+
+      /* Adjust container alignment slightly */
+      header .flex.justify-between {
+        align-items: center !important;
+      }
+    }
+  `}
+</style>
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeHover, setActiveHover] = useState(null);
@@ -39,16 +85,14 @@ const Header = () => {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100"
-          : "bg-gradient-to-r from-[#1394A2] via-[#12909F] to-[#118C9A] py-5"
-
-
-      }`}
-      style={{ transform: "translateY(0)" }}
-    >
+<header
+  className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+    isScrolled
+      ? "bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100"
+      : "bg-gradient-to-r from-[#1394A2] via-[#12909F] to-[#118C9A] py-5"
+  }`}
+  style={{ transform: "translateY(0)" }}
+>
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -90,13 +134,14 @@ const Header = () => {
 
             {/* Logo Text */}
             <div className="flex flex-col ml-8">
-              <span
-                className={`font-bold transition-all duration-300 ${
-                  isScrolled ? "text-[#003366] text-xl" : "text-white text-2xl"
-                } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent`}
-              >
-                IAMS 2026
-              </span>
+             <span
+  className={`font-bold transition-all duration-300 whitespace-nowrap ${
+    isScrolled ? "text-[#003366] text-xl" : "text-white text-2xl"
+  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent`}
+>
+  IAMS&nbsp;2026
+</span>
+
               <span
                 className={`text-xs transition-all duration-300 text-white group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent mt-1`}
               >
@@ -124,9 +169,10 @@ const Header = () => {
                 onMouseEnter={() => setActiveHover(item.path)}
                 onMouseLeave={() => setActiveHover(null)}
               >
-                <span className="relative z-10 transition-all duration-300 group-hover:translate-y-[-1px]">
-                  {item.label}
-                </span>
+<span className="relative z-10 transition-all duration-300 group-hover:translate-y-[-1px] whitespace-nowrap">
+  {item.label}
+</span>
+
 
                 {/* Animated underline */}
                 <div
@@ -176,7 +222,8 @@ const Header = () => {
                   isScrolled ? "text-white" : "text-[#003366]"
                 } font-semibold`}
               >
-                <span>REGISTER NOW</span>
+               <span className="whitespace-nowrap">REGISTER&nbsp;NOW</span>
+
                 <svg
                   className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
                   fill="none"
@@ -232,11 +279,10 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-  className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-    isMenuOpen ? "max-h-screen opacity-100 mt-4" : "max-h-0 opacity-0"
-  }`}
->
-
+          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            isMenuOpen ? "max-h-screen opacity-100 mt-4" : "max-h-0 opacity-0"
+          }`}
+        >
           <nav className="pb-4 space-y-2">
             {navItems.map((item) => (
               <Link

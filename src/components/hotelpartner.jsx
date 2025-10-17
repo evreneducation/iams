@@ -15,7 +15,12 @@ const CheckIcon = () => (
     stroke="currentColor"
     viewBox="0 0 24 24"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    />
   </svg>
 );
 
@@ -30,8 +35,8 @@ const HotelPartners = ({ hotels }) => {
               Hotel Partners
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We have secured exclusive rates with several 5-star hotels near the venue. 
-              Book through our portal to receive special discounts.
+              We have secured exclusive rates with several 5-star hotels near
+              the venue. Book through our portal to receive special discounts.
             </p>
           </div>
 
@@ -61,7 +66,9 @@ const HotelPartners = ({ hotels }) => {
 
                 <div className="p-6 flex flex-col h-full">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-xl font-bold text-[#003366]">{hotel.name}</h3>
+                    <h3 className="text-xl font-bold text-[#003366]">
+                      {hotel.name}
+                    </h3>
                     {hotel.price && (
                       <span className="text-2xl font-bold bg-gradient-to-r from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent">
                         {hotel.price}
@@ -94,15 +101,18 @@ const HotelPartners = ({ hotels }) => {
 
                   <ul className="space-y-3 mb-6">
                     {hotel.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-gray-700 text-sm">
+                      <li
+                        key={idx}
+                        className="flex items-center text-gray-700 text-sm"
+                      >
                         <CheckIcon />
                         <span className="ml-2">{feature}</span>
                       </li>
                     ))}
                   </ul>
- <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-4 rounded-xl font-semibold hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
-                        Book Now
-                      </button>
+                  <button className="w-full bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white py-4 rounded-xl font-semibold hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                    Book Now
+                  </button>
                 </div>
               </div>
             ))}
@@ -120,7 +130,12 @@ const HotelPartners = ({ hotels }) => {
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
               </svg>
             </Link>
           </div>

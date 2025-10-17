@@ -36,10 +36,10 @@ function App() {
             <Route path="/registration" element={<Registration />} />
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/venue-travel" element={<Venue />} />
-            <Route path="/contact" element={<Contact/>} />
-             <Route path="/registration-form" element={<RegistrationForm/>} />
-               <Route path="/hotelpartner" element={<AllHotel/>} />
-               <Route path="/travel-info" element={<TravelInfo/>} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/registration-form" element={<RegistrationForm />} />
+            <Route path="/hotelpartner" element={<AllHotel />} />
+            <Route path="/travel-info" element={<TravelInfo />} />
           </Routes>
         </main>
         <Footer />

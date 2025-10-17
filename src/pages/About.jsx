@@ -1,24 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import aboutbanner from '../../public/about/aboutbanner.jpg'
+import aboutbanner from "../../public/about/aboutbanner.jpg";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-
 
 const AnimatedRegionItem = ({ item, index, isVisible }) => {
   const [hasAnimated, setHasAnimated] = useState(false);
   const itemRef = useRef(null);
 
-   useEffect(() => {
-      AOS.init({
-        duration: 1000, // animation duration in ms
-        easing: "ease-in-out", // easing function
-        once: true, // animation happens only once
-      });
-    }, []);
-  
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // animation happens only once
+    });
+  }, []);
 
   useEffect(() => {
     if (isVisible && !hasAnimated) {
@@ -305,31 +302,29 @@ const About = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30 min-h-screen">
       {/* Hero Banner Section */}
-     <section
-  data-aos="fade-down"
-  className="relative mt-[60px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
-  style={{
-    backgroundImage: `url(${aboutbanner})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* very light overlay for balance */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
+      <section
+        data-aos="fade-down"
+        className="relative mt-[60px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+        style={{
+          backgroundImage: `url(${aboutbanner})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* very light overlay for balance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
 
-  {/* center text vertically and horizontally */}
-  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center">
-    <div className="max-w-4xl mx-auto">
-      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
-          About the Summit
-        </h1>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+        {/* center text vertically and horizontally */}
+        <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
+                About the Summit
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Introduction Section */}
       <section className="py-16 md:py-24 bg-white">
@@ -337,9 +332,11 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div data-aos="fade-right">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
                   The Premier Aviation Marketing Platform
                 </h2>
+                
                 <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                   <p>
                     The International Aviation Marketing Summit 2026 is the
@@ -407,7 +404,8 @@ const About = () => {
 
             {/* Mission Text with Animation */}
             <div className="space-y-6" data-aos="fade-down">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#003366] animate-slide-in-up">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
                 Our Mission
               </h2>
               <p className="text-xl text-gray-700 leading-relaxed animate-slide-in-up delay-200">
@@ -430,12 +428,12 @@ const About = () => {
                 { target: 120, label: "Leaders", suffix: "+", duration: 2400 },
                 { target: 4, label: "Continents", suffix: "", duration: 1800 },
               ].map((stat, index) => (
-                <div key={index} className="group relative" data-aos="zoom-in" >
+                <div key={index} className="group relative" data-aos="zoom-in">
                   <div className="bg-white/90 backdrop-blur-lg p-6 rounded-2xl border border-[#0080ff]/20 shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden">
                     {/* Hover Effect Background */}
                     <div className="absolute inset-0 bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="relative z-10" >
+                    <div className="relative z-10">
                       {/* Animated Number */}
                       <div className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-br from-[#21d6e0] to-[#0080ff] bg-clip-text text-transparent mb-2">
                         <AnimatedNumber
@@ -496,7 +494,8 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16" data-aos="fade-down">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
+              <h2 className="text-4text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center">
                 Unique Selling Propositions
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -505,7 +504,10 @@ const About = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="zoom-in">
+            <div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              data-aos="zoom-in"
+            >
               {[
                 {
                   icon: (
@@ -647,7 +649,13 @@ const About = () => {
       </section>
 
       {/* Call-to-Action Section */}
-      <section data-aos="fade-down" style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }}  className="py-16 md:py-24 bg-gradient-to-br from-[#001933] to-[#004080] text-white">
+      <section
+        data-aos="fade-down"
+        style={{
+          background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
+        }}
+        className="py-16 md:py-24 bg-gradient-to-br from-[#001933] to-[#004080] text-white"
+      >
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             This is your runway to transformation.
@@ -663,17 +671,13 @@ const About = () => {
             >
               Register Your Interest
             </Link>
-            
           </div>
 
-
           {/* Animated Plane */}
-          
         </div>
       </section>
 
       {/* Global Reach Section */}
-      
     </div>
   );
 };

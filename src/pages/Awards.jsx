@@ -7,17 +7,17 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { useState } from "react";
-import awards from '../../public/awards/awardss.jpg'
-import galadinner from '../../public/awards/galadinner.jpg'
+import awards from "../../public/awards/awardss.jpg";
+import galadinner from "../../public/awards/galadinner.jpg";
 
 const Awards = () => {
   const navigate = useNavigate();
 
-const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
-const handleToggle = (index) => {
-  setActiveIndex(activeIndex === index ? null : index);
-};
+  const handleToggle = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
   useEffect(() => {
     AOS.init({
       duration: 1000, // animation duration in ms
@@ -26,7 +26,7 @@ const handleToggle = (index) => {
     });
   }, []);
 
-const categories = [
+  const categories = [
     {
       title: "Airline Marketing & Brand Leadership",
       items: [
@@ -252,9 +252,13 @@ const categories = [
     },
   ];
   const fadeUp = {
-  hidden: { opacity: 0, y: 60 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   const stats = [
     {
@@ -294,219 +298,226 @@ const categories = [
         </div>
       </section> */}
 
-<section
-  data-aos="fade-down"
-  className="relative my-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
-  style={{
-    backgroundImage: `url(${awards})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* subtle overlay for depth */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
+      <section
+        data-aos="fade-down"
+        className="relative my-[80px] overflow-hidden bg-cover bg-center bg-no-repeat h-[380px] md:h-[480px]"
+        style={{
+          backgroundImage: `url(${awards})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* subtle overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/5 to-black/15"></div>
 
-  {/* center content vertically and horizontally */}
-  <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
-    <div className="max-w-4xl mx-auto">
-      {/* ultra-subtle glass blur behind text */}
-      <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
-          IAMS 2026 Awards
-        </h1>
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-2 text-white/90 drop-shadow-sm">
-          The IAMS Awards Gala is the industry's premier evening of recognition, honoring teams and innovations redefining passenger experience and driving commercial success.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+        {/* center content vertically and horizontally */}
+        <div className="relative container mx-auto h-full flex flex-col items-center justify-center text-center px-6">
+          <div className="max-w-4xl mx-auto">
+            {/* ultra-subtle glass blur behind text */}
+            <div className="bg-white/1 backdrop-blur-[2px] rounded-3xl px-6 py-8 inline-block md:px-10 md:py-10">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white drop-shadow-sm animate-fadeIn">
+                IAMS 2026 Awards
+              </h1>
+              <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-2 text-white/90 drop-shadow-sm">
+                The IAMS Awards Gala is the industry's premier evening of
+                recognition, honoring teams and innovations redefining passenger
+                experience and driving commercial success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-[#E6F7F9]">
-      <div className="max-w-7xl mx-auto px-6">
-        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-700 text-center" data-aos="zoom-in">
-          Where achievement meets prestige — the IAMS Awards Gala celebrates
-          visionary teams and groundbreaking innovations transforming global
-          aviation’s commercial landscape.
-        </p>
+        <div className="max-w-7xl mx-auto px-6">
+          <p
+            className="text-lg md:text-xl max-w-3xl mx-auto mb-10 text-gray-700 text-center"
+            data-aos="zoom-in"
+          >
+            Where achievement meets prestige — the IAMS Awards Gala celebrates
+            visionary teams and groundbreaking innovations transforming global
+            aviation’s commercial landscape.
+          </p>
 
-        <h2 data-aos="zoom-in"
-          className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight text-center py-3
+          <h2
+            data-aos="zoom-in"
+            className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight text-center py-3
              bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+          >
+            Why Participate in IAMS Awards?
+          </h2>
+
+          <div
+            className="grid sm:grid-cols-2 md:grid-cols-4 gap-8"
+            data-aos="fade-up"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.2 }}
+              >
+                <div
+                  className="text-2xl md:text-2xl font-extrabold mb-2"
+                  style={{
+                    background: "linear-gradient(to right, #15A4B3, #0E7785)",
+                    WebkitBackgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-gray-700 text-lg">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits + Gala Info */}
+      <section className="max-w-[1400px] mx-auto px-6 py-20">
+        {/* Common Heading */}
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-14 tracking-tight text-center py-3
+      bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+          data-aos="fade-down"
         >
-          Why Participate in IAMS Awards?
+          Gala Information
         </h2>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8"  data-aos="fade-up" >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              className="bg-white rounded-3xl shadow-lg p-6 flex flex-col items-center justify-center transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <div
-                className="text-2xl md:text-2xl font-extrabold mb-2"
-                style={{
-                  background: "linear-gradient(to right, #15A4B3, #0E7785)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                {stat.value}
-              </div>
-              <div className="text-gray-700 text-lg">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-
-
-     
-      {/* Benefits + Gala Info */}
-<section className="max-w-[1400px] mx-auto px-6 py-20">
-  {/* Common Heading */}
-  <h2
-    className="text-4xl md:text-5xl font-extrabold mb-14 tracking-tight text-center py-3
-      bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
-    data-aos="fade-down"
-  >
-    Gala Information
-  </h2>
-
-  {/* Content Grid */}
-  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
-    {/* Left Side – Info Card */}
-    <div
-      className="flex flex-col bg-white rounded-2xl shadow-xl p-10 border border-gray-100"
-      data-aos="fade-right"
-    >
-      <div className="flex-1 space-y-6">
-        {galaInfo.map((item, idx) => (
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+          {/* Left Side – Info Card */}
           <div
-            key={idx}
-            className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#E6F7F9] transition"
+            className="flex flex-col bg-white rounded-2xl shadow-xl p-10 border border-gray-100"
+            data-aos="fade-right"
           >
-            <div
-              className="p-3 rounded-full flex items-center justify-center"
-              style={{
-                backgroundColor: "rgba(21,164,179,0.15)",
-                color: "#15A4B3",
-              }}
-            >
-              {item.icon}
-            </div>
-            <div>
-              <p className="font-semibold text-gray-800">{item.label}</p>
-              <p className="text-gray-700">{item.value}</p>
+            <div className="flex-1 space-y-6">
+              {galaInfo.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-4 p-3 rounded-xl hover:bg-[#E6F7F9] transition"
+                >
+                  <div
+                    className="p-3 rounded-full flex items-center justify-center"
+                    style={{
+                      backgroundColor: "rgba(21,164,179,0.15)",
+                      color: "#15A4B3",
+                    }}
+                  >
+                    {item.icon}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-800">{item.label}</p>
+                    <p className="text-gray-700">{item.value}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
 
-    {/* Right Side – Image */}
-    <div
-      className="flex justify-center items-center"
-      data-aos="fade-left"
-    >
-      <img
-          style={{objectFit:'100% 100%'}}
-        src={galadinner}
-        alt="Gala Event"
-        className="rounded-2xl shadow-xl w-full object-cover h-full lg:h-auto max-h-[600px]"
-      />
-    </div>
-  </div>
-</section>
-
+          {/* Right Side – Image */}
+          <div
+            className="flex justify-center items-center"
+            data-aos="fade-left"
+          >
+            <img
+              style={{ objectFit: "100% 100%" }}
+              src={galadinner}
+              alt="Gala Event"
+              className="rounded-2xl shadow-xl w-full object-cover h-full lg:h-auto max-h-[600px]"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Categories */}
       <section
-      id="awards-categories"
-      className="py-20 px-6 md:px-12 bg-gradient-to-br from-[#f4f8f9] to-[#f8fbfb] relative overflow-hidden"
-      data-aos="zoom-in"
-    >
-      {/* Decorative floating gradients */}
-      <div className="absolute top-10 left-10 w-60 h-60 bg-[#15A4B3]/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#0E7785]/20 rounded-full blur-3xl animate-pulse"></div>
+        id="awards-categories"
+        className="py-20 px-6 md:px-12 bg-gradient-to-br from-[#f4f8f9] to-[#f8fbfb] relative overflow-hidden"
+        data-aos="zoom-in"
+      >
+        {/* Decorative floating gradients */}
+        <div className="absolute top-10 left-10 w-60 h-60 bg-[#15A4B3]/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-72 h-72 bg-[#0E7785]/20 rounded-full blur-3xl animate-pulse"></div>
 
-      {/* Title */}
-      <div className="relative text-center mb-16 z-10">
-        <h2 className="text-4xl md:text-5xl py-[10px] font-extrabold tracking-tight bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
-          IAMS 2026 Awards — Categories
-        </h2>
-        {/* <div className="w-24 h-1 bg-[#15A4B3] mx-auto rounded-full mt-4"></div> */}
-      </div>
+        {/* Title */}
+        <div className="relative text-center mb-16 z-10">
+          <h2 className="text-4xl md:text-5xl py-[10px] font-extrabold tracking-tight bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
+            IAMS 2026 Awards — Categories
+          </h2>
+          {/* <div className="w-24 h-1 bg-[#15A4B3] mx-auto rounded-full mt-4"></div> */}
+        </div>
 
-      {/* Category Cards */}
-     
- <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto z-10 justify-items-center">
-      {categories.map((cat, index) => (
-        <motion.div
-          key={index}
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          onClick={() => handleToggle(index)} // Mobile tap toggle
-          className="w-full max-w-[360px] relative bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden group border border-white/40 cursor-pointer"
-        >
-          {/* Front View */}
-          <div
-            className={`p-8 flex flex-col items-center justify-center text-center min-h-[320px] transition-all duration-500 
+        {/* Category Cards */}
+
+        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto z-10 justify-items-center">
+          {categories.map((cat, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              onClick={() => handleToggle(index)} // Mobile tap toggle
+              className="w-full max-w-[360px] relative bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden group border border-white/40 cursor-pointer"
+            >
+              {/* Front View */}
+              <div
+                className={`p-8 flex flex-col items-center justify-center text-center min-h-[320px] transition-all duration-500 
               ${
                 activeIndex === index
                   ? "translate-y-[-100%]" // Show slide on mobile
                   : "group-hover:translate-y-[-100%]" // Show slide on hover (desktop)
               }`}
-          >
-            <h4 className="text-2xl font-bold bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
-              {cat.title}
-            </h4>
-            <ChevronRight
-              className="mt-6 text-[#15A4B3] opacity-70 group-hover:opacity-100 transition-all duration-500"
-              size={32}
-            />
-          </div>
+              >
+                <h4 className="text-2xl font-bold bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
+                  {cat.title}
+                </h4>
+                <ChevronRight
+                  className="mt-6 text-[#15A4B3] opacity-70 group-hover:opacity-100 transition-all duration-500"
+                  size={32}
+                />
+              </div>
 
-          {/* Hidden Slide-Out Info */}
-          <div
-            className={`absolute inset-0 p-8 bg-gradient-to-br from-[#0E7785] to-[#15A4B3] text-white transition-all duration-500 ease-in-out rounded-2xl 
+              {/* Hidden Slide-Out Info */}
+              <div
+                className={`absolute inset-0 p-8 bg-gradient-to-br from-[#0E7785] to-[#15A4B3] text-white transition-all duration-500 ease-in-out rounded-2xl 
               ${
                 activeIndex === index
                   ? "translate-y-0" // Show on click (mobile)
                   : "translate-y-full group-hover:translate-y-0" // Show on hover (desktop)
               }`}
-          >
-            <h4 className="text-xl font-semibold mb-4 border-b border-white/30 pb-2">
-              {cat.title}
-            </h4>
-            <ul className="space-y-2 text-left text-sm md:text-base">
-              {cat.items.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2 opacity-90 hover:opacity-100 transition"
-                  style={{ fontSize: "12px" }}
-                >
-                  <span className="text-[#f4f8f9] mt-1">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-
-    </section>
+              >
+                <h4 className="text-xl font-semibold mb-4 border-b border-white/30 pb-2">
+                  {cat.title}
+                </h4>
+                <ul className="space-y-2 text-left text-sm md:text-base">
+                  {cat.items.map((item, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-2 opacity-90 hover:opacity-100 transition"
+                      style={{ fontSize: "12px" }}
+                    >
+                      <span className="text-[#f4f8f9] mt-1">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* nominate catagory is herew  */}
-      <section className="py-16 px-6 md:px-12 bg-white text-white" data-aos="fade-down">
+      <section
+        className="py-16 px-6 md:px-12 bg-white text-white"
+        data-aos="fade-down"
+      >
         {/* Title */}
         <div className="text-center mb-12">
           <h2

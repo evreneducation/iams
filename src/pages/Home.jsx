@@ -7,15 +7,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Home = () => {
-
-    useEffect(() => {
-      AOS.init({
-        duration: 1000, // animation duration in ms
-        easing: "ease-in-out", // easing function
-        once: true, // animation happens only once
-      });
-    }, []);
-  
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // animation happens only once
+    });
+  }, []);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -80,7 +78,8 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-b from-white to-gray-50/30">
       {/* Hero Section with Background Image */}
-      <section data-aos="fade-down"
+      <section
+        data-aos="fade-down"
         className="relative text-white py-12 md:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat min-h-[90vh] flex items-center"
         id="hero-section"
       >
@@ -203,7 +202,7 @@ const Home = () => {
                       />
                     </svg>
                     <span className="text-xs lg:text-base text-white">
-                      Yashobhoomi, Delhi, India
+                      Holiday Inn Aero City, Delhi, India
                     </span>
                   </div>
                 </div>
@@ -265,16 +264,16 @@ const Home = () => {
       <section className="py-12 md:py-20 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff] mt-8">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center" >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               {/* Heading only for mobile */}
-              <div className="order-1 lg:hidden"  data-aos="fade-right">
+              <div className="order-1 lg:hidden" data-aos="fade-right">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
                   Where Strategy Meets Opportunity
                 </h2>
               </div>
 
               {/* Image Placeholder */}
-              <div className="order-2 lg:order-2 relative"  data-aos="fade-left">
+              <div className="order-2 lg:order-2 relative" data-aos="fade-left">
                 <div className="rounded-2xl overflow-hidden aspect-[16/9]">
                   <img
                     src="/landingpage/1.jpeg"
@@ -282,13 +281,16 @@ const Home = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-               
               </div>
 
               {/* Text Content - Contains heading (desktop) and paragraphs */}
               <div className="order-3 lg:order-1">
                 {/* Heading for desktop only */}
-                <h2 className="hidden lg:block text-4xl md:text-5xl font-bold mb-6 text-[#003366]" >
+
+                <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+                >
                   Where Strategy Meets Opportunity
                 </h2>
                 <div className="space-y-6">
@@ -317,10 +319,14 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16"  data-aos="fade-down">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
-                Unlock Your Aviation Potential
-              </h2>
+            <div className="text-center mb-16" data-aos="fade-down">
+           
+              <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+                >
+                  Unlock Your Aviation Potential
+                </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Join industry pioneers and transform your commercial strategy
                 with cutting-edge insights and unparalleled networking
@@ -328,94 +334,97 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" data-aos="zoom-in">
-  {/* Column 1: Forge Alliances */}
-  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-    <div className="flex items-center gap-4 mb-6">
-      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
-        <svg
-          className="w-8 h-8 text-[#0080ff]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-          />
-        </svg>
-      </div>
-      <h3 className="text-2xl font-bold text-[#003366]">
-        Forge Alliances
-      </h3>
-    </div>
-    <p className="text-gray-700 leading-relaxed">
-      Connect with C-level executives and decision-makers in curated
-      B2B meetings and high-value networking sessions.
-    </p>
-  </div>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
+              data-aos="zoom-in"
+            >
+              {/* Column 1: Forge Alliances */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+                    <svg
+                      className="w-8 h-8 text-[#0080ff]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#003366]">
+                    Forge Alliances
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Connect with C-level executives and decision-makers in curated
+                  B2B meetings and high-value networking sessions.
+                </p>
+              </div>
 
-  {/* Column 2: Gain Intelligence */}
-  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#21d6e0]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-    <div className="flex items-center gap-4 mb-6">
-      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
-        <svg
-          className="w-8 h-8 text-[#0080ff]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-          />
-        </svg>
-      </div>
-      <h3 className="text-2xl font-bold text-[#003366]">
-        Gain Intelligence
-      </h3>
-    </div>
-    <p className="text-gray-700 leading-relaxed">
-      Access a deep-dive agenda on AI/ML, NDC, sustainability,
-      loyalty, and next-gen passenger journeys.
-    </p>
-  </div>
+              {/* Column 2: Gain Intelligence */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#21d6e0]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+                    <svg
+                      className="w-8 h-8 text-[#0080ff]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#003366]">
+                    Gain Intelligence
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Access a deep-dive agenda on AI/ML, NDC, sustainability,
+                  loyalty, and next-gen passenger journeys.
+                </p>
+              </div>
 
-  {/* Column 3: Drive Growth */}
-  <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-    <div className="flex items-center gap-4 mb-6">
-      <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
-        <svg
-          className="w-8 h-8 text-[#0080ff]"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 10V3L4 14h7v7l9-11h-7z"
-          />
-        </svg>
-      </div>
-      <h3 className="text-2xl font-bold text-[#003366]">
-        Drive Growth
-      </h3>
-    </div>
-    <p className="text-gray-700 leading-relaxed">
-      Discover new profit centers, unleash ancillary revenue
-      streams, and position your brand at the forefront of
-      innovation.
-    </p>
-  </div>
-</div>
+              {/* Column 3: Drive Growth */}
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-[#0080ff]/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 p-4 rounded-full inline-flex">
+                    <svg
+                      className="w-8 h-8 text-[#0080ff]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#003366]">
+                    Drive Growth
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  Discover new profit centers, unleash ancillary revenue
+                  streams, and position your brand at the forefront of
+                  innovation.
+                </p>
+              </div>
+            </div>
 
-            <div className="text-center"  data-aos="zoom-in">
+            <div className="text-center" data-aos="zoom-in">
               <Link
                 to="/agenda"
                 className="inline-block bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-[#0080ff] hover:to-[#21d6e0] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
@@ -433,19 +442,23 @@ const Home = () => {
       </div>
 
       {/* Who You'll Meet Section */}
-       <div data-aos="zoom-out">
- <ArchitectsSection />
-       </div>
-     
+      <div data-aos="zoom-out">
+        <ArchitectsSection />
+      </div>
 
       {/* Featured Speakers Sneak Peek Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-[#f0f9ff] to-[#e6f2ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16" data-aos="fade-down">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
-                Learn from the Leaders
-              </h2>
+             
+              <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+                >
+                                 Learn from the Leaders
+
+                </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Gain insights from industry pioneers and visionaries shaping the
                 future of aviation
@@ -468,7 +481,8 @@ const Home = () => {
                 View All Speakers
               </Link> */}
               <p className="text-gray-500 mt-4 text-sm">
-                This section is currently being updated as speaker confirmations are underway
+                This section is currently being updated as speaker confirmations
+                are underway
               </p>
             </div>
           </div>
@@ -479,7 +493,10 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-gradient-to-br from-white to-[#f0f9ff]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div data-aos="zoom-in" className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-full mb-6 border border-[#0080ff]/20">
+            {/* <div
+              data-aos="zoom-in"
+              className="inline-flex items-center justify-center p-4 bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10 rounded-full mb-6 border border-[#0080ff]/20"
+            >
               <svg
                 className="w-8 h-8 text-[#0080ff]"
                 fill="none"
@@ -493,21 +510,28 @@ const Home = () => {
                   d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#003366]" data-aos="fade-right">
+            </div> */}
+            <h2
+              className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+              data-aos="fade-right"
+            >
               Propelled by Strategy, Fueled by Intelligence
             </h2>
-           <p
-  className="text-xl text-gray-700 mb-8 leading-relaxed"
-  data-aos="fade-left"
->
-  IAMS 2026 is the definitive platform dedicated to aviation marketing,
-  e-commerce, revenue management, distribution, loyalty, alliances, customer
-  service,&nbsp;and&nbsp;technology—a niche underserved by existing industry
-  conferences.
-</p>
+            <p
+              className="text-lg text-gray-700 mb-8 leading-relaxed"
+              data-aos="fade-left"
+            >
+              IAMS 2026 is the definitive platform dedicated to aviation
+              marketing, e-commerce, revenue management, distribution, loyalty,
+              alliances, customer service,&nbsp;and&nbsp;technology—a niche
+              underserved by existing industry conferences.
+            </p>
 
-            <div className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20" data-aos="zoom-in">
+            <div
+              className="bg-gradient-to-br from-[#21d6e0]/5 to-[#0080ff]/5 p-6 rounded-2xl border border-[#0080ff]/20"
+              data-aos="zoom-in"
+            >
               <p className="text-lg text-[#003366] font-medium italic">
                 "Our mission is to unite the complete ecosystem driving growth,
                 innovation, and sustained profitability across airline
@@ -519,13 +543,19 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24  text-white bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10" >
+      <section className="py-16 md:py-24  text-white bg-gradient-to-br from-[#21d6e0]/10 to-[#0080ff]/10">
         <div className="container mx-auto px-4 text-center">
-      
-             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]" data-aos="fade-down">
-                  Join the Future of Aviation
-              </h2>
-          <p className="text-xl max-w-2xl mx-auto mb-12 opacity-90 text-lg text-[#003366] font-medium" data-aos="fade-down">
+          <h2
+            className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+            data-aos="fade-down"
+          >
+            Join the Future of Aviation
+          </h2>
+          <p
+            className="text-xl max-w-2xl mx-auto mb-12 opacity-90 text-lg text-[#003366] font-medium"
+            data-aos="fade-down"
+          >
             Be part of the conversation that's shaping the next generation of
             aviation marketing
           </p>
@@ -551,7 +581,12 @@ const Home = () => {
                 linkText: "View Awards",
               },
             ].map((card, i) => (
-              <div  style={{ background: "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)" }} data-aos="zoom-in"
+              <div
+                style={{
+                  background:
+                    "linear-gradient(135deg, #15A4B3 0%, #0E7785 100%)",
+                }}
+                data-aos="zoom-in"
                 key={i}
                 className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
@@ -592,7 +627,8 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2
-              className={`text-3xl font-bold mb-12 text-[#003366] transition-all duration-800 ease-out ${
+              className={`text-3xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center transition-all duration-800 ease-out ${
                 isAdditionalInfoVisible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-20 opacity-0"
@@ -740,7 +776,11 @@ const AnimatedNumbersSection = () => {
       desc: "Industry Leaders & Decision-Makers",
     },
     { target: 25, label: "Awards", desc: "Categories Celebrating Excellence" },
-    { target: 18, label: "Exhibitors", desc: "Showcasing Innovation, Solution and Growth" },
+    {
+      target: 18,
+      label: "Exhibitors",
+      desc: "Showcasing Innovation, Solution and Growth",
+    },
   ];
 
   return (
@@ -749,9 +789,13 @@ const AnimatedNumbersSection = () => {
       className="py-16 md:py-24 bg-gradient-to-br from-[#f7fbff] to-[#e6f2ff]"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#003366]">
-          At a Glance: Key Numbers
-        </h2>
+      
+         <h2
+                  className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent text-center"
+                >
+                  At a Glance: Key Numbers
+                </h2>
         <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
           Discover the scale and impact of the premier aviation marketing event
         </p>

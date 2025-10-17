@@ -5,7 +5,6 @@ import venueimage from "../../public/venue/venuefront.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 const PostEventTours = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -64,15 +63,13 @@ const PostEventTours = () => {
 };
 
 const Venue = () => {
-
   useEffect(() => {
-      AOS.init({
-        duration: 1000, // animation duration in ms
-        easing: "ease-in-out", // easing function
-        once: true, // animation happens only once
-      });
-    }, []);
-  
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // animation happens only once
+    });
+  }, []);
 
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("venue");
@@ -230,39 +227,40 @@ const Venue = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-51">
       {/* Hero Section with Updated Colors and Height */}
-    <section className="relative overflow-hidden" data-aos="fade-down">
-  <div className="absolute inset-0 bg-gradient-to-br from-[#0F7F8A] via-[#1AA6B5] to-[#94E0E5]"></div>
+      <section className="relative overflow-hidden" data-aos="fade-down">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0F7F8A] via-[#1AA6B5] to-[#94E0E5]"></div>
 
-<section
-  className="relative flex items-center justify-center text-center text-white overflow-hidden"
-  style={{
-   background: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",
- // warm sunset to bluish tone
-  }}
->
-  <div
-    className="w-[75%] h-[500px] md:h-[550px] lg:h-[600px] bg-center bg-no-repeat"
-    style={{
-      backgroundImage: `url(${venueimage})`,
-      backgroundSize: "contain",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-    }}
-  ></div>
+        <section
+          className="relative flex items-center justify-center text-center text-white overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #000000 0%, #1a1a1a 100%)",
+            // warm sunset to bluish tone
+          }}
+        >
+          <div
+            className="w-[75%] h-[500px] md:h-[550px] lg:h-[600px] bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url(${venueimage})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+            }}
+          ></div>
 
-  {/* Overlay for smooth transition & readability */}
-  <div className="absolute inset-0 bg-gradient-to-t from-[#00000033] via-transparent to-transparent"></div>
+          {/* Overlay for smooth transition & readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00000033] via-transparent to-transparent"></div>
 
-  {/* Text content */}
-  <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-    <h1 className="text-4xl md:text-6xl font-bold mb-4">Venue & Travel</h1>
-    <p className="text-lg md:text-2xl font-light">
-      Welcome to New Delhi & Holiday Inn New Delhi Aerocity
-    </p>
-  </div>
-</section>
-
-</section>
+          {/* Text content */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Venue & Travel
+            </h1>
+            <p className="text-lg md:text-2xl font-light">
+              Welcome to New Delhi & Holiday Inn New Delhi Aerocity
+            </p>
+          </div>
+        </section>
+      </section>
 
       {/* Venue Information */}
       {/* {activeTab === "venue" && ( */}
@@ -281,7 +279,8 @@ const Venue = () => {
                     : "-translate-x-20 opacity-0"
                 }`}
               >
-                <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-8">
+                <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent   mb-8">
                   About the Venue
                 </h2>
                 <p className="text-xl text-gray-700 mb-6 leading-relaxed">
@@ -400,8 +399,12 @@ const Venue = () => {
       </section>
       {/* )} */}
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25"  data-aos="fade-down">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6 text-center py-[20px]">
+      <div
+        className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8 mt-5 mb-25"
+        data-aos="fade-down"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-[#003366]text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6 text-center py-[20px]">
           Travel & Accommodation
         </h2>
 
@@ -500,11 +503,9 @@ const Venue = () => {
       >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div
-              className="text-center mb-16 transition-all duration-1000"
-              
-            >
-              <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
+            <div className="text-center mb-16 transition-all duration-1000">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-12 tracking-tight py-3
+             bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent mb-6">
                 Post-Event Packages
               </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -515,11 +516,13 @@ const Venue = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16"   data-aos="zoom-in">
+            <div
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16"
+              data-aos="zoom-in"
+            >
               {postEventPackages.map((tour, index) => (
                 <div
                   key={index}
-                
                   className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-[#21d6e0]/30"
                 >
                   {/* Tour Image Section */}
@@ -606,14 +609,13 @@ const Venue = () => {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-md border border-white/30 shadow-lg px-5 py-3 rounded-xl">
-  <h3 className="text-xl font-bold text-white drop-shadow-sm">
-    {tour.title}
-  </h3>
-  <p className="text-sm text-[#b8e0ff] font-semibold">
-    {tour.duration}
-  </p>
-</div>
-
+                      <h3 className="text-xl font-bold text-white drop-shadow-sm">
+                        {tour.title}
+                      </h3>
+                      <p className="text-sm text-[#b8e0ff] font-semibold">
+                        {tour.duration}
+                      </p>
+                    </div>
                   </div>
 
                   {/* Tour Details (same as before) */}

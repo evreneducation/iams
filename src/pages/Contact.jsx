@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiMail } from "react-icons/fi";
-import contact from '../../public/contact/contact.jpg'
+import contact from "../../public/contact/contact.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AOS from "aos";
@@ -14,8 +14,7 @@ import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
-
-useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 1000, // animation duration in ms
       easing: "ease-in-out", // easing function
@@ -95,32 +94,35 @@ useEffect(() => {
 
   return (
     <>
-    
- <section data-aos="fade-down" 
-          className="relative my-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${contact})`,
-            backgroundSize: "100% 100%",
-          }}
-        >
-          <div className="absolute inset-0 "></div> {/* overlay */}
-          <div className="relative container mx-auto text-center py-32 md:py-40">
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                    Contact Us
-              </h1>
-              <p className="text-xl text-white max-w-3xl mx-auto mb-8">
-      Connect with our team to explore participation, sponsorship, exhibition, or award opportunities.
-      We’re here to help you maximize your presence and impact at <span className="text-white text-2xl">IAMS 2026.</span> 
-    </p>
-            </div>
+      <section
+        data-aos="fade-down"
+        className="relative my-[80px] overflow-x-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${contact})`,
+          backgroundSize: "100% 100%",
+        }}
+      >
+        <div className="absolute inset-0 "></div> {/* overlay */}
+        <div className="relative container mx-auto text-center py-32 md:py-40">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+              Contact Us
+            </h1>
+            <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+              Connect with our team to explore participation, sponsorship,
+              exhibition, or award opportunities. We’re here to help you
+              maximize your presence and impact at{" "}
+              <span className="text-white text-2xl">IAMS 2026.</span>
+            </p>
           </div>
-        </section>
-     
+        </div>
+      </section>
 
       <section
         className="contact-banner relative min-h-[90vh] flex items-center py-30 px-4 md:px-12 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #ffffffff 0%, #ffffffff 100%)" }}
+        style={{
+          background: "linear-gradient(135deg, #ffffffff 0%, #ffffffff 100%)",
+        }}
       >
         {/* Radial Overlay */}
         <div
@@ -135,22 +137,41 @@ useEffect(() => {
           {/* LEFT SIDE */}
           <div className="space-y-8" data-aos="fade-right">
             <div>
-              <h2 className="text-2xl font-semibold mb-2 opacity-90">Ready to Transform</h2>
+              <h2 className="text-2xl font-semibold mb-2 opacity-90">
+                Ready to Transform
+              </h2>
               <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text">
                 Get In Touch
               </h1>
               <p className="text-lg opacity-80 max-w-md">
-                We're here to help. Please reach out to the appropriate department below, and a
-                member of our team will get back to you shortly.
+                We're here to help. Please reach out to the appropriate
+                department below, and a member of our team will get back to you
+                shortly.
               </p>
             </div>
 
             <div className="flex flex-col gap-5">
               {[
-                { icon: <FiMail />, title: "General Inquiries", text: "info@iamsglobal.com" },
-                { icon: <FiMail />, title: "Sponsorship & Exhibition", text: "sponsorship@iamsglobal.com" },
-                { icon: <FiMail />, title: "Speaker Opportunities", text: "speakers@iamsglobal.com" },
-                { icon: <FiMail />, title: "Media & Press", text: "media@iamsglobal.com" },
+                {
+                  icon: <FiMail />,
+                  title: "General Inquiries",
+                  text: "info@iamsglobal.com",
+                },
+                {
+                  icon: <FiMail />,
+                  title: "Sponsorship & Exhibition",
+                  text: "sponsorship@iamsglobal.com",
+                },
+                {
+                  icon: <FiMail />,
+                  title: "Speaker Opportunities",
+                  text: "speakers@iamsglobal.com",
+                },
+                {
+                  icon: <FiMail />,
+                  title: "Media & Press",
+                  text: "media@iamsglobal.com",
+                },
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -160,7 +181,9 @@ useEffect(() => {
                     {item.icon}
                   </div>
                   <div>
-                    <span className="block text-lg font-semibold mb-1">{item.title}</span>
+                    <span className="block text-lg font-semibold mb-1">
+                      {item.title}
+                    </span>
                     <p className="opacity-90">{item.text}</p>
                   </div>
                 </div>
@@ -169,7 +192,10 @@ useEffect(() => {
           </div>
 
           {/* RIGHT SIDE FORM */}
-          <div data-aos="fade-left" className="form-wrapper p-6 md:p-8 rounded-3xl bg-white/15 backdrop-blur-[20px] border border-white/40 shadow-[0_0_25px_rgba(0,0,0,0.3)]">
+          <div
+            data-aos="fade-left"
+            className="form-wrapper p-6 md:p-8 rounded-3xl bg-white/15 backdrop-blur-[20px] border border-white/40 shadow-[0_0_25px_rgba(0,0,0,0.3)]"
+          >
             <h3
               className="text-3xl font-bold mb-6 text-center form-element"
               style={{ color: "#000" }}
@@ -215,10 +241,14 @@ useEffect(() => {
                   Select Inquiry Type
                 </option>
                 <option value="General">General</option>
-                <option value="Sponsorship & exhibition">Sponsorship & exhibition</option>
+                <option value="Sponsorship & exhibition">
+                  Sponsorship & exhibition
+                </option>
                 <option value="Awards">Awards</option>
                 <option value="Speaker">Speaker</option>
-                <option value="Social media & Press">Social media & Press</option>
+                <option value="Social media & Press">
+                  Social media & Press
+                </option>
               </select>
               <textarea
                 name="message"
@@ -269,26 +299,20 @@ useEffect(() => {
         </div>
       </section>
 
-      
-
-      
-
       <>
-  {/* existing code */}
-  <ToastContainer
-    position="top-right"
-    autoClose={3000}
-    hideProgressBar={false}
-    newestOnTop={false}
-    closeOnClick
-    rtl={false}
-    pauseOnFocusLoss
-    draggable
-    pauseOnHover
-  />
-</>
-
-
+        {/* existing code */}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </>
     </>
   );
 };

@@ -381,3 +381,57 @@ code {
 .region-item {
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* 📏 Fix header width overflow between 1025px and 1280px */
+/* 🔧 Refined header spacing between 1025px–1150px */
+@media (min-width: 1025px) and (max-width: 1150px) {
+  header .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  header nav {
+    gap: 0.2rem !important;
+  }
+
+  header nav a {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  header a[href="/registration"] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  header img {
+    max-width: 90% !important;
+  }
+}
+
+/* 🎯 Final header balance fix between 1149px–1280px */
+@media (min-width: 1149px) and (max-width: 1280px) {
+  header .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  header nav {
+    gap: 0.2rem !important;
+  }
+
+  header nav a {
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  header a[href="/registration"] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  header img {
+    max-width: 90% !important;
+  }
+}
+

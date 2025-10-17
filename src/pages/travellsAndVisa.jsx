@@ -2,7 +2,12 @@ import React from "react";
 
 // Icons
 const TravelIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg
+    className="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -13,14 +18,34 @@ const TravelIcon = () => (
 );
 
 const TimeIcon = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  <svg
+    className="w-5 h-5"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+    />
   </svg>
 );
 
 const CheckIcon = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+  <svg
+    className="w-5 h-5"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    />
   </svg>
 );
 
@@ -28,13 +53,28 @@ const TransportIcon = ({ type }) => {
   switch (type) {
     case "subway":
       return (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        <svg
+          className="w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
         </svg>
       );
     case "taxi":
       return (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -45,7 +85,12 @@ const TransportIcon = ({ type }) => {
       );
     case "shuttle":
       return (
-        <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg
+          className="w-12 h-12"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -92,7 +137,9 @@ const TravelInfo = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-[#003366] mb-6">
             Getting to New Delhi
           </h2>
-          <p className="text-xl text-gray-600">From Indira Gandhi International Airport (DEL)</p>
+          <p className="text-xl text-gray-600">
+            From Indira Gandhi International Airport (DEL)
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -115,7 +162,9 @@ const TravelInfo = () => {
                     </div>
                     <div className="flex-1 text-center sm:text-left">
                       <div className="flex justify-between items-start mb-3 flex-wrap gap-2">
-                        <h4 className="text-2xl font-semibold text-[#003366]">{option.mode}</h4>
+                        <h4 className="text-2xl font-semibold text-[#003366]">
+                          {option.mode}
+                        </h4>
                         <span className="bg-gradient-to-r from-[#21d6e0] to-[#0080ff] text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                           {option.cost}
                         </span>
@@ -124,7 +173,9 @@ const TravelInfo = () => {
                         <TimeIcon />
                         <span className="ml-2">{option.time}</span>
                       </p>
-                      <p className="text-gray-700 text-base leading-relaxed">{option.description}</p>
+                      <p className="text-gray-700 text-base leading-relaxed">
+                        {option.description}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -136,7 +187,12 @@ const TravelInfo = () => {
           <div>
             <div className="bg-gradient-to-br from-[#e6f7ff] via-[#f0f9ff] to-[#e6f2ff] rounded-2xl p-10 border-2 border-[#0080ff]/30 shadow-xl mx-auto max-w-md">
               <div className="flex items-center mb-6 justify-center">
-                <svg className="w-10 h-10 mr-4 text-[#0080ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-10 h-10 mr-4 text-[#0080ff]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -144,11 +200,15 @@ const TravelInfo = () => {
                     d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
                   />
                 </svg>
-                <h3 className="text-3xl font-semibold text-[#003366]">Visa Information</h3>
+                <h3 className="text-3xl font-semibold text-[#003366]">
+                  Visa Information
+                </h3>
               </div>
 
               <p className="text-xl text-gray-700 mb-8 leading-relaxed text-center">
-                India requires visas for most international visitors. We strongly recommend starting your application process at least 4-6 weeks before your travel date.
+                India requires visas for most international visitors. We
+                strongly recommend starting your application process at least
+                4-6 weeks before your travel date.
               </p>
 
               <div className="space-y-5 mb-8">
@@ -157,8 +217,12 @@ const TravelInfo = () => {
                     <CheckIcon />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-[#003366] mb-1">eVisa Available</h4>
-                    <p className="text-gray-600">For citizens of 169 countries</p>
+                    <h4 className="text-xl font-semibold text-[#003366] mb-1">
+                      eVisa Available
+                    </h4>
+                    <p className="text-gray-600">
+                      For citizens of 169 countries
+                    </p>
                   </div>
                 </div>
 
@@ -167,8 +231,12 @@ const TravelInfo = () => {
                     <TimeIcon />
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-[#003366] mb-1">Processing Time</h4>
-                    <p className="text-gray-600">3-5 business days for eVisas</p>
+                    <h4 className="text-xl font-semibold text-[#003366] mb-1">
+                      Processing Time
+                    </h4>
+                    <p className="text-gray-600">
+                      3-5 business days for eVisas
+                    </p>
                   </div>
                 </div>
               </div>

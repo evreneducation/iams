@@ -3,22 +3,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import registernow from '../../public/registeration/register.jpg'
+import registernow from "../../public/registeration/register.jpg";
 import { useEffect } from "react";
 
 const Registration = () => {
   const navigate = useNavigate();
 
-
-  
   useEffect(() => {
-      AOS.init({
-        duration: 1000, // animation duration in ms
-        easing: "ease-in-out", // easing function
-        once: true, // animation happens only once
-      });
-    }, []);
-  
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      easing: "ease-in-out", // easing function
+      once: true, // animation happens only once
+    });
+  }, []);
 
   const passes = [
     {
@@ -59,32 +56,34 @@ const Registration = () => {
   return (
     <>
       {/* Hero Section (Full Width, No Top Margin) */}
-      
-       <section data-aos="fade-down"
-                className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
-                style={{
-                  backgroundImage: `url(${registernow})`,
-                  backgroundSize: "100% 100%",
-                  marginTop:'80px',
-                  // objectFit:'cover'
-                }}
-              >
-                <div className="absolute inset-0 "></div> {/* overlay */}
-                <div className="relative container mx-auto text-center py-32 md:py-40">
-                  <div className="max-w-5xl mx-auto">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
-                          Register Now
-                    </h1>
-                    <p className="text-xl text-white max-w-3xl mx-auto mb-8">
-           Join hundreds of global industry leaders for two days of unparalleled learning and networking in the dynamic capital of New Delhi, India.
-          </p>
-                  </div>
-                </div>
-              </section>
-           
+
+      <section
+        data-aos="fade-down"
+        className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${registernow})`,
+          backgroundSize: "100% 100%",
+          marginTop: "80px",
+          // objectFit:'cover'
+        }}
+      >
+        <div className="absolute inset-0 "></div> {/* overlay */}
+        <div className="relative container mx-auto text-center py-32 md:py-40">
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
+              Register Now
+            </h1>
+            <p className="text-xl text-white max-w-3xl mx-auto mb-8">
+              Join hundreds of global industry leaders for two days of
+              unparalleled learning and networking in the dynamic capital of New
+              Delhi, India.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Passes Section */}
-      <div className="container mx-auto px-4 py-20"    data-aos="zoom-in">
+      <div className="container mx-auto px-4 py-20" data-aos="zoom-in">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-16">
           {passes.map((pass, index) => (
             <div
@@ -148,7 +147,7 @@ const Registration = () => {
         </div>
 
         {/* Important Info */}
-        <div className="bg-blue-50 p-8 rounded-lg mb-16"    data-aos="zoom-in">
+        <div className="bg-blue-50 p-8 rounded-lg mb-16" data-aos="zoom-in">
           <h2
             className="text-2xl font-semibold text-center mb-6"
             style={{ color: "rgb(21, 164, 179)" }}
