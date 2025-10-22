@@ -12,39 +12,27 @@ const Header = () => {
         padding-right: 0.75rem !important;
       }
 
-      /* Reduce logo text spacing */
-      header .ml-8 {
-        margin-left: 0.5rem !important;
-      }
+      header .ml-4 { margin-left: 0.5rem !important; } /* Adjusted for smaller gap */
 
-      /* Shrink logo text size slightly */
       header a[href="/"] span:first-child {
         font-size: 1.1rem !important;
       }
 
-      /* Compact nav links */
       header nav a {
         padding-left: 0.6rem !important;
         padding-right: 0.6rem !important;
         font-size: 0.93rem !important;
       }
 
-      /* Reduce space between nav links */
-      header nav {
-        gap: 0.15rem !important;
-      }
+      header nav { gap: 0.15rem !important; }
 
-      /* Register Now button smaller */
       header a[href="/registration"] {
         padding-left: 1rem !important;
         padding-right: 1rem !important;
         font-size: 0.92rem !important;
       }
 
-      /* Adjust container alignment slightly */
-      header .flex.justify-between {
-        align-items: center !important;
-      }
+      header .flex.justify-between { align-items: center !important; }
     }
   `}
 </style>
@@ -54,24 +42,15 @@ const Header = () => {
   const [activeHover, setActiveHover] = useState(null);
   const location = useLocation();
 
-  // Fixed scroll effect - header stays at top
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
+  useEffect(() => setIsMenuOpen(false), [location]);
 
-  const isActive = (path) => {
-    return location.pathname === path;
-  };
+  const isActive = (path) => location.pathname === path;
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -89,7 +68,7 @@ const Header = () => {
   className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
     isScrolled
       ? "bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-100"
-      : "bg-gradient-to-r from-[#1394A2] via-[#12909F] to-[#118C9A] py-5"
+      : "bg-gradient-to-r from-[#1394A2] via-[#12909F] to-[#118C9A] py-4"
   }`}
   style={{ transform: "translateY(0)" }}
 >
@@ -98,56 +77,48 @@ const Header = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-3 group"
+            className="flex items-center space-x-2 md:space-x-3 group"
             onMouseEnter={() => setActiveHover("logo")}
             onMouseLeave={() => setActiveHover(null)}
           >
             <div className="relative">
-              {/* Logo Container */}
-              <div
-                className={`relative transition-all duration-300 group-hover:scale-105 ${
-                  isScrolled ? "w-10 h-10" : "w-12 h-12"
-                }`}
-              >
-                <div
-                  className={`absolute inset-0 rounded-full flex items-center justify-center 
-                    transition-all duration-300 ${
-                      isScrolled
-                        ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
-                        : "bg-white/10 border border-white/30"
-                    } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
-                >
-                  <img
-                    src="/logo/logomain.png"
-                    alt="IAMS Logo"
-                    className="w-8 h-8 object-contain transition-all duration-300"
-                  />
-                </div>
+  {/* Logo Container */}
+  <div
+    className={`relative transition-all duration-300 group-hover:scale-105 ${
+      isScrolled ? "w-12 h-12" : "w-16 h-16"
+    }`}
+  >
+    <div
+      className={`absolute inset-0 rounded-full flex items-center justify-center 
+        transition-all duration-300 ${
+          isScrolled
+            ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
+            : "bg-white/10 border border-white/30"
+        } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
+    >
+      <img
+        src="/logo/logomain.png"
+        alt="IAMS Logo"
+        className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300"
+      />
+    </div>
 
-                {/* Hover glow effect */}
-                <div
-                  className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full blur-sm 
-                    opacity-0 group-hover:opacity-30 transition-all duration-500"
-                ></div>
-              </div>
-            </div>
+    <div
+      className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full blur-sm 
+        opacity-0 group-hover:opacity-30 transition-all duration-500"
+    ></div>
+  </div>
+</div>
 
-            {/* Logo Text */}
-            <div className="flex flex-col ml-8">
+            {/* Logo Text with reduced gap */}
+            <div className="flex flex-col ml-1">
              <span
   className={`font-bold transition-all duration-300 whitespace-nowrap ${
     isScrolled ? "text-[#003366] text-xl" : "text-white text-2xl"
-  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent`}
+  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent` }
 >
   IAMS&nbsp;2026
 </span>
-
-              {/* <span
-                className={`text-xs transition-all duration-300 text-white group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent mt-1`}
-              >
-              
-International Aviation Market summit
-              </span> */}
             </div>
           </Link>
 
@@ -167,15 +138,11 @@ International Aviation Market summit
                       ? "text-white font-semibold bg-white/20"
                       : "text-white/80 hover:text-white hover:bg-white/10"
                   } rounded-lg`}
-                onMouseEnter={() => setActiveHover(item.path)}
-                onMouseLeave={() => setActiveHover(null)}
               >
-<span className="relative z-10 transition-all duration-300 group-hover:translate-y-[-1px] whitespace-nowrap">
-  {item.label}
-</span>
+                <span className="relative z-10 transition-all duration-300 group-hover:translate-y-[-1px] whitespace-nowrap">
+                  {item.label}
+                </span>
 
-
-                {/* Animated underline */}
                 <div
                   className={`absolute bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 
                     bg-gradient-to-r from-[#21d6e0] to-[#0080ff] transition-all duration-300 ${
@@ -185,7 +152,6 @@ International Aviation Market summit
                     } rounded-full`}
                 ></div>
 
-                {/* Hover particles effect */}
                 <div className="absolute inset-0 overflow-hidden rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0]/10 to-[#0080ff]/10 blur-sm"></div>
                 </div>
@@ -197,10 +163,7 @@ International Aviation Market summit
               to="/registration"
               className="ml-4 px-6 py-3 rounded-lg font-semibold transition-all duration-300 
                 transform hover:scale-105 hover:shadow-xl relative overflow-hidden group"
-              onMouseEnter={() => setActiveHover("register")}
-              onMouseLeave={() => setActiveHover(null)}
             >
-              {/* Button background gradient */}
               <div
                 className={`absolute inset-0 transition-all duration-500 ${
                   isScrolled
@@ -209,7 +172,6 @@ International Aviation Market summit
                 } group-hover:from-[#0080ff] group-hover:via-[#21d6e0] group-hover:to-[#003366]`}
               ></div>
 
-              {/* Shine effect */}
               <div className="absolute inset-0 overflow-hidden rounded-lg">
                 <div
                   className="absolute -inset-10 bg-gradient-to-r from-transparent via-white/40 to-transparent 
@@ -217,30 +179,12 @@ International Aviation Market summit
                 ></div>
               </div>
 
-              {/* Button text */}
-              <span
-                className={`relative z-10 flex items-center space-x-2 transition-all duration-300 ${
-                  isScrolled ? "text-white" : "text-[#003366]"
-                } font-semibold`}
-              >
-               <span className="whitespace-nowrap">REGISTER&nbsp;NOW</span>
-
-                <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
+              <span className={`relative z-10 flex items-center space-x-2 transition-all duration-300 ${
+                isScrolled ? "text-white" : "text-[#003366]"
+              } font-semibold`}>
+                <span className="whitespace-nowrap">REGISTER&nbsp;NOW</span>
               </span>
 
-              {/* Pulse animation on hover */}
               <div className="absolute -inset-1 bg-[#21d6e0] rounded-lg blur-lg opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
             </Link>
           </nav>
@@ -258,21 +202,15 @@ International Aviation Market summit
             <div className="relative w-6 h-6">
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${
-                    isMenuOpen ? "top-1/2 transform -rotate-45" : "top-1/4"
-                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${isMenuOpen ? "top-1/2 transform -rotate-45" : "top-1/4"}`}
               ></span>
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${
-                    isMenuOpen ? "opacity-0" : "top-1/2"
-                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${isMenuOpen ? "opacity-0" : "top-1/2"}`}
               ></span>
               <span
                 className={`absolute left-0 w-full h-0.5 bg-current rounded-full transition-all duration-300
-                  ${
-                    isMenuOpen ? "top-1/2 transform rotate-45" : "top-3/4"
-                  } group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff]`}
+                  ${isMenuOpen ? "top-1/2 transform rotate-45" : "top-3/4"}`}
               ></span>
             </div>
           </button>
@@ -305,7 +243,6 @@ International Aviation Market summit
               </Link>
             ))}
 
-            {/* Mobile Register Button */}
             <Link
               to="/registration"
               className={`block py-3 px-4 rounded-lg font-semibold text-center mt-4 transition-all duration-300

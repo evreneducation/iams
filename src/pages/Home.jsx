@@ -265,12 +265,7 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* Heading only for mobile */}
-              <div className="order-1 lg:hidden" data-aos="fade-right">
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#003366]">
-                  Where Strategy Meets Opportunity
-                </h2>
-              </div>
+           
 
               {/* Image Placeholder */}
               <div className="order-2 lg:order-2 relative" data-aos="fade-left">
