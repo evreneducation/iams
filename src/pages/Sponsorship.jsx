@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import sponsorbanner from "../../public/sponsor/sponsor.jpg";
 
-import exibhit from "../../public/assembly/exibitorimage.png";
+import exibhit from "../../public/sponsor/exibitors.jpg";
 const Sponsorship = () => {
   const navigate = useNavigate();
 

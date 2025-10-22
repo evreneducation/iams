@@ -118,7 +118,7 @@ const Header = () => {
                     } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
                 >
                   <img
-                    src="/logo/hl.png"
+                    src="/logo/logo11.png"
                     alt="IAMS Logo"
                     className="w-8 h-8 object-contain transition-all duration-300"
                   />
