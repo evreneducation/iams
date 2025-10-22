@@ -142,11 +142,12 @@ const Header = () => {
   IAMS&nbsp;2026
 </span>
 
-              <span
+              {/* <span
                 className={`text-xs transition-all duration-300 text-white group-hover:bg-gradient-to-r group-hover:from-[#21d6e0] group-hover:to-[#0080ff] group-hover:bg-clip-text group-hover:text-transparent mt-1`}
               >
-                International Assembly
-              </span>
+              
+International Aviation Market summit
+              </span> */}
             </div>
           </Link>
 

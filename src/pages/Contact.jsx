@@ -137,10 +137,10 @@ const Contact = () => {
           {/* LEFT SIDE */}
           <div className="space-y-8" data-aos="fade-right">
             <div>
-              <h2 className="text-2xl font-semibold mb-2 opacity-90">
+              <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent opacity-90">
                 Ready to Transform
               </h2>
-              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text">
+              <h1 className="text-5xl md:text-6xl font-bold mb-4 leading-tight bg-clip-text bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
                 Get In Touch
               </h1>
               <p className="text-lg opacity-80 max-w-md">
@@ -181,7 +181,7 @@ const Contact = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <span className="block text-lg font-semibold mb-1">
+                    <span className="block text-lg font-semibold mb-1 bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent">
                       {item.title}
                     </span>
                     <p className="opacity-90">{item.text}</p>
@@ -197,8 +197,8 @@ const Contact = () => {
             className="form-wrapper p-6 md:p-8 rounded-3xl bg-white/15 backdrop-blur-[20px] border border-white/40 shadow-[0_0_25px_rgba(0,0,0,0.3)]"
           >
             <h3
-              className="text-3xl font-bold mb-6 text-center form-element"
-              style={{ color: "#000" }}
+              className="text-3xl font-bold mb-6 text-center form-element bg-gradient-to-r from-[#0E7785] to-[#15A4B3] bg-clip-text text-transparent"
+             
             >
               Send Us a Message
             </h3>
