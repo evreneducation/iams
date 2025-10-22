@@ -143,31 +143,34 @@ const Sponsorship = () => {
             Why Sponsor or Exhibit at IAMS 2026?
           </h2>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl h-[220px] w-full"
-              >
-                <div className="flex flex-col items-start">
-                  <div
-                    className="text-2xl md:text-2xl font-extrabold mb-3 text-left"
-                    style={{
-                      background:
-                        "linear-gradient(to right, rgb(21, 164, 179), rgb(15, 130, 142))",
-                      WebkitBackgroundClip: "text",
-                      color: "transparent",
-                    }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-gray-700 text-base leading-snug text-left">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <div
+  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+>
+  {stats.map((stat, index) => (
+    <div
+      key={index}
+      className="bg-white rounded-3xl shadow-lg p-8 flex flex-col justify-between transform transition-transform duration-500 hover:scale-105 hover:shadow-2xl h-[220px] w-full"
+    >
+      <div className="flex flex-col items-start">
+        <div
+          className="text-2xl font-extrabold mb-3 text-left break-words"
+          style={{
+            background:
+              "linear-gradient(to right, rgb(21, 164, 179), rgb(15, 130, 142))",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+          }}
+        >
+          {stat.value}
+        </div>
+        <div className="text-gray-700 text-base leading-snug text-left break-words">
+          {stat.label}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </section>
 
