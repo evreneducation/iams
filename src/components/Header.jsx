@@ -72,7 +72,7 @@ const Header = () => {
   }`}
   style={{ transform: "translateY(0)" }}
 >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto ">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link
@@ -84,31 +84,35 @@ const Header = () => {
             <div className="relative">
   {/* Logo Container */}
   <div
-    className={`relative transition-all duration-300 group-hover:scale-105 ${
-      isScrolled ? "w-12 h-12" : "w-16 h-16"
-    }`}
+  className={`relative transition-all duration-300 group-hover:scale-105 ${
+    isScrolled ? "w-12 h-12" : "w-16 h-16"
+  }`}
+>
+  {/* Outer glow / gradient layer */}
+  <div
+    className={`absolute inset-0 rounded-full flex items-center justify-center 
+      transition-all duration-300 overflow-hidden ${
+        isScrolled
+          ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
+          : "bg-white/10 border border-white/30"
+      } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
   >
-    <div
-      className={`absolute inset-0 rounded-full flex items-center justify-center 
-        transition-all duration-300 ${
-          isScrolled
-            ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
-            : "bg-white/10 border border-white/30"
-        } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
-    >
-      <img
-        src="/logo/logomain.png"
-        alt="IAMS Logo"
-        className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-300"
-      />
-    </div>
-
-    <div
-      className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full blur-sm 
-        opacity-0 group-hover:opacity-30 transition-all duration-500"
-    ></div>
+    {/* Make logo fill better */}
+    <img
+      src="/logo/main1.png"
+      alt="IAMS Logo"
+      className="w-[95%] h-[95%] object-contain transition-all duration-300"
+    />
   </div>
+
+  {/* Hover glow effect */}
+  <div
+    className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full blur-sm 
+      opacity-0 group-hover:opacity-30 transition-all duration-500"
+  ></div>
 </div>
+</div>
+
 
             {/* Logo Text with reduced gap */}
             <div className="flex flex-col ml-1">

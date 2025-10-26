@@ -277,7 +277,7 @@ const Home = () => {
                   />
                 </div>
               </div>
-
+              
               {/* Text Content - Contains heading (desktop) and paragraphs */}
               <div className="order-3 lg:order-1">
                 {/* Heading for desktop only */}
