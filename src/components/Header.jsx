@@ -93,8 +93,8 @@ const Header = () => {
     className={`absolute inset-0 rounded-full flex items-center justify-center 
       transition-all duration-300 overflow-hidden ${
         isScrolled
-          ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#21d6e0]/30"
-          : "bg-white/10 border border-white/30"
+          ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#000000]/30"
+          : "bg-white/10 border border-white"
       } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
   >
     {/* Make logo fill better */}
