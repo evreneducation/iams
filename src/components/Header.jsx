@@ -93,11 +93,11 @@ const Header = () => {
     className={`absolute inset-0 rounded-full flex items-center justify-center 
       transition-all duration-300 overflow-hidden ${
         isScrolled
-          ? "bg-gradient-to-br from-[#003366] to-[#0080ff] border border-[#000000]/30"
-          : "bg-white/10 border border-white"
-      } group-hover:border-[#21d6e0]/50 group-hover:shadow-lg`}
+          ? "bg-gradient-to-br from-white to-white border border-[#000000]/30"
+          : "bg-gradient-to-br from-white to-white border border-white/60"
+      } group-hover:border-white/80 group-hover:shadow-lg`}
   >
-    {/* Make logo fill better */}
+    {/* Logo */}
     <img
       src="/logo/main1.png"
       alt="IAMS Logo"
@@ -107,10 +107,11 @@ const Header = () => {
 
   {/* Hover glow effect */}
   <div
-    className="absolute -inset-1 bg-gradient-to-r from-[#21d6e0] to-[#0080ff] rounded-full blur-sm 
+    className="absolute -inset-1 bg-gradient-to-r from-white to-white rounded-full blur-sm 
       opacity-0 group-hover:opacity-30 transition-all duration-500"
   ></div>
 </div>
+
 </div>
 
 

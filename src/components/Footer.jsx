@@ -114,7 +114,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      to="/venue"
+                      to="/venue-travel"
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
                       Venue
