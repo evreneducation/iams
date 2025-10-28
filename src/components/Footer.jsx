@@ -5,26 +5,21 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const [email, setEmail] = useState("");
 
-  // Function to handle email click
   const handleEmailClick = (email) => {
     window.location.href = `mailto:${email}`;
   };
 
-  // Function to open location in Google Maps
   const openLocation = () => {
     window.open("https://maps.app.goo.gl/DvSeC96TBuffbbHb8", "_blank");
   };
 
-  // Function to handle email signup
   const handleEmailSignup = (e) => {
     e.preventDefault();
-    // Here you would typically send the email to your backend
     console.log("Email submitted:", email);
     alert("Thank you for subscribing to updates!");
     setEmail("");
   };
 
-  // Function to open social media links
   const openSocialMedia = (platform) => {
     const urls = {
       linkedin: "https://linkedin.com/company/iams2026",
@@ -128,6 +123,24 @@ const Footer = () => {
                       Contact
                     </Link>
                   </li>
+
+                  {/* Added Privacy & Terms here */}
+                  <li>
+                    <Link
+                      to="/privacy"
+                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/terms"
+                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    >
+                      Terms & Conditions
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -179,7 +192,6 @@ const Footer = () => {
                 <span>exhibitors@iams2026.com</span>
               </div>
 
-              {/* Event Details */}
               <div className="pt-4 border-t border-gray-700">
                 <div className="flex items-center text-gray-300 mb-2">
                   <svg
@@ -255,7 +267,7 @@ const Footer = () => {
               </div>
             </form>
 
-            {/* Social Media Icons */}
+            {/* Social Media */}
             <div className="mt-6">
               <h5 className="text-sm font-semibold mb-3 text-white">
                 Follow Us
@@ -291,29 +303,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Copyright Section */}
+      {/* Copyright Section (cleaned up) */}
       <div className="border-t border-gray-800">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © 2025 International Aviation Marketing Summit. All rights
-              reserved.
-            </p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link
-                to="/privacy"
-                className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/terms"
-                className="text-gray-400 hover:text-blue-400 text-sm transition-colors"
-              >
-                Terms of Service
-              </Link>
-            </div>
-          </div>
+        <div className="container mx-auto px-4 py-6 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2025 International Aviation Marketing Summit. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -266,7 +266,6 @@ const Home = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
            
-
               {/* Image Placeholder */}
               <div className="order-2 lg:order-2 relative" data-aos="fade-left">
                 <div className="rounded-2xl overflow-hidden aspect-[16/9]">
