@@ -148,17 +148,7 @@ export default function Faqs() {
       </div>
 
       {/* ===== Footer Note ===== */}
-      <div className="text-center mt-12 text-gray-600 text-base">
-        For more information, visit{" "}
-        <a
-          href="https://www.iamsglobal.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#0E7785] font-semibold hover:underline"
-        >
-          www.iamsglobal.com
-        </a>
-      </div>
+     
     </section>
   );
 }
