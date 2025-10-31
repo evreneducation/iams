@@ -57,14 +57,16 @@ const Footer = () => {
               </h4>
               <div className="grid grid-cols-2 gap-4">
                 <ul className="space-y-2">
-                  <li>
+                 
+                    <li>
                     <Link
-                      to="/overview"
+                      to="/contact"
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
-                      Event Overview
+                      Contact
                     </Link>
                   </li>
+
                   <li>
                     <Link
                       to="/agenda"
@@ -89,9 +91,7 @@ const Footer = () => {
                       Awards
                     </Link>
                   </li>
-                </ul>
-                <ul className="space-y-2">
-                  <li>
+                   <li>
                     <Link
                       to="/sponsorship"
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
@@ -107,6 +107,9 @@ const Footer = () => {
                       Registration
                     </Link>
                   </li>
+                </ul>
+                <ul className="space-y-2">
+                 
                   <li>
                     <Link
                       to="/venue-travel"
@@ -115,15 +118,14 @@ const Footer = () => {
                       Venue
                     </Link>
                   </li>
-                  <li>
+                 <li>
                     <Link
-                      to="/contact"
+                      to="/overview"
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
-                      Contact
+                      Event Overview
                     </Link>
                   </li>
-
                   {/* Added Privacy & Terms here */}
                   <li>
                     <Link
@@ -133,12 +135,21 @@ const Footer = () => {
                       Privacy Policy
                     </Link>
                   </li>
+                  
                   <li>
                     <Link
                       to="/terms"
                       className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
                     >
                       Terms & Conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/faqs"
+                      className="text-gray-300 hover:text-blue-400 transition-colors text-sm"
+                    >
+                     FAQs
                     </Link>
                   </li>
                 </ul>

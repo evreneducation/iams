@@ -18,8 +18,10 @@ import RegistrationForm from "./pages/multiStepForm";
 import HotelPartners from "./pages/allhote";
 import AllHotel from "./pages/allhote";
 import TravelInfo from "./pages/travellsAndVisa";
-
+import Faqs from "./pages/Faqs";
 import PrivecyPolicy from "./pages/privecyAndPolicy";
+import PageNotFound from "./pages/Page404";
+
 function App() {
   return (
     <Router>
@@ -43,6 +45,8 @@ function App() {
             <Route path="/hotelpartner" element={<AllHotel />} />
             <Route path="/travel-info" element={<TravelInfo />} />
                <Route path="/privacy" element={<PrivecyPolicy />} />
+               <Route path="/faqs" element={<Faqs/>} />
+               <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
         <Footer />
