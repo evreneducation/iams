@@ -1,32 +1,32 @@
 // src/pages/Registration.js
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import registernow from "../../public/registeration/register.jpg";
-import { useEffect } from "react";
 
 const Registration = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration in ms
-      easing: "ease-in-out", // easing function
-      once: true, // animation happens only once
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
     });
   }, []);
 
   const passes = [
     {
       name: "Early Bird Pass (Airline|Airport)",
-      price: "USD 600",
+      oldPrice: "USD 600",
+      price: "USD 300",
       validity: "Until 31 December 2025",
       features: [
         "Full conference access",
         "Exhibition entry",
         "Networking meals",
-        "Mobile app access",
+        "Invite to the Awards Gala Celebration", // ✅ updated feature
         "Networking reception invitation",
       ],
     },
@@ -55,8 +55,7 @@ const Registration = () => {
 
   return (
     <>
-      {/* Hero Section (Full Width, No Top Margin) */}
-
+      {/* Hero Section */}
       <section
         data-aos="fade-down"
         className="relative overflow-x-hidden bg-cover bg-center bg-no-repeat"
@@ -64,10 +63,9 @@ const Registration = () => {
           backgroundImage: `url(${registernow})`,
           backgroundSize: "100% 100%",
           marginTop: "80px",
-          // objectFit:'cover'
         }}
       >
-        <div className="absolute inset-0 "></div> {/* overlay */}
+        <div className="absolute inset-0 "></div>
         <div className="relative container mx-auto text-center py-32 md:py-40">
           <div className="max-w-5xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white animate-fadeIn">
@@ -96,7 +94,19 @@ const Registration = () => {
               >
                 {pass.name}
               </h3>
-              <div className="text-3xl font-bold mb-2">{pass.price}</div>
+
+              {/* ✅ Price Display */}
+              {pass.oldPrice ? (
+                <div className="text-3xl font-bold mb-2">
+                  <span className="line-through  mr-2">
+                    {pass.oldPrice}
+                  </span>
+                  <span className="text-green-600">{pass.price}</span>
+                </div>
+              ) : (
+                <div className="text-3xl font-bold mb-2">{pass.price}</div>
+              )}
+
               {pass.validity && (
                 <p className="text-gray-600 mb-4">{pass.validity}</p>
               )}
