@@ -244,7 +244,7 @@ const Footer = () => {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  <span>Yashobhoomi, Delhi, India</span>
+                  <span>Holiday Inn Aero City, Delhi, India</span>
                 </div>
               </div>
             </div>
